@@ -44,13 +44,13 @@ After installing ensure ANT is in your path e.g.
 
     $ export PATH=/home/user/apache-ant-1.7.1/bin:$PATH
 
-**JUnit 1.4+**:
+**JUnit 4.10+**:
 
 This is provided.
 
 * File: `lib/junit-4.10.jar`
 * License: JUnit license, `JUNIT_LICENSE.txt`.
-* Web site: http://github.com/KentBeck/junit.
+* Web site: http://junit.org.
 * Used by: test code in `test/`.
 
 Usage
