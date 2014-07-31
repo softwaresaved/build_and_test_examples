@@ -20,9 +20,9 @@ installing.
 After installing ensure that the `bin`, `include` and `lib`
 directories holding the CUnit files are in your paths e.g.
 
-    $ export C_INCLUDE_PATH=/home/user/bin/include:$C_INCLUDE_PATH
-    $ export LIBRARY_PATH=/home/user/bin/lib:$LIBRARY_PATH
-    $ export LD_LIBRARY_PATH=/home/user/bin/lib:$LD_LIBRARY_PATH
+    $ export C_INCLUDE_PATH=/home/user/include:$C_INCLUDE_PATH
+    $ export LIBRARY_PATH=/home/user/lib:$LIBRARY_PATH
+    $ export LD_LIBRARY_PATH=/home/user/lib:$LD_LIBRARY_PATH
 
 2.1-2 is the version the code has been tested against. Other versions
 may also be OK.

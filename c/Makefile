@@ -17,7 +17,7 @@ LDFLAGS=-lcunit
 
 SRCDIR= src
 TESTDIR= test
-INC=-I$(SRCDIR) -I$(TESTDIR)
+INC=-I$(SRCDIR) -I$(TESTDIR) -I$(HOME)/include
 
 OBJS=fibonacci.o
 TESTS=fibonacci_cunit_test.o
