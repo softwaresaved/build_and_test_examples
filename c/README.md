@@ -73,3 +73,24 @@ Make and view an xUnit-style test report:
 Clean up:
 
     $ make clean
+
+Notes on how to install CUnit 2.1.2
+-----------------------------------
+
+For full instructions on how to download, build and install see
+[CUnit](http://cunit.sourceforge.net/).
+
+Download CUnit-2.1-2-src.tar.bz2
+
+Install in `/home/user`:
+
+    $ tar -xvjpf CUnit-2.1-2-src.tar.bz2  
+    $ cd CUnit-2.1-2/
+    $ ./configure --prefix=/home/user
+    $ make
+    $ make install
+    $ ls /home/user/include
+    CUnit
+    $ ls /home/user/lib
+    libcunit.a   libcunit.so    libcunit.so.1.0.1
+    libcunit.la  libcunit.so.1  pkgconfig
