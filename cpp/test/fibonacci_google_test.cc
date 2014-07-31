@@ -37,24 +37,24 @@ class FibonacciTest : public ::testing::Test
 
 TEST_F(FibonacciTest, fibonacci1)
 {
-  int result = fibonacci(1);
+  int result = Fibonacci::fibonacci(1);
   ASSERT_EQ(1, result);
 }
 
 TEST_F(FibonacciTest, fibonacci2)
 {
-  int result = fibonacci(2);
+  int result = Fibonacci::fibonacci(2);
   ASSERT_EQ(1, result);
 }
 
 TEST_F(FibonacciTest, fibonacci3)
 {
-  int result = fibonacci(3);
+  int result = Fibonacci::fibonacci(3);
   ASSERT_EQ(2, result);
 }
 
 TEST_F(FibonacciTest, fibonacci30)
 {
-  int result = fibonacci(30);
+  int result = Fibonacci::fibonacci(30);
   ASSERT_EQ(832040, result);
 }

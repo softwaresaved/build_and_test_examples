@@ -16,11 +16,28 @@
 #define FIBONACCI_H
 
 /**
- * Calculate the Fibonacci number of the given integer.
- *
- * @param n
- * @return Fibonacci number.
+ * Fibonacci numbers class.
  */
-unsigned int fibonacci(unsigned int n);
+class Fibonacci
+{
+  public:
+  /**
+   * Calculate the Fibonacci number of the given integer.
+   *
+   * @param n
+   * @return Fibonacci number.
+   */
+  static unsigned int fibonacci(unsigned int n)
+  {
+    if (n < 2)
+    {
+        return n;
+    }
+    else
+    {
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+  }
+};
 
 #endif

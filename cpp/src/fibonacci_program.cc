@@ -14,8 +14,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "fibonacci.h"
 #include <iostream>
+
+#include "fibonacci.h"
+
 using namespace std;
 
 void print_usage()
@@ -37,7 +39,7 @@ int main(int argc, char **argv)
         print_usage();
         return(2);
     }
-    int fib = fibonacci(n);
+    int fib = Fibonacci::fibonacci(n);
     cout << "fibonacci(" << fib << ") = " << fib << "\n";
     return(0);
 }

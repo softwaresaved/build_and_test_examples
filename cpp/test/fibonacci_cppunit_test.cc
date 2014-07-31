@@ -42,27 +42,27 @@ class FibonacciTest:public CppUnit::TestFixture
     // No-op.
   }
 
-  /* Test fibonacci(1). */
+  /* Test Fibonacci::fibonacci(1). */
   void testFibonacci1() {
-    int result = fibonacci(1);
+    int result = Fibonacci::fibonacci(1);
     CPPUNIT_ASSERT_EQUAL(1, result);
   }
 
-  /* Test fibonacci(2). */
+  /* Test Fibonacci::fibonacci(2). */
   void testFibonacci2() {
-    int result = fibonacci(2);
+    int result = Fibonacci::fibonacci(2);
     CPPUNIT_ASSERT_EQUAL(1, result);
   }
 
-  /* Test fibonacci(3). */
+  /* Test Fibonacci::fibonacci(3). */
   void testFibonacci3() {
-    int result = fibonacci(3);
+    int result = Fibonacci::fibonacci(3);
     CPPUNIT_ASSERT_EQUAL(2, result);
   }
 
-  /* Test fibonacci(30). */
+  /* Test Fibonacci::fibonacci(30). */
   void testFibonacci30() {
-    int result = fibonacci(30);
+    int result = Fibonacci::fibonacci(30);
     CPPUNIT_ASSERT_EQUAL(832040, result);
   }
 };

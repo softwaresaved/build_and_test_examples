@@ -22,7 +22,6 @@ SRCDIR=src
 TESTDIR=test
 INC=-I$(SRCDIR) -I$(TESTDIR) -I$(HOME)/include
 
-OBJS=fibonacci.o
 CPPUNITTESTS=fibonacci_cppunit_test.o
 GOOGLETESTS=fibonacci_google_test.o
 
@@ -31,13 +30,13 @@ GOOGLETESTS=fibonacci_google_test.o
 %.o : $(TESTDIR)/%.cc
 	$(CXX) -c $< -o $@ $(INC)
 
-fibonacci: $(OBJS) fibonacci_program.o
+fibonacci: fibonacci_program.o
 	$(CXX) -o $@ $^ $(INC)
 
-cppunittests: $(CPPUNITTESTS) $(OBJS) cppunit_test_driver.o
+cppunittests: $(CPPUNITTESTS) cppunit_test_driver.o
 	$(CXX) -o $@ $^ $(INC) $(CPPUNITLDFLAGS)
 
-googletests: $(GOOGLETESTS) $(OBJS)
+googletests: $(GOOGLETESTS)
 	$(CXX) -o $@ $^ $(INC) $(GOOGLELDFLAGS)
 
 .PHONY : runcppunittests
