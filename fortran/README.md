@@ -36,12 +36,14 @@ Compile tests:
 
     $ make tests
 
-Run tests:
+Run tests and view XML test report:
 
     $ ./tests
+    $ cat result.xml
 
-View results as XML:
+or:
 
+    $ make runtests
     $ cat result.xml
 
 Clean up:

@@ -62,18 +62,21 @@ Compile tests:
 
     $ make tests
 
-Run tests:
+Run tests and view XML test report:
 
     $ ./tests
+    $ cat CUnitAutomated-Results.xml 
 
-View results as XML:
+or:
 
-    $ CUnitAutomated-Results.xml 
+    $ make runtests
+    $ cat CUnitAutomated-Results.xml 
 
-Make and view an xUnit-style test report:
+
+View results as XML xUnit-style test report:
 
     $ make report
-    $ cat Test-Results.xml
+    $ cat TestResults.xml
 
 Clean up:
 

@@ -38,6 +38,10 @@ fibonacci : $(OBJS) fibonacci_program.o
 tests : $(FRUITS) $(OBJS) $(TESTS)
 	$(FORTRAN) $(FLAGS) $^ -o $@
 
+.PHONY : runtests
+runtests : tests
+	./$<
+
 .PHONY : all
 all : fibonacci tests
 
