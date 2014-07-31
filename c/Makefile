@@ -19,21 +19,18 @@ SRCDIR  = src
 INCDIR  = src
 TESTDIR = test
 
-SRCS:=$(wildcard $(SRCDIR)/*.c)
-OBJS:=$(SRCS:$(SRCDIR)/%.c=%.o)
-TESTSRCS:=$(wildcard $(TESTDIR)/*.c)
-TESTOBJS:=$(TESTSRCS:$(TESTDIR)/%.c=%.o) fibonacci.o
+OBJS=fibonacci.o
+TESTS=fibonacci_test.o
 
 %.o : $(SRCDIR)/%.c
 	$(CC) -c $^ -o $@ -I$(INCDIR)
-
 %.o : $(TESTDIR)/%.c
 	$(CC) -c $< -o $@ -I$(INCDIR)
 
-fibonacci: $(OBJS)
+fibonacci: $(OBJS) fibonacci_program.o
 	$(CC) -o $@ $^ -I$(INCDIR)
 
-tests: $(TESTOBJS)
+tests: $(TESTS) $(OBJS)
 	$(CC) -o $@ $^ -I$(INCDIR) $(LDFLAGS)
 
 report: test

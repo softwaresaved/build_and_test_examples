@@ -15,14 +15,27 @@
 FORTRAN=gfortran
 FLAGS=-O0 --std=f2003
 
-SRC=src/fibonacci.f90
-TESTSRC=test/fruit_helpers.F90 test/fibonacci_test.f90 test/fruit_test_driver.F90
-FRUIT_SRC=fruit/fruit_util.f90 fruit/fruit.f90
+SRCDIR=src
+TESTDIR=test
+FRUITDIR=fruit
 
-fibonacci : $(SRC) src/fibonacci_program.f90
+OBJS=fibonacci.o
+TESTS=fruit_helpers.o fibonacci_test.o fruit_test_driver.o
+FRUITS=fruit_util.o fruit.o
+
+%.o : $(SRCDIR)/%.f90
+	$(FORTRAN) $(FLAGS) -c $< -o $@
+%.o : $(TESTDIR)/%.f90
+	$(FORTRAN) $(FLAGS) -c $< -o $@
+%.o : $(TESTDIR)/%.F90
+	$(FORTRAN) $(FLAGS) -c $< -o $@
+%.o : $(FRUITDIR)/%.f90
+	$(FORTRAN) $(FLAGS) -c $< -o $@
+
+fibonacci : $(OBJS) fibonacci_program.o
 	$(FORTRAN) $(FLAGS) $^ -o $@
 
-tests : $(FRUIT_SRC) $(SRC) $(TESTSRC)
+tests : $(FRUITS) $(OBJS) $(TESTS)
 	$(FORTRAN) $(FLAGS) $^ -o $@
 
 .PHONY : all
