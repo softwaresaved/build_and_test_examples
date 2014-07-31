@@ -15,23 +15,23 @@
 CC=gcc -O3
 LDFLAGS=-lcunit
 
-SRCDIR  = src
-INCDIR  = src
-TESTDIR = test
+SRCDIR= src
+TESTDIR= test
+INC=-I$(SRCDIR) -I$(TESTDIR)
 
 OBJS=fibonacci.o
-TESTS=fibonacci_test.o
+TESTS=fibonacci_cunit_test.o
 
 %.o : $(SRCDIR)/%.c
-	$(CC) -c $^ -o $@ -I$(INCDIR)
+	$(CC) -c $^ -o $@ $(INC)
 %.o : $(TESTDIR)/%.c
-	$(CC) -c $< -o $@ -I$(INCDIR)
+	$(CC) -c $< -o $@ $(INC)
 
 fibonacci: $(OBJS) fibonacci_program.o
-	$(CC) -o $@ $^ -I$(INCDIR)
+	$(CC) -o $@ $^ $(INC)
 
-tests: $(TESTS) $(OBJS)
-	$(CC) -o $@ $^ -I$(INCDIR) $(LDFLAGS)
+tests: $(TESTS) $(OBJS) cunit_test_driver.o
+	$(CC) -o $@ $^ $(INC) $(LDFLAGS)
 
 report: test
 	xsltproc -novalid cunit-to-junit.xsl CUnitAutomated-Results.xml > Test-Results.xml
