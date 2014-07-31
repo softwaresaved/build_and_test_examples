@@ -45,7 +45,7 @@ public class Fibonacci
     /** Print usage information. */
     public static void print_usage()
     {
-        System.out.println("Usage: python fibonacci.py N");
+        System.out.println("Usage: java math.Fibonacci N");
         System.out.println("  where N >= 0");
     }
 
