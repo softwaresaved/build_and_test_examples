@@ -19,7 +19,7 @@
 /*
  * Set up and run tests.
  *
- * @returns CUE_SUCCESS if successful, else a CUnit error code if
+ * @return CUE_SUCCESS if successful, else a CUnit error code if
  * any problems arise.
  */
 int main()
