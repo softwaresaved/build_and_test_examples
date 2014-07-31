@@ -80,7 +80,7 @@ Notes on how to install CUnit 2.1.2
 For full instructions on how to download, build and install see
 [CUnit](http://cunit.sourceforge.net/).
 
-Download CUnit-2.1-2-src.tar.bz2
+Download `CUnit-2.1-2-src.tar.bz2`.
 
 Install in `/home/user`:
 
