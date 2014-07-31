@@ -17,7 +17,7 @@
 
 void print_usage()
 {
-    printf("Usage: python fibonacci.py N\n");
+    printf("Usage: ./fibonacci N\n");
     printf("  where N >= 0\n");
 }
 
