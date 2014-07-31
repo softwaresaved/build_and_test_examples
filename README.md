@@ -11,6 +11,7 @@ to build, run and run tests:
 * [Python and nosetests](./python/README.md)
 * [Java, JUnit and ANT](./java/README.md)
 * [C, CUnit and Make](./c/README.md)
+* [C++, CppUnit, googletest and Make](./cpp/README.md)
 * [FORTRAN, FRUIT and Make](./fortran/README.md)
 
 Copyright and licence
