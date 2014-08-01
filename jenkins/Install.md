@@ -54,7 +54,7 @@ Deploy Jenkins
 
 Jenkins is provided as a web archive, WAR file, `jenkins.war`.
 
-Jenkins can be deployed into a servlet container e.g. [Apache Tomcat](http://tomcat.apache.org/"). 
+Jenkins can be deployed into a servlet container e.g. [Apache Tomcat](http://tomcat.apache.org/). 
 
 Jenkins can also be used stand-alone. So, to start up Jenkins run:
 
