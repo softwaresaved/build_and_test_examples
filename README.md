@@ -16,7 +16,7 @@ to build, run and run tests:
 
 For an introduction to the [Jenkins](http://jenkins-ci.org) [continuous integration](http://en.wikipedia.org/wiki/Continuous_Integration) server, using these examples, see:
 
-[Getting started with Jenkins](./jenkins/README.md)
+* [Getting started with Jenkins](./jenkins/README.md)
 
 Copyright and licence
 ---------------------
