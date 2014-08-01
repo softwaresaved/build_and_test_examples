@@ -51,7 +51,7 @@ Configure a job to poll Subversion
 
 Now we could configure the job to run periodically e.g. every 5 minutes. The checked out repository would be updated and the code rebuilt and run. 
 
-Another option is to poll the repository which can be enabled by selecting the Poll SCM option under the Build Triggers heading on the project's configuration page. This takes a "schedule" that is the same as Build periodically (see [Configure a job to run periodically](./JenkinsPeriodic.md)). Jobs are only triggered if updates or changes to the repository have been made since the last job run.
+Another option is to poll the repository which can be enabled by selecting the Poll SCM option under the Build Triggers heading on the project's configuration page. This takes a "schedule" that is the same as Build periodically (see [Configure a job to run periodically](./Periodic.md)). Jobs are only triggered if updates or changes to the repository have been made since the last job run.
 
 One problem with polling is that it is very expensive. Ideally we want Subversion to tell Jenkins when changes have been made and so trigger Jenkins to rerun the job. Jenkins allows us to do this.
 
