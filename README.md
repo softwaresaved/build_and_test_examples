@@ -14,6 +14,10 @@ to build, run and run tests:
 * [C++, CppUnit, googletest and Make](./cpp/README.md)
 * [FORTRAN, FRUIT and Make](./fortran/README.md)
 
+For an introduction to the [Jenkins](http://jenkins-ci.org) is a [continuous integration](http://en.wikipedia.org/wiki/Continuous_Integration) server, using these examples, see:
+
+[Getting started with Jenkins](./jenkins/README.md)
+
 Copyright and licence
 ---------------------
 
