@@ -23,9 +23,8 @@ Copyright and licence
 
 Copyright (c) 2014 The University of Edinburgh.
 
-This code is distributed under the [Apache
-2.0](http://www.apache.org/licenses/LICENSE-2.0.html) licence. The
-licence text is also in `LICENSE-2.0.txt`.
+Code is licensed under the [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0.html) licence. The licence text is also in [LICENSE-2.0.txt](./LICENSE-2.0.txt).
 
-This directory includes third-party software. Please see the
-`README.md` files in sub-directories for information on this. 
+Documents are licensed under the Creative Commons [Attribution-NonCommercial 2.5 UK: Scotland (CC BY-NC 2.5 SCOTLAND)](http://creativecommons.org/licenses/by-nc/2.5/scotland/).
+
+This directory includes third-party software. Please see the `README.md` files in sub-directories for information. 
