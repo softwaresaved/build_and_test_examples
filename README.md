@@ -13,6 +13,7 @@ to build, run and run tests:
 * [C, CUnit and Make](./c/README.md)
 * [C++, CppUnit, googletest and Make](./cpp/README.md)
 * [FORTRAN, FRUIT and Make](./fortran/README.md)
+* [PHP and PHPUnit](./php/README.md)
 
 For an introduction to the [Jenkins](http://jenkins-ci.org) [continuous integration](http://en.wikipedia.org/wiki/Continuous_Integration) server, using these examples, see:
 
@@ -21,7 +22,7 @@ For an introduction to the [Jenkins](http://jenkins-ci.org) [continuous integrat
 Copyright and licence
 ---------------------
 
-Copyright (c) 2014 The University of Edinburgh.
+Copyright (c) 2014-2015 The University of Edinburgh.
 
 Code is licensed under the [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0.html) licence. The licence text is also in [LICENSE-2.0.txt](./LICENSE-2.0.txt).
 
