@@ -27,7 +27,7 @@ Usage
 
 Run:
 
-    $ python src/fibonacci.py 20
+    $ php src/FibonacciProgram.php 20
 
 Run tests:
 
