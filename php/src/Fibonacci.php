@@ -16,7 +16,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
  * implied. See the License for the specific language governing
  * permissions and limitations under the License.
-  */
+ */
 
 namespace Maths;
 
@@ -29,7 +29,7 @@ class Fibonacci
      * Calculate the Fibonacci number of the given integer.
      * @param int n If n <= 0 then 0 is assumed.
      * @return int Fibonacci number.
-    */
+     */
     public static function fib($n)
     {
         if ($n <= 0)
