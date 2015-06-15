@@ -43,15 +43,15 @@ class TestFibonacci(unittest.TestCase):
 
   def test_fibonacci2(self):
     """ Test fibonacci(2). """
-    self.assertTrue(1, fibonacci(2))
+    self.assertEqual(1, fibonacci(2))
 
   def test_fibonacci3(self):
     """ Test fibonacci(3). """
-    self.assertTrue(2, fibonacci(3))
+    self.assertEqual(2, fibonacci(3))
 
   def test_fibonacci30(self):
     """ Test fibonacci(30). """
-    self.assertTrue(832040, fibonacci(30))
+    self.assertEqual(832040, fibonacci(30))
 
 if __name__ == '__main__':
   unittest.main()
