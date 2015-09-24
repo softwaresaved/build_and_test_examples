@@ -3,7 +3,7 @@ Create a Travis CI Python job
 
 Travis CI supports testing Python code under various versions of Python 2 and 3. It also pre-installs the following Python test libraries: `nose`, `pytest` and `mock`.
 
-Updaye `.travis.yml` to run tests of Python Fibonnaci series code
+Update `.travis.yml` to run tests of Python Fibonnaci series code
 -----------------------------------------------------------------
 
 The [python](./python) directory contains a Python implementation of the Fibonacci series function and tests for this function. We can customise our `.travis.yml` job to run these tests under Python 2.7 and 3.4 as follows.
