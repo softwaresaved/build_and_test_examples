@@ -122,8 +122,8 @@ Choose a language for an introduction on how to set up a Travis CI job for that 
 * [Create a Travis CI Python job](./Python.md)
 * [Create a Travis CI C job](./C.md)
 * [Create a Travis CI C++ job](./Cpp.md)
-* [Create a Travis CI FORTRAN job](./Fortran.md)
 * [Create a Travis CI Java job](./Java.md)
+* [Create a Travis CI PHP job](./PHP.md)
 
 Travis CI limitations
 ---------------------
