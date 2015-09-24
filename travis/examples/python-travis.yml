@@ -6,7 +6,7 @@ python:
 
 before_install:
   - pip install coverage
+  - cd python
 
 script: 
-  - cd python
   - nosetests -v --nocapture --with-coverage

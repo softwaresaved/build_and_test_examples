@@ -18,13 +18,16 @@ python:
   - "2.7"
   - "3.4"
 
-script: 
+before_install:
   - cd python
+
+script: 
   - nosetests -v --nocapture
 ```
 
 * `language` tells Travis CI which build environment we wish.
 * `python` tells Travis CI which versions of Python we want to run this job under. Here, we request that Travis CI runs the job twice, once under Python 2.7 and once under Python 3.4.
+* `before_install` tells Travis CI what do do before installing our code (we have no `install` step as our example is very simple)
 * `script` tells Travis CI to change into the `python` directory then to run all the tests it can find.
 * `--nocapture` tells `nosetests` to display anything that is printed by the tests it runs.
 * `-v` tells `nosetests` to print the names of the test functions as they run.
@@ -96,12 +99,11 @@ Installing a package
 
 Suppose we want to generate a test coverage report - a report on the statements in our Fibonacci series implementation that were executed by our tests. `nosetests` supports a `--with-coverage` command-line option to generate this report, but this needs the Python `coverage` package to have been installed.
 
-We can request that Travis CI install this package by adding a `before_install` section to `.travis.yml`:
+We can request that Travis CI install this package:
 
-* Add the following section after the `python` section:
+* Add the to `before_install` before the `cd`:
 
 ```
-before_install:
   - pip install coverage
 ```
 
