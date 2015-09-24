@@ -8,9 +8,11 @@ Create a CVS repository
 
 If you don't have one already, create a CVS repository based on our Python examples in `/home/user/build_and_test_examples/python`:
 
-    $ cvs -d /home/user/CVSROOT init
-    $ cd /home/user/build_and_test_examples/python
-    $ cvs -d /home/user/CVSROOT/ import -m "Initial Import" python vendor-tag release-tag
+```
+$ cvs -d /home/user/CVSROOT init
+$ cd /home/user/build_and_test_examples/python
+$ cvs -d /home/user/CVSROOT/ import -m "Initial Import" python vendor-tag release-tag
+```
 
 Create a job that checks out the repository and runs a job
 ----------------------------------------------------------
@@ -29,9 +31,9 @@ Now, let's create a job to check out the repository and run `nosetests`:
 * Scroll down the page to under the Build heading, click Add build step and select Execute shell.
 * Enter:
 
-<p/>
-
-    nosetests --with-xunit
+```
+nosetests --with-xunit
+```
 
 * Click Save.
 * Under the Post-build Actions heading, click Add post-build action.
@@ -67,57 +69,57 @@ CVS has a `loginfo` file which contains commands that are invoked when changes t
 
 * Create a script `/home/user/cvs-notify-jenkins.sh` with the content:
 
-<p/>
-
-    #!/bin/bash
-    wget "http://localhost:8080/job/Python%20CVS%20job/build?token=CVS-BUILD"
+```
+#!/bin/bash
+wget "http://localhost:8080/job/Python%20CVS%20job/build?token=CVS-BUILD"
+```
 
 * Set this to be executable:
 
-<p/>
-
-    $ chmod +x /home/user/cvs-notify-jenkins.sh
+```
+$ chmod +x /home/user/cvs-notify-jenkins.sh
+```
 
 * Now, check out the repository configuration files:
 
-<p/>
-
-    $ mkdir cvs-root-checkout
-    $ cd cvs-root-checkout/
-    $ cvs -d /home/user/CVSROOT co CVSROOT
-    $ cd CVSROOT
+```
+$ mkdir cvs-root-checkout
+$ cd cvs-root-checkout/
+$ cvs -d /home/user/CVSROOT co CVSROOT
+$ cd CVSROOT
+```
 
 * Edit `loginfo` and add a line:
 
-<p/>
-
-    ALL /home/user/cvs-notify-jenkins.sh
+```
+ALL /home/user/cvs-notify-jenkins.sh
+```
 
 * Now commit:
 
-<p/>
-
-    $ cvs commit -m "Added Jenkins notification on commit"
+```
+$ cvs commit -m "Added Jenkins notification on commit"
+```
 
 Check notifications work
 ------------------------
 
 * Check out your Python code:
 
-<p/>
-
-    $ cd /home/user
-    $ mkdir cvs-checkout
-    $ cd cvs-checkout
-    $ cvs -d /home/user/CVSROOT/ co python
-    $ cd python
+```
+$ cd /home/user
+$ mkdir cvs-checkout
+$ cd cvs-checkout
+$ cvs -d /home/user/CVSROOT/ co python
+$ cd python
+```
 
 * Edit `src/fibonacci.py` and change it to return `-1` always.
 * Commit the change:
 
-<p/>
-
-    $ cvs commit -m "Introduced a bug" src/fibonacci.py
+```
+$ cvs commit -m "Introduced a bug" src/fibonacci.py
+```
 
 * In Jenkins, you should see a job being spawned which will fail, as the tests will now fail.
 * Now fix the bug you introduced and, again, commit the change.

@@ -13,4 +13,6 @@ Usage
 
 Run:
 
-    $ ./fibonacci.sh 20
+```
+$ ./fibonacci.sh 20
+```

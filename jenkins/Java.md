@@ -13,9 +13,9 @@ Jenkins can build and run Java code, either directly or via ANT. It can also run
 * Scroll down the page to under the Build heading, and click Add build step and select Invoke Ant.
 * In the Targets field, enter the target that builds the code and runs the tests e.g:
 
-<p/>
-
-    runTests
+```
+runTests
+```
 
 * Click Save.
 * On the new page that appears, click Build Now.

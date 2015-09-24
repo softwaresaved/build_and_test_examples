@@ -8,12 +8,14 @@ Create a Mercurial repository
 
 If you don't have one already, create a Mercurial repository based on our Python examples in `/home/user/build_and_test_examples/python`:
 
-    $ mkdir mercurial
-    $ cd mercurial
-    $ cp -r /home/user/build_and_test_examples/python .
-    $ hg init
-    $ hg add python
-    $ hg commit -m "Initial import"
+```
+$ mkdir mercurial
+$ cd mercurial
+$ cp -r /home/user/build_and_test_examples/python .
+$ hg init
+$ hg add python
+$ hg commit -m "Initial import"
+```
 
 Install the Mercurial plug-in
 -----------------------------
@@ -44,10 +46,10 @@ Now, let's create a job to check out the repository and run `nosetests`:
 * Scroll down the page to under the Build heading, click Add build step and select Execute shell.
 * Enter:
 
-<p/>
-
-    cd python
-    nosetests --with-xunit
+```
+cd python
+nosetests --with-xunit
+```
 
 * Click Save.
 * Under the Post-build Actions heading, click Add post-build action.
@@ -83,29 +85,29 @@ Mercurial has an `hgrc` file with a `hooks` section which contains commands that
 
  * Create an `hgrc` file, or edit it if one exists, in your Mercurial repository's `.hg` directory (e.g. `/home/user/mercurial/.hg`), and add:
 
-<p/>
-
-    [hooks]
-    commit.jenkins = wget -q http://localhost:8080/mercurial/notifyCommit?url=file:///home/user/mercurial > /dev/null
-    incoming.jenkins = wget -q http://localhost:8080/mercurial/notifyCommit?url=file:///home/user/mercurial > /dev/null
+```
+[hooks]
+commit.jenkins = wget -q http://localhost:8080/mercurial/notifyCommit?url=file:///home/user/mercurial > /dev/null
+incoming.jenkins = wget -q http://localhost:8080/mercurial/notifyCommit?url=file:///home/user/mercurial > /dev/null
+```
 
 Check notifications work
 ------------------------
 
 * Check out your Python code:
 
-<p/>
-
-    $ hg clone file:///home/user/mercurial mercurial-checkout
-    $ cd mercurial-checkout/python
+```
+$ hg clone file:///home/user/mercurial mercurial-checkout
+$ cd mercurial-checkout/python
+```
 
 * Edit `src/fibonacci.py` and change it to return `-1` always.
 * Commit the change:
 
-<p/>
-
-    $ hg commit -m "Introduced a bug" src/fibonacci.py
-    $ hg push 
+```
+$ hg commit -m "Introduced a bug" src/fibonacci.py
+$ hg push 
+```
 
 * In Jenkins, you should see a job being spawned which will fail, as the tests will now fail.
 * Now fix the bug you introduced and, again, commit the change.

@@ -53,5 +53,4 @@ For more information check out:
 
 * Jenkins' [Meet Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)
 * Jenkins' [Use Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Use+Jenkins)
-* The Software Sustainability Institute's [How continuous integration can help you regularly test and release your software](http://software.ac.uk/how-continuous-integration-can-help-you-regularly-test-and-release-your-software) guide.
-* The Software Sustainability Institute's [Hosted continuous integration](http://www.software.ac.uk/resources/guides/hosted-continuous-integration) guide.
+

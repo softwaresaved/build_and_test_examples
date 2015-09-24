@@ -8,9 +8,11 @@ Create a Subversion repository
 
 If you don't have one already, create a Subversion repository based on our Python examples in `/home/user/build_and_test_examples/python`:
 
-    $ svnadmin create /home/user/svn-repository
-    $ cd /home/user/build_and_test_examples/python
-    $ svn import file:///home/user/svn-repository/python -m "Initial import"
+```
+$ svnadmin create /home/user/svn-repository
+$ cd /home/user/build_and_test_examples/python
+$ svn import file:///home/user/svn-repository/python -m "Initial import"
+```
 
 Create a job that checks out the repository and runs a job
 ----------------------------------------------------------
@@ -29,9 +31,9 @@ Now, let's create a job to check out the repository and run `nosetests`:
 * Scroll down the page to under the Build heading, click Add build step and select Execute shell.
 * Enter:
 
-<p/>
-
-    nosetests --with-xunit
+```
+nosetests --with-xunit
+```
 
 * Click Save.
 * Under the Post-build Actions heading, click Add post-build action.
@@ -67,44 +69,44 @@ Subversion has a `hooks` directory which can hold a `post-commit` file, which co
 
  * Create a `post-commit` file, or edit it if one exists, in your Subversion repository's `hooks/` directory (e.g. `/home/user/svn-repository/hooks`), and add:
 
-<p/>
-
-    #!/bin/bash
-    REPOS="$1"
-    REV="$2"
-    UUID=`svnlook uuid $REPOS`
-    wget \
-     --header "Content-Type:text/plain;charset=UTF-8" \
-     --post-data "`svnlook changed --revision $REV $REPOS`" \
-     --output-document "-" \
-     --timeout=2 \
-     http://localhost:8080/subversion/${UUID}/notifyCommit?rev=$REV 
-    exit 0
+```
+#!/bin/bash
+REPOS="$1"
+REV="$2"
+UUID=`svnlook uuid $REPOS`
+wget \
+ --header "Content-Type:text/plain;charset=UTF-8" \
+ --post-data "`svnlook changed --revision $REV $REPOS`" \
+ --output-document "-" \
+ --timeout=2 \
+ http://localhost:8080/subversion/${UUID}/notifyCommit?rev=$REV 
+exit 0
+```
 
 * Set this to be executable:
 
-<p/>
-
-    $ chmod +x /home/user/svn-repository/hooks/post-commit
+```
+$ chmod +x /home/user/svn-repository/hooks/post-commit
+```
 
 Check notifications work
 ------------------------
 
 * Check out your Python code:
 
-<p/>
-
-    $ mkdir svn-checkout
-    $ cd svn-checkout
-    $ svn co file:///home/user/svn-repository/python
-    $ cd python
+```
+$ mkdir svn-checkout
+$ cd svn-checkout
+$ svn co file:///home/user/svn-repository/python
+$ cd python
+```
 
 * Edit `src/fibonacci.py` and change it to return `-1` always.
 * Commit the change:
 
-<p/>
-
-    $ svn commit -m "Introduced a bug" src/fibonacci.py
+```
+$ svn commit -m "Introduced a bug" src/fibonacci.py
+```
 
 * In Jenkins, you should see a job being spawned which will fail, as the tests will now fail.
 * Now fix the bug you introduced and, again, commit the change.

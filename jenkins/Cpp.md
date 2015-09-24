@@ -13,13 +13,13 @@ Jenkins can build and run C++ code, either directly or via make. It can also run
 * Scroll down the page to under the Build heading, and click Add build step and select Execute shell.
 * Enter the commands that builds the code and tests and runs the CppUnit and googletest tests e.g.:
 
-<p/>
-
-    export C_INCLUDE_PATH=/home/user/include:$C_INCLUDE_PATH
-    export LIBRARY_PATH=/home/user/lib:$LIBRARY_PATH
-    export LD_LIBRARY_PATH=/home/user/lib:$LD_LIBRARY_PATH
-    make runcppunittests
-    make rungoogletests
+```
+export C_INCLUDE_PATH=/home/user/include:$C_INCLUDE_PATH
+export LIBRARY_PATH=/home/user/lib:$LIBRARY_PATH
+export LD_LIBRARY_PATH=/home/user/lib:$LD_LIBRARY_PATH
+make runcppunittests
+make rungoogletests
+```
 
 * Here, we need to set the paths to include the locations of CppUnit and googletest include files and libraries.
 * Click Save.

@@ -13,9 +13,9 @@ Jenkins can build and run FORTRAN code, either directly or via make. It can also
 * Scroll down the page to under the Build heading, and click Add build step and select Execute shell.
 * Enter the commands that builds the code and tests and runs the tests e.g.:
 
-<p/>
-
-    make runtests
+```
+make runtests
+```
 
 * Click Save.
 * On the new page that appears, click Build Now.

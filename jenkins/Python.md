@@ -13,9 +13,9 @@ Jenkins can run any Python script. It can also run Python's `nosetests` and repo
 * Scroll down the page to under the Build heading, and click Add build step and select Execute shell.
 * Enter the command that runs the tests e.g.:
 
-<p/>
-
-    nosetests --with-xunit
+```
+nosetests --with-xunit
+```
 
 * Click Save.
 * On the new page that appears, click Build Now.

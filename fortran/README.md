@@ -8,8 +8,10 @@ Prerequisites
 
 To check if it is installed already:
 
-    $ gfortran -v
-    gcc version 4.4.7 20120313 (Red Hat 4.4.7-3) (GCC) 
+```
+$ gfortran -v
+gcc version 4.4.7 20120313 (Red Hat 4.4.7-3) (GCC) 
+```
 
 **FRUIT**:
 
@@ -26,26 +28,38 @@ Usage
 
 Compile:
 
-    $ make fibonacci
+```
+$ make fibonacci
+```
 
 Run:
 
-    $ ./fibonacci 20
+```
+$ ./fibonacci 20
+```
 
 Compile tests:
 
-    $ make tests
+```
+$ make tests
+```
 
 Run tests and view XML test report:
 
-    $ ./tests
-    $ cat result.xml
+```
+$ ./tests
+$ cat result.xml
+```
 
 or:
 
-    $ make runtests
-    $ cat result.xml
+```
+$ make runtests
+$ cat result.xml
+```
 
 Clean up:
 
-    $ make clean
+```
+$ make clean
+```

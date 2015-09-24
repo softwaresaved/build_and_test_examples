@@ -8,15 +8,15 @@ Jenkins can be configured to run jobs periodically. For example:
 * Under the Build Triggers heading, select Build periodically.
 * A Schedule form will appear. The general format for entries in this form is:
 
-<p/>
-
-    MINUTE HOUR DOM MONTH DOW
+```
+MINUTE HOUR DOM MONTH DOW
+```
 
 * So, enter the following to run the job every 2 minutes (Click on the "?" icon to see a complete description of the options available):
 
-<p/>
-
-    */2 * * * *
+```
+*/2 * * * *
+```
 
 * Click Apply.
 * Click ENABLE AUTO REFRESH on the top-right of the page, if it has not already been clicked. If it has you'll see DISABLE AUTO REFRESH so just leave it be.

@@ -13,9 +13,9 @@ Jenkins can run any shell script and report on the success or failure depending 
 * Scroll down the page to under the Build heading, and click Add build step and select Execute shell.
 * Enter:
 
-<p/>
-
-    ./fibonacci.sh 20
+```
+./fibonacci.sh 20
+```
 
 * Click Save.
 * On the new page that appears, click Build Now.
@@ -26,9 +26,9 @@ Jenkins can run any shell script and report on the success or failure depending 
 * Click on Console Output and you should see the output from the command-line.
 * Now, edit the configuration and remove `20` from the build step so it is just:
 
-<p/>
-
-    ./fibonacci.sh
+```
+./fibonacci.sh
+```
 
 * Save the configuration and click Build Now.
 * Now when the job completes, there will be a little red ball next to the job link, indicating failure.
