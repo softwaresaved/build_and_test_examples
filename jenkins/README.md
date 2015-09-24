@@ -8,13 +8,13 @@ Install and deploy Jenkins
 
 * [Installing Jenkins](./Install.md)
 
-Use Jenkins to trigger execution of a shell script
---------------------------------------------------
+Use Jenkins to run a shell script
+---------------------------------
 
 * [Create a Jenkins shell script job](./Shell.md)
 
-Use Jenkins to trigger build-and-test in various languages
-----------------------------------------------------------
+Use Jenkins to run build-and-test jobs for various languages
+------------------------------------------------------------
 
 * [Create a Jenkins Python job](./Python.md)
 * [Create a Jenkins C job](./C.md)
