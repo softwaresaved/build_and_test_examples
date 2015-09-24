@@ -1,0 +1,11 @@
+language: php
+
+php:
+  - 5.4
+  - 5.5
+
+before_install:
+  - cd php
+
+script:
+  - phpunit -v --bootstrap src/autoload.php test/FibonacciTest.php
