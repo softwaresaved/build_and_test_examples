@@ -9,24 +9,23 @@ Update `.travis.yml` to run tests of Python Fibonnaci series code
 The [python](./python) directory contains a Python implementation of the Fibonacci series function and tests for this function. We can customise our `.travis.yml` job to run these tests under Python 2.7 and 3.4 as follows.
 
 * Open `.travis.yml` in an editor.
-* Change the `python` section to:
+* Update its contents to be:
 
 ```
+language: python
+
 python:
   - "2.7"
   - "3.4"
-```
 
-* This tells Travis CI to run this job twice, once under Python 2.7 and once under Python 3.4.
-* Change the `script` section to:
-
-```
 script: 
   - cd python
   - nosetests -v --nocapture
 ```
 
-* This tells Travis CI to change into the `python` directory then to run all the tests it can find.
+* `language` tells Travis CI which build environment we wish.
+* `python` tells Travis CI which versions of Python we want to run this job under. Here, we request that Travis CI runs the job twice, once under Python 2.7 and once under Python 3.4.
+* `script` tells Travis CI to change into the `python` directory then to run all the tests it can find.
 * `--nocapture` tells `nosetests` to display anything that is printed by the tests it runs.
 * `-v` tells `nosetests` to print the names of the test functions as they run.
 * Commit these changes your repository and push the changes to GitHub:
