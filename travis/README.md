@@ -69,13 +69,13 @@ def test_hello():
 language: python
 
 python:
-  - "2.6"
+  - "2.7"
 
 script: 
   - nosetests --nocapture test_hello.py
 ```
 
-* This says we want Travis CI to set up a Python 2.6 environment then run our `test_hello.py` script using Python's `nosetests` test runner (`--nocapture` tells `nosetests` to display anything that is printed by the tests it runs, in this case our `Hello...` message).
+* This says we want Travis CI to set up a Python 2.7 environment then run our `test_hello.py` script using Python's `nosetests` test runner (`--nocapture` tells `nosetests` to display anything that is printed by the tests it runs, in this case our `Hello...` message).
 * Add and commit these files to your repository and push the changes to GitHub:
 
 ```
