@@ -8,14 +8,16 @@ Create a Git repository
 
 If you don't have one already, create a Git repository based on our Python examples in `/home/user/build_and_test_examples/python`:
 
-    $ mkdir git
-    $ cd git
-    $ cp -r /home/user/build_and_test_examples/python .
-    $ git init
-    $ git add python
-    $ git commit -m "Initial import"
-    $ rm -rf python
-    $ git config --bool core.bare true
+```
+$ mkdir git
+$ cd git
+$ cp -r /home/user/build_and_test_examples/python .
+$ git init
+$ git add python
+$ git commit -m "Initial import"
+$ rm -rf python
+$ git config --bool core.bare true
+```
 
 Install the Git plug-in
 -----------------------
@@ -46,10 +48,10 @@ Now, let's create a job to check out the repository and run `nosetests`:
 * Scroll down the page to under the Build heading, click Add build step and select Execute shell.
 * Enter:
 
-<p/>
-
-    cd python
-    nosetests --with-xunit
+```
+cd python
+nosetests --with-xunit
+```
 
 * Click Save.
 * Under the Post-build Actions heading, click Add post-build action.
@@ -85,17 +87,17 @@ Git has a `hooks` directory which can hold a `post-commit` and a `post-receive` 
 
 * Create a `post-commit` file, or edit it if one exists, in your Git repository's `hooks/` directory (e.g. `/home/user/git/.git/hooks`), and add:
 
-<p/>
-
-    #!/bin/bash
-    wget http://localhost:8080/git/notifyCommit?url=file:///home/user/git > /dev/null
-    exit 0
+```
+#!/bin/bash
+wget http://localhost:8080/git/notifyCommit?url=file:///home/user/git > /dev/null
+exit 0
+```
 
 * Set this to be executable:
 
-<p/>
-
-    $ chmod +x /home/user/git/.git/hooks/post-commit
+```
+$ chmod +x /home/user/git/.git/hooks/post-commit
+```
 
 * Now, repeat the above to create, or edit, a `post-receive` file.
 
@@ -104,18 +106,18 @@ Check notifications work
 
 * Check out your Python code:
 
-<p/>
-
-    $ git clone file:///home/user/git git-checkout
-    $ cd git-checkout/python
+```
+$ git clone file:///home/user/git git-checkout
+$ cd git-checkout/python
+```
 
 * Edit `src/fibonacci.py` and change it to return `-1` always.
 * Commit the change:
 
-<p/>
-
-    $ git commit -m "Introduced a bug" src/fibonacci.py
-    $ git push 
+```
+$ git commit -m "Introduced a bug" src/fibonacci.py
+$ git push 
+```
 
 * In Jenkins, you should see a job being spawned which will fail, as the tests will now fail.
 * Now fix the bug you introduced and, again, commit the change.
