@@ -16,11 +16,7 @@ See language-specific pages for information on prerequisites and how to build, r
 Continuous integration
 ----------------------
 
-Continuous integration ensures that your software is built and tested regularly. It can help you to demonstrate that your software does what it claims to do, and that it does so correctly. It also helps you to rapidly release bug-fixes and more functional versions of your software. Continuous integration can also be used to automate experiments that run using software. 
-
-For an overview, please see:
-
-* The Software Sustainability Institute's [How continuous integration can help you regularly test and release your software](http://software.ac.uk/how-continuous-integration-can-help-you-regularly-test-and-release-your-software) guide.
+Continuous integration ensures that your software is built and tested regularly. It can help you to demonstrate that your software does what it claims to do, and that it does so correctly. It also helps you to rapidly release bug-fixes and more functional versions of your software. Continuous integration can also be used to automate experiments that run using software. For an overview, see The Software Sustainability Institute's [How continuous integration can help you regularly test and release your software](http://software.ac.uk/how-continuous-integration-can-help-you-regularly-test-and-release-your-software).
 
 [Jenkins](http://jenkins-ci.org) is a continuous integration server, which you can deploy locally. For an introduction to Jenkins, using these examples, see:
 
@@ -30,7 +26,7 @@ For an overview, please see:
 
 * [Getting started with Travis CI](./travis/README.md)
 
-* The Software Sustainability Institute's [Hosted continuous integration](http://www.software.ac.uk/resources/guides/hosted-continuous-integration) guide.
+For an overview of hosted continuous integration, see The Software Sustainability Institute's [Hosted continuous integration](http://www.software.ac.uk/resources/guides/hosted-continuous-integration).
 
 Copyright and licence
 ---------------------
