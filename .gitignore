@@ -1,0 +1,25 @@
+## C/C++/Fortran
+
+*.o
+
+## Fortran
+
+*.mod
+
+## Java
+
+*.class
+
+## Python
+
+*.py[cod]
+.python-version
+nosetests.xml
+
+## Emacs
+
+*~
+
+## Mac
+
+.DS_Store
