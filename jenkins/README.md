@@ -1,7 +1,7 @@
 Getting started with Jenkins
 ============================
 
-[Jenkins](http://jenkins-ci.org) is a [continuous integration](http://en.wikipedia.org/wiki/Continuous_Integration) server. In these pages we provide an introduction to Jenkins and how it can be used to automate the building and testing of software. We also show how Jenkins build-and-test jobs can be triggered by changes to code held in popular source code repositories including Git, Mercurial, Subversion and CVS.
+[Jenkins](http://jenkins-ci.org) is a popular, open source [continuous integration](http://en.wikipedia.org/wiki/Continuous_Integration) server. In these pages we provide an introduction to Jenkins and how it can be used to automate the building and testing of software. We also show how Jenkins build-and-test jobs can be triggered by changes to code held in popular source code repositories including Git, Mercurial, Subversion and CVS.
 
 Install and deploy Jenkins
 --------------------------
