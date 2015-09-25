@@ -1,4 +1,4 @@
-# Copyright 2014 The University of Edinburgh.
+# Copyright 2014-2015 The University of Edinburgh.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -25,11 +25,6 @@ INC=-I$(SRCDIR) -I$(TESTDIR) -I$(HOME)/include
 CPPUNITTESTS=fibonacci_cppunit_test.o
 GOOGLETESTS=fibonacci_google_test.o
 
-%.o : $(SRCDIR)/%.cc
-	$(CXX) -c $^ -o $@ $(INC)
-%.o : $(TESTDIR)/%.cc
-	$(CXX) -c $< -o $@ $(INC)
-
 fibonacci: fibonacci_program.o
 	$(CXX) -o $@ $^ $(INC)
 
@@ -39,16 +34,21 @@ cppunittests: $(CPPUNITTESTS) cppunit_test_driver.o
 googletests: $(GOOGLETESTS)
 	$(CXX) -o $@ $^ $(INC) $(GOOGLELDFLAGS)
 
-.PHONY : runcppunittests
-runcppunittests : cppunittests
+%.o : $(SRCDIR)/%.cc
+	$(CXX) -c $^ -o $@ $(INC)
+%.o : $(TESTDIR)/%.cc
+	$(CXX) -c $< -o $@ $(INC)
+
+.PHONY : test
+test : cppunittests
 	./$<
 
-.PHONY : rungoogletests
-rungoogletests : googletests
+.PHONY : googletest
+googletest : googletests
 	./$< --gtest_output="xml:TestResults.xml"
 
 .PHONY : all
-all : fibonacci cppunittests googletests
+all : fibonacci test googletest
 
 .PHONY : clean
 clean :

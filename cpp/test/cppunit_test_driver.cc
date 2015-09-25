@@ -1,4 +1,4 @@
-// Copyright 2014 The University of Edinburgh.
+// Copyright 2014-2015 The University of Edinburgh.
 //
 // Licensed under the Apache License, Version 2.0 (the "License"); 
 // you may not use this file except in compliance with the License. 
@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include <string.h>
 
+#include <cppunit/BriefTestProgressListener.h>
 #include <cppunit/TestResult.h>
 #include <cppunit/TestResultCollector.h>
 #include <cppunit/TextOutputter.h>
@@ -34,6 +35,8 @@ int main()
   CppUnit::TestResult controller; 
   CppUnit::TestResultCollector result; 
   controller.addListener(&result); 
+  CppUnit::BriefTestProgressListener progressListener;
+  controller.addListener(&progressListener);
 
   std::ofstream xmlout("TestResults.xml"); 
   CppUnit::XmlOutputter xmlOutputter (&result, xmlout); 
