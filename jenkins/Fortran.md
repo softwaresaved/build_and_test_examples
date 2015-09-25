@@ -14,7 +14,7 @@ Jenkins can build and run FORTRAN code, either directly or via make. It can also
 * Enter the commands that builds the code and tests and runs the tests e.g.:
 
 ```
-make runtests
+make test
 ```
 
 * Click Save.

@@ -6,7 +6,7 @@ Prerequisites
 
 **gfortran**:
 
-To check if it is installed already:
+To check if gfortran is installed already:
 
 ```
 $ gfortran -v
@@ -38,23 +38,10 @@ Run:
 $ ./fibonacci 20
 ```
 
-Compile tests:
+Compile and run tests and view XML xUnit-style test report:
 
 ```
-$ make tests
-```
-
-Run tests and view XML test report:
-
-```
-$ ./tests
-$ cat result.xml
-```
-
-or:
-
-```
-$ make runtests
+$ make test
 $ cat result.xml
 ```
 
