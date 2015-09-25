@@ -101,7 +101,7 @@ $ make test
 $ cat TestResults.xml 
 ```
 
-Compile and run googletest tests and view XML test report:
+Compile and run googletest tests and view XML xUnit-style test report:
 
 ```
 $ make googletest
