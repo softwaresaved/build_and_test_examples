@@ -1,0 +1,27 @@
+language: c
+
+addons:
+  apt:
+    packages:
+    - xsltproc
+
+before_install:
+  - wget http://downloads.sourceforge.net/project/cunit/CUnit/2.1-2/CUnit-2.1-2-src.tar.bz2
+  - tar -xvjpf CUnit-2.1-2-src.tar.bz2
+  - cd CUnit-2.1-2
+  - ./configure --prefix=$TRAVIS_BUILD_DIR
+  - make
+  - make install
+  - cd ..
+  - ls $TRAVIS_BUILD_DIR/include
+  - ls -R $TRAVIS_BUILD_DIR/lib
+  - ls $TRAVIS_BUILD_DIR/share
+  - export C_INCLUDE_PATH=$TRAVIS_BUILD_DIR/include:$C_INCLUDE_PATH
+  - export LIBRARY_PATH=$TRAVIS_BUILD_DIR/lib:$LIBRARY_PATH
+  - export LD_LIBRARY_PATH=$TRAVIS_BUILD_DIR/lib:$LD_LIBRARY_PATH
+  - cd c
+
+script:
+  - make runtests
+  - make report
+  - cat TestResults.xml
