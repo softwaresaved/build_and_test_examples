@@ -8,4 +8,4 @@ before_install:
   - cd php
 
 script:
-  - phpunit -v --bootstrap src/autoload.php test/FibonacciTest.php
+  - phpunit --bootstrap src/autoload.php --debug --coverage-text test/FibonacciTest.php
