@@ -9,7 +9,7 @@ Jenkins can build and run C code, either directly or via make. It can also run C
 * Click OK.
 * On the configuration page, under the Advanced Project Options heading, click Advanced ...
 * Select Use custom workspace.
-* Enter the directory with your shell script e.g. `$HOME/build_and_test_examples/c`.
+* Enter the directory with your shell script e.g. `/home/user/build_and_test_examples/c`.
 * Scroll down the page to under the Build heading, and click Add build step and select Execute shell.
 * Enter the commands that builds the code and tests and runs the tests e.g.:
 
