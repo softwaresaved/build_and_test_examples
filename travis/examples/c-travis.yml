@@ -12,16 +12,17 @@ before_install:
   - ./configure --prefix=$TRAVIS_BUILD_DIR
   - make
   - make install
-  - cd ..
-  - ls $TRAVIS_BUILD_DIR/include
-  - ls -R $TRAVIS_BUILD_DIR/lib
-  - ls $TRAVIS_BUILD_DIR/share
+  - ls $HOME/include/CUnit
+  - ls $HOME/lib
+  - ls $HOME/share/CUnit
   - export C_INCLUDE_PATH=$TRAVIS_BUILD_DIR/include:$C_INCLUDE_PATH
   - export LIBRARY_PATH=$TRAVIS_BUILD_DIR/lib:$LIBRARY_PATH
   - export LD_LIBRARY_PATH=$TRAVIS_BUILD_DIR/lib:$LD_LIBRARY_PATH
+  - cd ..
   - cd c
 
 script:
-  - make runtests
-  - make report
+  - make test
+  - cat CUnitAutomated-Results.xml
+  - make xunit-report
   - cat TestResults.xml

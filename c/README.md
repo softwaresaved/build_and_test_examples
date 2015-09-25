@@ -6,7 +6,7 @@ Prerequisites
 
 **gcc**:
 
-To check if it is installed already:
+To check if gcc is installed already:
 
 ```
 $ gcc -v
@@ -15,25 +15,34 @@ gcc version 4.4.7 20120313 (Red Hat 4.4.7-3) (GCC)
 
 **CUnit 2.1-2**:
 
-To download, build and install see
-[CUnit](http://cunit.sourceforge.net/). See below for notes on
-installing. 
-
-After installing ensure that the `bin`, `include` and `lib`
-directories holding the CUnit files are in your paths e.g.
+To download, build and install see [CUnit](http://cunit.sourceforge.net/). The following provides a quick summary of the key steps to build and install CUnit in your home directory:
 
 ```
-$ export C_INCLUDE_PATH=/home/user/include:$C_INCLUDE_PATH
-$ export LIBRARY_PATH=/home/user/lib:$LIBRARY_PATH
-$ export LD_LIBRARY_PATH=/home/user/lib:$LD_LIBRARY_PATH
+$ wget http://downloads.sourceforge.net/project/cunit/CUnit/2.1-2/CUnit-2.1-2-src.tar.bz2
+$ tar -xvjpf CUnit-2.1-2-src.tar.bz2
+$ cd CUnit-2.1-2
+$ ./configure --prefix=$HOME
+$ make
+$ make install
+$ ls $HOME/include/CUnit
+Util.h     TestDB.h  CUnit_intl.h  CUError.h  Basic.h
+TestRun.h  MyMem.h   CUnit.h       Console.h  Automated.h
+$ ls $HOME/lib
+libcunit.a   libcunit.so    libcunit.so.1.0.1
+libcunit.la  libcunit.so.1
+$ ls $HOME/share/CUnit
+CUnit-List.dtd  CUnit-Run.dtd  Memory-Dump.dtd
+CUnit-List.xsl  CUnit-Run.xsl  Memory-Dump.xsl
+$ export C_INCLUDE_PATH=$HOME/include:$C_INCLUDE_PATH
+$ export LIBRARY_PATH=$HOME/lib:$LIBRARY_PATH
+$ export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH
 ```
 
-2.1-2 is the version the code has been tested against. Other versions
-may also be OK.
+2.1-2 is the version the code has been tested against. Other versions may also be OK.
 
 **xsltproc**:
 
-To check if it is installed already:
+To check if xsltproc is installed already:
 
 ```
 $ xsltproc -version
@@ -68,31 +77,17 @@ Run:
 $ ./fibonacci 30
 ```
 
-Compile tests:
+Compile and run tests and view XML test report:
 
 ```
-$ make tests
-```
-
-Run tests and view XML test report:
-
-```
-$ ./tests
+$ make test
 $ cat CUnitAutomated-Results.xml 
 ```
 
-or:
+Convert above XML test report into an XML xUnit-style test report:
 
 ```
-$ make runtests
-$ cat CUnitAutomated-Results.xml 
-```
-
-
-View results as XML xUnit-style test report:
-
-```
-$ make report
+$ make xunit-report
 $ cat TestResults.xml
 ```
 
@@ -100,31 +95,4 @@ Clean up:
 
 ```
 $ make clean
-```
-
-Notes on how to install CUnit 2.1.2
------------------------------------
-
-For full instructions on how to download, build and install see
-[CUnit](http://cunit.sourceforge.net/).
-
-Download `CUnit-2.1-2-src.tar.bz2`.
-
-Install in `/home/user`:
-
-```
-$ tar -xvjpf CUnit-2.1-2-src.tar.bz2  
-$ cd CUnit-2.1-2/
-$ ./configure --prefix=/home/user
-$ make
-$ make install
-$ ls /home/user/include
-CUnit
-$ ls /home/user/share
-CUnit
-$ ls /home/user/lib
-libcunit.a   libcunit.so    libcunit.so.1.0.1
-libcunit.la  libcunit.so.1
-$ ls /home/user/lib/pkgconfig
-cunit.pc
 ```

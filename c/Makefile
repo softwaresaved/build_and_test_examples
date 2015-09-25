@@ -1,4 +1,4 @@
-# Copyright 2014 The University of Edinburgh.
+# Copyright 2014-2015 The University of Edinburgh.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,26 +22,27 @@ INC=-I$(SRCDIR) -I$(TESTDIR) -I$(HOME)/include
 OBJS=fibonacci.o
 TESTS=fibonacci_cunit_test.o
 
-%.o : $(SRCDIR)/%.c
-	$(CC) -c $^ -o $@ $(INC)
-%.o : $(TESTDIR)/%.c
-	$(CC) -c $< -o $@ $(INC)
-
 fibonacci: $(OBJS) fibonacci_program.o
 	$(CC) -o $@ $^ $(INC)
 
 tests: $(TESTS) $(OBJS) cunit_test_driver.o
 	$(CC) -o $@ $^ $(INC) $(LDFLAGS)
 
-report :
+%.o : $(SRCDIR)/%.c
+	$(CC) -c $^ -o $@ $(INC)
+%.o : $(TESTDIR)/%.c
+	$(CC) -c $< -o $@ $(INC)
+
+.PHONY : xunit-report
+xunit-report :
 	xsltproc -novalid cunit-to-junit.xsl CUnitAutomated-Results.xml > TestResults.xml
 
-.PHONY : runtests
-runtests : tests
+.PHONY : test
+test : tests
 	./$<
 
 .PHONY : all
-all : fibonacci tests
+all : fibonacci test
 
 .PHONY : clean
 clean :

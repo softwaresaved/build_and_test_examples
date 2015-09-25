@@ -9,15 +9,15 @@ Jenkins can build and run C code, either directly or via make. It can also run C
 * Click OK.
 * On the configuration page, under the Advanced Project Options heading, click Advanced ...
 * Select Use custom workspace.
-* Enter the directory with your shell script e.g. `/home/user/build_and_test_examples/c`.
+* Enter the directory with your shell script e.g. `$HOME/build_and_test_examples/c`.
 * Scroll down the page to under the Build heading, and click Add build step and select Execute shell.
 * Enter the commands that builds the code and tests and runs the tests e.g.:
 
 ```
-export C_INCLUDE_PATH=/home/user/include:$C_INCLUDE_PATH
-export LIBRARY_PATH=/home/user/lib:$LIBRARY_PATH
-export LD_LIBRARY_PATH=/home/user/lib:$LD_LIBRARY_PATH
-make runtests
+export C_INCLUDE_PATH=$HOME/include:$C_INCLUDE_PATH
+export LIBRARY_PATH=$HOME/lib:$LIBRARY_PATH
+export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH
+make test
 ```
 
 * Here, we need to set the paths to include the locations of CUnit include files and libraries.
@@ -39,7 +39,7 @@ C unit tests written using CUnit output an XML file, `CUnitAutomated-Results.xml
 * Under the Build heading, click in the Command area and, after the commands there, add the line:
 
 ```
-make report
+make xunit-report
 ```
 
 * Under the Post-build Actions heading, click Add post-build action.
