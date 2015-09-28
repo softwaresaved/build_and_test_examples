@@ -64,5 +64,5 @@ How Jenkins behaves when there are errors
 * Click Build Now.
 * This time the ball in the Build History table should be yellow. This means the build is unstable. Jenkins [defines](https://wiki.jenkins-ci.org/display/JENKINS/Terminology) a build as unstable if it was built successfully but a test result publisher has noted that a test has failed. While CUnit returns an exit code 0f 0, indicating success, Jenkins executes our post-build action to parse the test results file and so detects the test failures.
 * Click the job link.
-* Clic the Test Result link and you can browse to see the individual test functions that failed. Remember, too that the console output is always available via the Console Output link.
+* Click the Test Result link and you can browse to see the individual test functions that failed. Remember, too that the console output is always available via the Console Output link.
 * Click Back to project then Back to dashboard.

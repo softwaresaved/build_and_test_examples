@@ -21,7 +21,7 @@ export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH
 make test
 ```
 
-* This sets paths to include the locations of CppUnit and googletest include files and libraries. It also builds and runs the CppUnit unit tests.
+* This sets paths to include the locations of CppUnit and googletest include files and libraries.
 * Click Save.
 * On the new page that appears, click Build Now.
 * You should see a new job scheduled in the Build History table.
