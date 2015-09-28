@@ -54,7 +54,7 @@ nosetests --with-xunit
 * Click Save.
 * Under the Post-build Actions heading, click Add post-build action.
 * Select Publish JUnit test result report.
-* In the Test report XMLs field enter location of the test report XML document name e.g. `python/nosetests.xml`.
+* In the Test report XMLs field, enter the location of the test report XML file e.g. `python/nosetests.xml`.
 * Click Save.
 * Click Build Now.
 * When the job completes, click on the job's link in the Build History table.
