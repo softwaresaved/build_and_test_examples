@@ -6,9 +6,9 @@ This page provides a brief introduction to installing Jenkins. For full informat
 Prerequisites
 -------------
 
-**Java 1.5+ JDK and JRE**:
+**Java JDK and JRE**:
 
-To check if it is installed already:
+To check if Java JDK and JRE are installed already:
 
 ```
 $ javac -version
@@ -20,12 +20,7 @@ OpenJDK Runtime Environment (IcedTea6 1.11.3) (6b24-1.11.3-1ubuntu0.11.04.1)
 OpenJDK Client VM (build 20.0-b12, mixed mode, sharing)
 ```
 
-If not, then see:
-
-* [Oracle Java](http://www.oracle.com/technetwork/java/javase/overview/index.html).
-* [OpenJDK Java](http://openjdk.java.net/).
-
-Output may vary depending on the Java implementation:
+Output may vary depending on the Java implementation e.g. for Oracle:
 
 ```
 $ javac -version
@@ -36,6 +31,11 @@ java version "1.7.0_60"
 Java(TM) SE Runtime Environment (build 1.7.0_60-b19)
 Java HotSpot(TM) 64-Bit Server VM (build 24.60-b09, mixed mode)
 ```
+
+If Java JDK and JRE are not installed, then see one of:
+
+* [Oracle Java](http://www.oracle.com/technetwork/java/javase/overview/index.html).
+* [OpenJDK Java](http://openjdk.java.net/).
 
 Download Jenkins
 ----------------
@@ -54,23 +54,19 @@ To see which version of Jenkins you have, run:
 $ java -jar jenkins.war --version
 Running from: $HOME/jenkins.war
 webroot: $user.home/.jenkins
-1.57a4
+1.631
 ```
 
 Deploy Jenkins
 --------------
 
-Jenkins is provided as a web archive, WAR file, `jenkins.war`.
-
-Jenkins can be deployed into a servlet container e.g. [Apache Tomcat](http://tomcat.apache.org/). 
-
-Jenkins can also be used stand-alone. So, to start up Jenkins run:
+Jenkins is provided as a web archive, WAR file, `jenkins.war`. It can be deployed into a servlet container e.g. [Apache Tomcat](http://tomcat.apache.org/). However, it also comes with its own web server and can be used stand-alone. So, to start up Jenkins run:
 
 ```
 $ java -jar jenkins.war
 ```
 
-This uses a default configuration file directory of `.jenkins`. If you're unhappy with this then move `.jenkins` to the location you prefer and set a `JENKINS_HOME` environment variable to point to this location e.g.
+This uses a default configuration file directory of `.jenkins`. If you are unhappy with this, or want to use a different directory, then move `.jenkins` to the location you prefer and set a `JENKINS_HOME` environment variable to point to this location e.g.
 
 ```
 $ mv .jenkins $HOME/jenkins-config
@@ -92,10 +88,8 @@ $ java -jar jenkins.war --help
 View Jenkins
 ------------
 
-Once Jenkins has started, browse to the URL and port which you started Jenkins with.
+Once Jenkins has started, browse to the URL and port which you started Jenkins with. For example, if you started Jenkins stand-alone with the default port then browse to http://localhost:8080.
 
-For example, if you started Jenkins stand-alone with the default port then browse to http://localhost:8080
-
-If you specified another port e.g. `9090`, then browse to http://localhost:9090
+If you specified another port e.g. `9090`, then browse to http://localhost:9090.
 
 You should see the Jenkins front page.
