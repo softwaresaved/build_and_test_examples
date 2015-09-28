@@ -8,13 +8,22 @@ Create a Mercurial repository
 
 If you don't have one already, create a Mercurial repository based on our Python examples in `$HOME/build_and_test_examples/python`:
 
+Create a Mercurial configuration file, `~/.hgrc` with content:
+
 ```
-$ mkdir mercurial
-$ cd mercurial
-$ cp -r $HOME/build_and_test_examples/python .
+[ui]
+username = Your name <your@email.address>
+```
+
+Run:
+
+```
+$ cp -r build_and_test_examples/python python-hg
+$ cd python-hg
+$ rm -f nosetests.xml *.pyc */*.pyc .gitignore 
 $ hg init
-$ hg add python
-$ hg commit -m "Initial import"
+$ hg add .
+$ hg commit -m "Initial import" .
 ```
 
 Install the Mercurial plug-in

@@ -10,9 +10,10 @@ If you don't have one already, create a CVS repository based on our Python examp
 
 ```
 $ cvs -d $HOME/CVSROOT init
-$ cd $HOME/build_and_test_examples/python
-$ cvs -d $HOME/CVSROOT/ import -m "Initial Import" python vendor-tag release-tag
-```
+$ cp -r build_and_test_examples/python python
+$ cd python/
+$ rm -f nosetests.xml *.pyc */*.pyc .gitignore 
+$ cvs -d $HOME/CVSROOT import -m "Initial import" . vendor-tag release-tag
 
 Create a job that checks out the repository and runs a job
 ----------------------------------------------------------
@@ -28,20 +29,24 @@ Now, let's create a job to check out the repository and run `nosetests`:
 * Enter:
  * CVSROOT: `/home/user/CVSROOT`
  * Module(s): `python`
-* Scroll down the page to under the Build heading, click Add build step and select Execute shell.
-* Enter:
+
+
+* Scroll down the page to under the Build heading.
+* Click Add build step and select Execute shell.
+* Enter the commands that run the tests using nosetests:
 
 ```
 nosetests --with-xunit
 ```
 
-* Click Save.
 * Under the Post-build Actions heading, click Add post-build action.
 * Select Publish JUnit test result report.
-* In the Test report XMLs field, enter the location of the test report XML file e.g. `nosetests.xml`.
+* In the Test report XMLs field enter the location of the test report XML file e.g. `nosetests.xml`.
+* If you get a warning that `nosetests.xml doesn't match anything` you can ignore this as the file hasn't been created yet.
 * Click Save.
 * Click Build Now.
 * When the job completes, click on the job's link in the Build History table.
+
 * Now click on Console Output and you should see the commands that check the repository out.
 
 Though we are using a local repository here Jenkins can be used with remote repositories whether these be hosted on your own servers or in a hosting environment such as SourceForge, GoogleCode, GitHub or BitBucket. 

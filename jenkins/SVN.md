@@ -9,9 +9,11 @@ Create a Subversion repository
 If you don't have one already, create a Subversion repository based on our Python examples in `$HOME/build_and_test_examples/python`:
 
 ```
-$ svnadmin create $HOME/svn-repository
-$ cd $HOME/build_and_test_examples/python
-$ svn import file://$HOME/svn-repository/python -m "Initial import"
+$ svnadmin create $HOME/SVNROOT
+$ cp -r build_and_test_examples/python python
+$ cd python/
+$ rm -f nosetests.xml *.pyc */*.pyc .gitignore 
+$ svn import file://$HOME/SVNROOT/example -m "Initial import"
 ```
 
 Create a job that checks out the repository and runs a job

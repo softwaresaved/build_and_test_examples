@@ -6,16 +6,26 @@ Jenkins can be configured to detect and respond to changes made to code or files
 Create a Git repository
 -----------------------
 
-If you don't have one already, create a Git repository based on our Python examples in `$HOME/build_and_test_examples/python`:
+Create a Git repository based on our Python examples in `$HOME/build_and_test_examples/python`:
 
 ```
-$ mkdir git
-$ cd git
-$ cp -r $HOME/build_and_test_examples/python .
+$ cp -r build_and_test_examples/python python-git
+$ cd python-git
+$ rm -f nosetests.xml *.pyc */*.pyc .gitignore 
 $ git init
-$ git add python
-$ git commit -m "Initial import"
-$ rm -rf python
+$ git config --global user.name "Your name"
+$ git config --global user.email your@email.address
+$ git add .
+$ git commit -m "Initial import" .
+```
+
+Needed?
+Needed?
+Needed?
+
+```
+$ rm *py *md
+$ rm -rf src test
 $ git config --bool core.bare true
 ```
 
