@@ -48,7 +48,7 @@ make xunit-report
 
 * Under the Post-build Actions heading, click Add post-build action.
 * Select Publish JUnit test result report.
-* In the Test report XMLs field enter location of the test report XML document name e.g. `TestResults.xml`.
+* In the Test report XMLs field. enter the location of the test report XML file e.g. `TestResults.xml`.
 * If you get a warning that `TestResults.xml doesn't match anything` you can ignore this as the file hasn't been created yet.
 * Click Save.
 * Click Build Now.
@@ -62,7 +62,7 @@ How Jenkins behaves when there are errors
 * Edit your code or tests so a test fails e.g. edit `src/fibonacci.c` to always return `1`.
 * Click Back to Project.
 * Click Build Now.
-* This time the ball in the Build History table should be yellow. This means the build is unstable. Jenkins [defines](https://wiki.jenkins-ci.org/display/JENKINS/Terminology) a build as unstable if it was built successfully but a test result publisher has noted that a test has failed. While CUnit returns an exit code 0f 0, indicating success, Jenkins executes our post-build action to parse the test results file and so detects the test failures.
+* This time the ball in the Build History table should be yellow. This means the build is unstable. Jenkins [defines](https://wiki.jenkins-ci.org/display/JENKINS/Terminology) a build as unstable if it was built successfully but a test result publisher has noted that a test has failed. While CUnit returns an exit code of 0, indicating success, Jenkins executes our post-build action to parse the test results file and so detects the test failures.
 * Click the job link.
 * Click the Test Result link and you can browse to see the individual test functions that failed. Remember, too that the console output is always available via the Console Output link.
 * Click Back to project then Back to dashboard.

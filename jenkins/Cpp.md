@@ -65,7 +65,7 @@ make googletest
 
 * Under the Post-build Actions heading, click Add post-build action.
 * Select Publish JUnit test result report.
-* In the Test report XMLs field enter location of the test report XML document name e.g. `TestResults.xml`.
+* In the Test report XMLs field, enter the location of the test report XML file e.g. `TestResults.xml`.
 * If you get a warning that `TestResults.xml doesn't match anything` you can ignore this as the file hasn't been created yet.
 * Click Save.
 * Click Build Now.
