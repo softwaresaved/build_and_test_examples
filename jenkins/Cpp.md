@@ -37,8 +37,7 @@ How Jenkins behaves when there are errors
 -----------------------------------------
 
 * Edit your code or tests so a test fails e.g. edit `src/fibonacci.h` to always return `1`.
-* Click Back to Project.
-* Click Build Now.
+* Click the green *run* icon by Cpp job.
 * This time the ball in the Build History table should be red. This means the build failed. This is because CppUnit returns an exit code of 1 when the tests fail. 
 * Click the job link.
 * Click Console Output and you should see the output from the command-line, including the reason for the failure.
