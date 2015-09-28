@@ -13,24 +13,22 @@ $ cvs -d $HOME/CVSROOT init
 $ cp -r build_and_test_examples/python python
 $ cd python/
 $ rm -f nosetests.xml *.pyc */*.pyc .gitignore 
-$ cvs -d $HOME/CVSROOT import -m "Initial import" . vendor-tag release-tag
+$ cvs -d $HOME/CVSROOT import -m "Initial import" python vendor-tag release-tag
 
 Create a job that checks out the repository and runs a job
 ----------------------------------------------------------
 
 Now, let's create a job to check out the repository and run `nosetests`:
 
-* On the Jenkins front-page, click New Item.
-* Enter a name in the Item name field e.g. `Python CVS job`.
-* Select Build a free-style software project.
+* On the Jenkins front page, click New Item.
+* Enter a name in the Item name field e.g. `CVS job`.
+* Select Freestyle software project.
 * Click OK.
-* A configuration page will appear.
-* Under Source Code Management, select CVS.
+* On the configuration page, under Source Code Management, select CVS.
 * Enter:
- * CVSROOT: `/home/user/CVSROOT`
- * Module(s): `python`
-
-
+ * CVSROOT: `$HOME/CVSROOT`
+ * Location: Head
+ * Modules Remote Name: `python`
 * Scroll down the page to under the Build heading.
 * Click Add build step and select Execute shell.
 * Enter the commands that run the tests using nosetests:
@@ -46,14 +44,13 @@ nosetests --with-xunit
 * Click Save.
 * Click Build Now.
 * When the job completes, click on the job's link in the Build History table.
+* Click on Console Output and you should see the commands that check the repository out.
 
-* Now click on Console Output and you should see the commands that check the repository out.
+Though we are using a local repository, Jenkins can be used with remote repositories whether these be hosted on your own servers or on a third-party service.
 
-Though we are using a local repository here Jenkins can be used with remote repositories whether these be hosted on your own servers or in a hosting environment such as SourceForge, GoogleCode, GitHub or BitBucket. 
+Jenkins provides a lot of control over what is checked out from the repository e.g. modules, directories, branches or tags, and usernames/passwords or other credentials used to authenticate with the repository etc.
 
-Likewise, Jenkins provides a lot of control over what is checked out from the repository e.g. modules, directories, branches or tags, and usernames/passwords or other credentials used to authenticate with the repository etc
-
-Configure a job to poll CVS
+Configure a job to poll CVS - TODO
 ---------------------------
 
 Now we could configure the job to run periodically e.g. every 5 minutes. The checked out repository would be updated and the code rebuilt and run. 

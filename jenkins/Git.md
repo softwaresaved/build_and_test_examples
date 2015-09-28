@@ -19,22 +19,12 @@ $ git add .
 $ git commit -m "Initial import" .
 ```
 
-Needed?
-Needed?
-Needed?
-
-```
-$ rm *py *md
-$ rm -rf src test
-$ git config --bool core.bare true
-```
-
 Install the Git plug-in
 -----------------------
 
 To use Git requires installing a Jenkins plug-in:
 
-* On the Jenkins front-page, click Manage Jenkins.
+* On the Jenkins front page, click Manage Jenkins.
 * Click Manage Plugins.
 * Click the Available tab.
 * In the Filter field, enter `git plugin`.
@@ -46,37 +36,36 @@ Create a job that checks out the repository and runs a job
 
 Now, let's create a job to check out the repository and run `nosetests`:
 
-* On the Jenkins front-page, click New Item.
-* Enter a name in the Item name field e.g. `Python Git job`.
-* Select Build a free-style software project.
+* On the Jenkins front page, click New Item.
+* Enter a name in the Item name field e.g. `Git job`.
+* Select Freestyle software project.
 * Click OK.
-* A configuration page will appear.
-* Under Source Code Management, select Git.
+* On the configuration page, under Source Code Management, select Mercurial.
 * Enter:
- * Repository URL: `file:///home/user/git`. 
- * This is the URL you'd use in a `git clone` command
-* Scroll down the page to under the Build heading, click Add build step and select Execute shell.
-* Enter:
+ * Repository URL: `file://$HOME/python-git`.
+ * This is the URL you'd use in a `gitclone` command
+* Scroll down the page to under the Build heading.
+* Click Add build step and select Execute shell.
+* Enter the commands that run the tests using nosetests:
 
 ```
-cd python
 nosetests --with-xunit
 ```
 
-* Click Save.
 * Under the Post-build Actions heading, click Add post-build action.
 * Select Publish JUnit test result report.
-* In the Test report XMLs field, enter the location of the test report XML file e.g. `python/nosetests.xml`.
+* In the Test report XMLs field enter the location of the test report XML file e.g. `nosetests.xml`.
+* If you get a warning that `nosetests.xml doesn't match anything` you can ignore this as the file hasn't been created yet.
 * Click Save.
 * Click Build Now.
 * When the job completes, click on the job's link in the Build History table.
-* Now click on Console Output and you should see the commands that check the repository out.
+* Click on Console Output and you should see the commands that check the repository out.
 
-Though we are using a local repository here Jenkins can be used with remote repositories whether these be hosted on your own servers or in a hosting environment such as SourceForge, GoogleCode, GitHub or BitBucket. 
+Though we are using a local repository, Jenkins can be used with remote repositories whether these be hosted on your own servers or on a third-party service.
 
-Likewise, Jenkins provides a lot of control over what is checked out from the repository e.g. modules, directories, branches or tags, and usernames/passwords or other credentials used to authenticate with the repository etc
+Jenkins provides a lot of control over what is checked out from the repository e.g. modules, directories, branches or tags, and usernames/passwords or other credentials used to authenticate with the repository etc.
 
-Configure a job to poll Git
+Configure a job to poll Git TODO
 ---------------------------
 
 Now we could configure the job to run periodically e.g. every 5 minutes. The checked out repository would be updated and the code rebuilt and run. 
