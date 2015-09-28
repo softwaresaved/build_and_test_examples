@@ -6,14 +6,14 @@ Prerequisites
 
 **gcc**:
 
-To check if gcc is installed already:
+To check if `gcc` is installed already:
 
 ```
 $ gcc -v
 gcc version 4.4.7 20120313 (Red Hat 4.4.7-3) (GCC) 
 ```
 
-**CUnit - C test framework**:
+**CUnit test framework**:
 
 To download, build and install see [CUnit](http://cunit.sourceforge.net/). The following provides a quick summary of the key steps to build and install CUnit in your home directory:
 
@@ -38,11 +38,9 @@ $ export LIBRARY_PATH=$HOME/lib:$LIBRARY_PATH
 $ export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH
 ```
 
-2.1-2 is the version the code has been tested against. Other versions may also be OK.
+**xsltproc XSLT processor**:
 
-**xsltproc - XSLT processor**:
-
-To check if xsltproc is installed already:
+To check if `xsltproc` is installed already:
 
 ```
 $ xsltproc -version
@@ -75,6 +73,7 @@ Run:
 
 ```
 $ ./fibonacci 30
+fibonacci(30) = 832040
 ```
 
 Compile and run tests and view XML test report:

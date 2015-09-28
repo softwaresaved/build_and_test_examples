@@ -25,7 +25,7 @@ TESTS=fibonacci_cunit_test.o
 fibonacci: $(OBJS) fibonacci_program.o
 	$(CC) -o $@ $^ $(INC)
 
-tests: $(TESTS) $(OBJS) cunit_test_driver.o
+fibonacci-tests: $(TESTS) $(OBJS) cunit_test_driver.o
 	$(CC) -o $@ $^ $(INC) $(LDFLAGS)
 
 %.o : $(SRCDIR)/%.c
@@ -38,7 +38,7 @@ xunit-report :
 	xsltproc -novalid cunit-to-junit.xsl CUnitAutomated-Results.xml > TestResults.xml
 
 .PHONY : test
-test : tests
+test : fibonacci-tests
 	./$<
 
 .PHONY : all
@@ -47,7 +47,7 @@ all : fibonacci test
 .PHONY : clean
 clean :
 	rm -f fibonacci
-	rm -f tests
+	rm -f fibonacci-tests
 	rm -f CUnit*.xml
 	rm -f TestResults.xml
 	rm -f *.o
