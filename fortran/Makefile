@@ -26,7 +26,7 @@ FRUITS=fruit_util.o fruit.o
 fibonacci : $(OBJS) fibonacci_program.o
 	$(FORTRAN) $(FLAGS) $^ -o $@
 
-tests : $(FRUITS) $(OBJS) $(TESTS)
+fibonacci-tests : $(FRUITS) $(OBJS) $(TESTS)
 	$(FORTRAN) $(FLAGS) $^ -o $@
 
 %.o : $(SRCDIR)/%.f90
@@ -39,7 +39,7 @@ tests : $(FRUITS) $(OBJS) $(TESTS)
 	$(FORTRAN) $(FLAGS) -c $< -o $@
 
 .PHONY : test
-test : tests
+test : fibonacci-tests
 	./$<
 
 .PHONY : all
@@ -48,7 +48,7 @@ all : fibonacci test
 .PHONY : clean
 clean :
 	rm -f fibonacci
-	rm -f tests
+	rm -f fibonacci-tests
 	rm -f result*.xml
 	rm -f *.mod 
 	rm -f *.o
