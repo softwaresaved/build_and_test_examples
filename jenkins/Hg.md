@@ -6,12 +6,12 @@ Jenkins can be configured to detect and respond to changes made to code or files
 Create a Mercurial repository
 -----------------------------
 
-If you don't have one already, create a Mercurial repository based on our Python examples in `/home/user/build_and_test_examples/python`:
+If you don't have one already, create a Mercurial repository based on our Python examples in `$HOME/build_and_test_examples/python`:
 
 ```
 $ mkdir mercurial
 $ cd mercurial
-$ cp -r /home/user/build_and_test_examples/python .
+$ cp -r $HOME/build_and_test_examples/python .
 $ hg init
 $ hg add python
 $ hg commit -m "Initial import"
@@ -83,12 +83,12 @@ We can configure Mercurial with a script that, when Mercurial changes, pings a J
 
 Mercurial has an `hgrc` file with a `hooks` section which contains commands that are invoked when changes to to the repository are committed. You can update this to invoke a script when anything changes as follows:
 
- * Create an `hgrc` file, or edit it if one exists, in your Mercurial repository's `.hg` directory (e.g. `/home/user/mercurial/.hg`), and add:
+ * Create an `hgrc` file, or edit it if one exists, in your Mercurial repository's `.hg` directory (e.g. `$HOME/mercurial/.hg`), and add:
 
 ```
 [hooks]
-commit.jenkins = wget -q http://localhost:8080/mercurial/notifyCommit?url=file:///home/user/mercurial > /dev/null
-incoming.jenkins = wget -q http://localhost:8080/mercurial/notifyCommit?url=file:///home/user/mercurial > /dev/null
+commit.jenkins = wget -q http://localhost:8080/mercurial/notifyCommit?url=file://$HOME/mercurial > /dev/null
+incoming.jenkins = wget -q http://localhost:8080/mercurial/notifyCommit?url=file://$HOME/mercurial > /dev/null
 ```
 
 Check notifications work
@@ -97,7 +97,7 @@ Check notifications work
 * Check out your Python code:
 
 ```
-$ hg clone file:///home/user/mercurial mercurial-checkout
+$ hg clone file://$HOME/mercurial mercurial-checkout
 $ cd mercurial-checkout/python
 ```
 

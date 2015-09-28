@@ -52,7 +52,7 @@ To see which version of Jenkins you have, run:
 
 ```
 $ java -jar jenkins.war --version
-Running from: /home/user/jenkins.war
+Running from: $HOME/jenkins.war
 webroot: $user.home/.jenkins
 1.57a4
 ```
@@ -73,8 +73,8 @@ $ java -jar jenkins.war
 This uses a default configuration file directory of `.jenkins`. If you're unhappy with this then move `.jenkins` to the location you prefer and set a `JENKINS_HOME` environment variable to point to this location e.g.
 
 ```
-$ mv .jenkins /home/user/jenkins-config
-$ export JENKINS_HOME=/home/user/jenkins-config
+$ mv .jenkins $HOME/jenkins-config
+$ export JENKINS_HOME=$HOME/jenkins-config
 ```
 
 Jenkins uses the default port of 8080. To use a different port, run:

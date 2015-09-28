@@ -6,12 +6,12 @@ Jenkins can be configured to detect and respond to changes made to code or files
 Create a Subversion repository
 ------------------------------
 
-If you don't have one already, create a Subversion repository based on our Python examples in `/home/user/build_and_test_examples/python`:
+If you don't have one already, create a Subversion repository based on our Python examples in `$HOME/build_and_test_examples/python`:
 
 ```
-$ svnadmin create /home/user/svn-repository
-$ cd /home/user/build_and_test_examples/python
-$ svn import file:///home/user/svn-repository/python -m "Initial import"
+$ svnadmin create $HOME/svn-repository
+$ cd $HOME/build_and_test_examples/python
+$ svn import file://$HOME/svn-repository/python -m "Initial import"
 ```
 
 Create a job that checks out the repository and runs a job
@@ -67,7 +67,7 @@ We can configure Subversion with a script that, when Subversion changes, pings a
 
 Subversion has a `hooks` directory which can hold a `post-commit` file, which contains commands that are invoked when changes to to the repository are committed. You can update this to invoke a script when anything changes as follows:
 
- * Create a `post-commit` file, or edit it if one exists, in your Subversion repository's `hooks/` directory (e.g. `/home/user/svn-repository/hooks`), and add:
+ * Create a `post-commit` file, or edit it if one exists, in your Subversion repository's `hooks/` directory (e.g. `$HOME/svn-repository/hooks`), and add:
 
 ```
 #!/bin/bash
@@ -86,7 +86,7 @@ exit 0
 * Set this to be executable:
 
 ```
-$ chmod +x /home/user/svn-repository/hooks/post-commit
+$ chmod +x $HOME/svn-repository/hooks/post-commit
 ```
 
 Check notifications work
@@ -97,7 +97,7 @@ Check notifications work
 ```
 $ mkdir svn-checkout
 $ cd svn-checkout
-$ svn co file:///home/user/svn-repository/python
+$ svn co file://$HOME/svn-repository/python
 $ cd python
 ```
 

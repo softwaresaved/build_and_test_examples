@@ -6,12 +6,12 @@ Jenkins can be configured to detect and respond to changes made to code or files
 Create a Git repository
 -----------------------
 
-If you don't have one already, create a Git repository based on our Python examples in `/home/user/build_and_test_examples/python`:
+If you don't have one already, create a Git repository based on our Python examples in `$HOME/build_and_test_examples/python`:
 
 ```
 $ mkdir git
 $ cd git
-$ cp -r /home/user/build_and_test_examples/python .
+$ cp -r $HOME/build_and_test_examples/python .
 $ git init
 $ git add python
 $ git commit -m "Initial import"
@@ -85,18 +85,18 @@ We can configure Git with a script that, when Git changes, pings a Jenkins URL t
 
 Git has a `hooks` directory which can hold a `post-commit` and a `post-receive` file, which contains commands that are invoked when changes to to the repository are committed or are pushed. You can update this to invoke a script when anything changes as follows:
 
-* Create a `post-commit` file, or edit it if one exists, in your Git repository's `hooks/` directory (e.g. `/home/user/git/.git/hooks`), and add:
+* Create a `post-commit` file, or edit it if one exists, in your Git repository's `hooks/` directory (e.g. `$HOME/git/.git/hooks`), and add:
 
 ```
 #!/bin/bash
-wget http://localhost:8080/git/notifyCommit?url=file:///home/user/git > /dev/null
+wget http://localhost:8080/git/notifyCommit?url=file://$HOME/git > /dev/null
 exit 0
 ```
 
 * Set this to be executable:
 
 ```
-$ chmod +x /home/user/git/.git/hooks/post-commit
+$ chmod +x $HOME/git/.git/hooks/post-commit
 ```
 
 * Now, repeat the above to create, or edit, a `post-receive` file.
@@ -107,7 +107,7 @@ Check notifications work
 * Check out your Python code:
 
 ```
-$ git clone file:///home/user/git git-checkout
+$ git clone file://$HOME/git git-checkout
 $ cd git-checkout/python
 ```
 

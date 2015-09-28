@@ -6,12 +6,12 @@ Jenkins can be configured to detect and respond to changes made to code or files
 Create a CVS repository
 -----------------------
 
-If you don't have one already, create a CVS repository based on our Python examples in `/home/user/build_and_test_examples/python`:
+If you don't have one already, create a CVS repository based on our Python examples in `$HOME/build_and_test_examples/python`:
 
 ```
-$ cvs -d /home/user/CVSROOT init
-$ cd /home/user/build_and_test_examples/python
-$ cvs -d /home/user/CVSROOT/ import -m "Initial Import" python vendor-tag release-tag
+$ cvs -d $HOME/CVSROOT init
+$ cd $HOME/build_and_test_examples/python
+$ cvs -d $HOME/CVSROOT/ import -m "Initial Import" python vendor-tag release-tag
 ```
 
 Create a job that checks out the repository and runs a job
@@ -67,7 +67,7 @@ We can configure CVS with a script that, when CVS changes, pings a Jenkins URL t
 
 CVS has a `loginfo` file which contains commands that are invoked when changes to to the repository are committed. You can update this to invoke a script when anything changes as follows:
 
-* Create a script `/home/user/cvs-notify-jenkins.sh` with the content:
+* Create a script `$HOME/cvs-notify-jenkins.sh` with the content:
 
 ```
 #!/bin/bash
@@ -77,7 +77,7 @@ wget "http://localhost:8080/job/Python%20CVS%20job/build?token=CVS-BUILD"
 * Set this to be executable:
 
 ```
-$ chmod +x /home/user/cvs-notify-jenkins.sh
+$ chmod +x $HOME/cvs-notify-jenkins.sh
 ```
 
 * Now, check out the repository configuration files:
@@ -85,14 +85,14 @@ $ chmod +x /home/user/cvs-notify-jenkins.sh
 ```
 $ mkdir cvs-root-checkout
 $ cd cvs-root-checkout/
-$ cvs -d /home/user/CVSROOT co CVSROOT
+$ cvs -d $HOME/CVSROOT co CVSROOT
 $ cd CVSROOT
 ```
 
 * Edit `loginfo` and add a line:
 
 ```
-ALL /home/user/cvs-notify-jenkins.sh
+ALL $HOME/cvs-notify-jenkins.sh
 ```
 
 * Now commit:
@@ -107,10 +107,10 @@ Check notifications work
 * Check out your Python code:
 
 ```
-$ cd /home/user
+$ cd $HOME
 $ mkdir cvs-checkout
 $ cd cvs-checkout
-$ cvs -d /home/user/CVSROOT/ co python
+$ cvs -d $HOME/CVSROOT/ co python
 $ cd python
 ```
 

@@ -152,7 +152,7 @@ See CppUnit [support request 53](http://sourceforge.net/p/cppunit/support-reques
 ```
 $ cd ~/bin
 $ ./cppunit-config --cflags
--I/home/user/include
+-I$HOME/include
 $ ./cppunit-config --libs
--L/home/user/lib -lcppunit -ldl
+-L$HOME/lib -lcppunit -ldl
 ```

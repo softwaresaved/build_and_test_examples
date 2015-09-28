@@ -49,7 +49,7 @@ If not, then see [Apache ANT](http://ant.apache.org/bindownload.cgi).
 After installing ensure ANT is in your path e.g.
 
 ```
-$ export PATH=/home/user/apache-ant-1.7.1/bin:$PATH
+$ export PATH=$HOME/apache-ant-1.7.1/bin:$PATH
 ```
 
 **JUnit 4.10+**:
