@@ -14,5 +14,6 @@ Usage
 Run:
 
 ```
-$ ./fibonacci.sh 20
+$ ./fibonacci.sh 30
+fibonacci 30 = 832040
 ```
