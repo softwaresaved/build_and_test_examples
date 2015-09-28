@@ -3,6 +3,8 @@ Getting started with Jenkins
 
 [Jenkins](http://jenkins-ci.org) is a popular, open source [continuous integration](http://en.wikipedia.org/wiki/Continuous_Integration) server. In these pages we provide an introduction to Jenkins and how it can be used to automate the building and testing of software. We also show how Jenkins build-and-test jobs can be triggered by changes to code held in popular source code repositories including Git, Mercurial, Subversion and CVS.
 
+This is not intended to be a complete introduction to everything that Jenkins offers. Rather, it is hoped that it will serve to get you started, helping you through your first 20 minutes of using Jenkins, to give an idea as to its potential and usefulness.
+
 Install and deploy Jenkins
 --------------------------
 
@@ -19,7 +21,7 @@ Use Jenkins to run build-and-test jobs for various languages
 * [Create a Jenkins Python job](./Python.md)
 * [Create a Jenkins C job](./C.md)
 * [Create a Jenkins C++ job](./Cpp.md)
-* [Create a Jenkins FORTRAN job](./Fortran.md)
+* [Create a Jenkins Fortran job](./Fortran.md)
 * [Create a Jenkins Java job](./Java.md)
 
 Use Jenkins to run jobs periodically

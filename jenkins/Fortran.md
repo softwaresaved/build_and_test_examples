@@ -1,10 +1,10 @@
-Create a Jenkins FORTRAN job
+Create a Jenkins Fortran job
 ============================
 
-Jenkins can build and run FORTRAN code, either directly or via make. It can also run FORTRAN unit tests, for example written in FRUIT, again directly or via make, and report on the success or failure of tests.
+Jenkins can build and run Fortran code, either directly or via make. It can also run Fortran unit tests, for example written in FRUIT, again directly or via make, and report on the success or failure of tests.
 
 * On the Jenkins front-page, click New Item.
-* Enter a name in the Item name field e.g. `FORTRAN job`.
+* Enter a name in the Item name field e.g. `Fortran job`.
 * Select Build a free-style software project.
 * Click OK.
 * On the configuration page, under the Advanced Project Options heading, click Advanced ...
@@ -29,7 +29,7 @@ make test
 Publish test results
 --------------------
 
-FORTRAN unit tests written using FRUIT can output test results in xUnit-compliant XML. By default this file is called `result.xml`. Jenkins can then parse and present this information in a more useful way. So:
+Fortran unit tests written using FRUIT can output test results in xUnit-compliant XML. By default this file is called `result.xml`. Jenkins can then parse and present this information in a more useful way. So:
 
 * Click Configure.
 * Under the Post-build Actions heading, click Add post-build action.
@@ -40,7 +40,7 @@ FORTRAN unit tests written using FRUIT can output test results in xUnit-complian
 * Click Build Now.
 * When the job completes, click on the job's link in the Build History table.
 * Now on the build results page for that job, there is a Test Result which should also say (no failures).
-* Click on the Test Result link and you can browse the test results. These are hierarchically organised by FORTRAN source file and function/sub-routine name.
+* Click on the Test Result link and you can browse the test results. These are hierarchically organised by Fortran source file and function/sub-routine name.
 * If you like, edit your code or tests so a test fails e.g. edit `src/fibonacci.f90` to always return `1`.
 * Now click Back to Project.
 * Click Build Now.
