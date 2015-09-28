@@ -28,10 +28,10 @@ GOOGLETESTS=fibonacci_google_test.o
 fibonacci: fibonacci_program.o
 	$(CXX) -o $@ $^ $(INC)
 
-cppunittests: $(CPPUNITTESTS) cppunit_test_driver.o
+fibonacci-cppunittests: $(CPPUNITTESTS) cppunit_test_driver.o
 	$(CXX) -o $@ $^ $(INC) $(CPPUNITLDFLAGS)
 
-googletests: $(GOOGLETESTS)
+fibonacci-googletests: $(GOOGLETESTS)
 	$(CXX) -o $@ $^ $(INC) $(GOOGLELDFLAGS)
 
 %.o : $(SRCDIR)/%.cc
@@ -40,11 +40,11 @@ googletests: $(GOOGLETESTS)
 	$(CXX) -c $< -o $@ $(INC)
 
 .PHONY : test
-test : cppunittests
+test : fibonacci-cppunittests
 	./$<
 
 .PHONY : googletest
-googletest : googletests
+googletest : fibonacci-googletests
 	./$< --gtest_output="xml:TestResults.xml"
 
 .PHONY : all
@@ -53,8 +53,8 @@ all : fibonacci test googletest
 .PHONY : clean
 clean :
 	rm -f fibonacci
-	rm -f cppunittests
-	rm -f googletests
+	rm -f fibonacci-cppunittests
+	rm -f fibonacci-googletests
 	rm -f TestResults.xml
 	rm -f *.o
 	rm -f *~

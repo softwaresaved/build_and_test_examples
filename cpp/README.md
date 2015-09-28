@@ -6,7 +6,7 @@ Prerequisites
 
 **c++**:
 
-To check if gcc's c++ is installed already:
+To check if `c++` is installed already:
 
 ```
 
@@ -14,7 +14,7 @@ $ c++ -v
 gcc version 4.4.7 20120313 (Red Hat 4.4.7-3) (GCC) 
 ```
 
-**CppUnit - C++ test framework**:
+**CppUnit test framework**:
 
 To download, build and install see [CppUnit](http://www.freedesktop.org/wiki/Software/cppunit/). The following provides a quick summary of the key steps to build and install CppUnit in your home directory:
 
@@ -49,11 +49,9 @@ $ export LIBRARY_PATH=$HOME/lib:$LIBRARY_PATH
 $ export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH
 ```
 
-1.13.2 is the version the code has been tested against. Other versions may also be OK.
+**googletest test framework**:
 
-**googletest 1.7.0**:
-
-To download, build and install see [googletest](https://code.google.com/p/googletest/).  The following provides a quick summary of the key steps to build and install googletest in your home directory:
+To download, build and install see [googletest](https://code.google.com/p/googletest/). The following provides a quick summary of the key steps to build and install googletest in your home directory:
 
 ```
 $ wget https://googletest.googlecode.com/files/gtest-1.7.0.zip
@@ -77,8 +75,6 @@ $ export LIBRARY_PATH=$HOME/lib:$LIBRARY_PATH
 $ export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH
 ```
 
-1.7.0 is the version the code has been tested against. Other versions may also be OK.
-
 Usage
 -----
 
@@ -92,6 +88,7 @@ Run:
 
 ```
 $ ./fibonacci 30
+fibonacci(30) = 832040
 ```
 
 Compile and run CppUnit tests and view XML test report:
