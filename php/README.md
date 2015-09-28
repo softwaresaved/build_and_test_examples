@@ -6,7 +6,7 @@ Prerequisites
 
 **PHP**:
 
-To check if php is installed already:
+To check if `php` is installed already:
 
 ```
 $ php --version
@@ -15,7 +15,7 @@ PHP 5.5.9-1ubuntu4.9 (cli) (built: Apr 17 2015 11:44:57)
 
 If not, then see [PHP Hypertext Preprocessor](http://php.net/).
 
-**PHPUnit - PHP test framework**:
+**PHPUnit test framework**:
 
 To check if PHPUnit is installed already:
 
@@ -35,8 +35,6 @@ $ phpunit --version
 PHPUnit 4.8.9 by Sebastian Bergmann and contributors.
 ```
 
-4.8.9 is the version the code has been tested against. Other versions may also be OK.
-
 Usage
 -----
 
@@ -44,24 +42,12 @@ Run:
 
 ```
 $ php src/FibonacciProgram.php 20
-```
-
-Run tests:
-
-```
-$ phpunit --bootstrap src/autoload.php test/FibonacciTest.php
-PHPUnit 4.7.3 by Sebastian Bergmann and contributors.
-
-.....
-
-Time: 491 ms, Memory: 11.50Mb
-
-OK (5 tests, 5 assertions)
+832040
 ```
 
 Run tests and view XML xUnit-style test report:
 
 ```
-$ phpunit --log-junit tests.xml --bootstrap src/autoload.php test/FibonacciTest.php
-$ cat tests.xml
+$ phpunit --log-junit TestResults.xml --bootstrap src/autoload.php test/FibonacciTest.php
+$ cat TestResults.xml
 ```
