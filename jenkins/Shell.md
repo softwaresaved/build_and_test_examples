@@ -22,12 +22,12 @@ Jenkins can run any shell script and report on the success or failure depending 
 * On the new page that appears, click Build Now.
 * You should see a new job scheduled in the Build History table.
 * When it completes, the little ball should be blue which means the job succeeded without errors.
-* Click on the job link e.g. `28-Sep-2015 14:15:42`.
+* Click the job link e.g. `28-Sep-2015 14:15:42`.
 * The build results page for that job will appear.
-* Click on Console Output and you should see the output from the command-line.
+* Click Console Output and you should see the output from the command-line.
 * Click Workspace and you can browse the directory in which the build commands are run.
 * Click Back to Project.
-* Click Back to Dashboard to see the Jenkins fromt page which summarises all the build-and-test jobs set up and the success (or failure) of the last job for each of these. Clicking on the green "run" icon will re-run the associated job.
+* Click Back to Dashboard to see the Jenkins fromt page which summarises all the projects set up and the success (or failure) of the last job for each of these. Clicking on the green "run" icon will re-run the associated job.
 
 How Jenkins behaves when there are errors
 -----------------------------------------
@@ -42,8 +42,9 @@ How Jenkins behaves when there are errors
 
 * Save the configuration and click Build Now.
 * Now when the job completes, there will be a little red ball next to the job link, which means the job failed with an error.
-* Click on the job link.
-* Click on Console Output and you should see the output from the command-line, including the reason for the failure.
+* Click the job link.
+* Click Console Output and you should see the output from the command-line, including the reason for the failure.
+* Click Back to project then Back to dashboard.
 
 Summary
 -------
