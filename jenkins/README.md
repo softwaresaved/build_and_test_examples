@@ -46,6 +46,24 @@ Jenkins can not only trigger builds for very complex software but also trigger a
 
 Jenkins can provide a summary of the console output on the build results page. It also, on a project page, allows us, via the Workspace link, to browse the project's workspace. Typically this is the directory where the scripts are invoked. If output files are placed here by the scripts, then they can be viewed via Jenkins too.
 
+Importing Jenkins jobs
+----------------------
+
+The [examples/](./examples) directories contains examples of Jenkins job configuration files for each of the jobs written following the above instructions. These are plain-text XML files which can be imported into Jenkins. They assume `build_and_test_examples` is located in your `$HOME` directory.
+
+To import any of these jobs into Jenkins:
+
+```
+$ cp -r jenkins/JOB_NAME $HOME/.jenkins/jobs/
+```
+
+On the Jenkins dashboard:
+
+* Click Manage Jenkins.
+* Click Reload configuration from disk.
+* You should see JOB_NAME.
+* Click green "run" icon.
+
 Further information
 -------------------
 
