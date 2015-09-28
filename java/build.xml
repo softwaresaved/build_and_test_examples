@@ -69,7 +69,7 @@ permissions and limitations under the License.
     </javac>
   </target>
 
-  <target name="runTests" description="Run tests" depends="compile-tests">
+  <target name="test" description="Run tests" depends="compile-tests">
     <mkdir dir="build/test/xml"/>
     <junit printsummary="yes" 
            haltonfailure="no">
@@ -98,6 +98,6 @@ permissions and limitations under the License.
   </target>
 
   <target name="all" description="Clean, compile, JAR and run tests"
-          depends="clean, runTests, test-report"/>
+          depends="clean, test, test-report"/>
 
 </project>

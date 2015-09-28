@@ -79,7 +79,7 @@ $ java -classpath lib/math.jar math.Fibonacci 20
 Compile and run tests and view XML xUnit-style test report:
 
 ```
-$ ant runTests
+$ ant test
 $ cat build/test/xml/TEST-math.FibonacciTest.xml 
 ```
 
