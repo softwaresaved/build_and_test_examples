@@ -22,21 +22,22 @@ SRCDIR=src
 TESTDIR=test
 INC=-I$(SRCDIR) -I$(TESTDIR) -I$(HOME)/include
 
+HEADER=src/fibonacci.h
 CPPUNITTESTS=fibonacci_cppunit_test.o
 GOOGLETESTS=fibonacci_google_test.o
 
-fibonacci: fibonacci_program.o
+fibonacci: fibonacci_program.o $(HEADER)
 	$(CXX) -o $@ $^ $(INC)
 
-fibonacci-cppunittests: $(CPPUNITTESTS) cppunit_test_driver.o
+fibonacci-cppunittests: $(HEADER) $(CPPUNITTESTS) cppunit_test_driver.o
 	$(CXX) -o $@ $^ $(INC) $(CPPUNITLDFLAGS)
 
-fibonacci-googletests: $(GOOGLETESTS)
+fibonacci-googletests: $(HEADER) $(GOOGLETESTS)
 	$(CXX) -o $@ $^ $(INC) $(GOOGLELDFLAGS)
 
-%.o : $(SRCDIR)/%.cc
-	$(CXX) -c $^ -o $@ $(INC)
-%.o : $(TESTDIR)/%.cc
+%.o : $(SRCDIR)/%.cc $(HEADER)
+	$(CXX) -c $< -o $@ $(INC)
+%.o : $(TESTDIR)/%.cc $(HEADER)
 	$(CXX) -c $< -o $@ $(INC)
 
 .PHONY : test
