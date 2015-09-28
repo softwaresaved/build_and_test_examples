@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <!--
-Copyright 2014 The University of Edinburgh.
+Copyright 2014-2015 The University of Edinburgh.
 
 Licensed under the Apache License, Version 2.0 (the "License"); 
 you may not use this file except in compliance with the License. 
@@ -16,239 +16,88 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 -->
 
-<project name="math" default="all">
+<project name="math" default="all" basedir=".">
 
   <description>
-  Build file for math package.
+  ANT build file to build and test math package.
   </description>
 
-  <!-- Base directory. -->
-  <dirname property="base.dir" file="${ant.file.math}"/>
-  <!-- Load ant.properties -->
-  <property file="${base.dir}/ant.properties"/>
-
-  <!-- Libraries -->
-  <property name="lib.dir" value="${base.dir}/lib"/>
-  <!-- Source directories. -->
-  <property name="src.dir" value="${base.dir}/src"/>
-  <property name="test.src.dir" value="${base.dir}/test"/>
-  <!-- Build directories. -->
-  <property name="build.dir" value="${base.dir}/build"/>
-  <property name="build.classes.dir" value="${build.dir}/bin"/> 
-  <property name="test.classes.dir" value="${build.dir}/test-bin"/> 
-  <property name="test.report.xml.dir" 
-            value="${build.dir}/test-xml"/> 
-  <property name="test.report.html.dir" 
-            value="${build.dir}/test-html"/> 
-
-  <!-- Build control. -->
-  <property name="java.debug" value="on"/>
-  <property name="java.deprecation" value="off"/>
-  <property name="compiler.jvmarg" value=""/>
-
-  <!-- JAR names -->
-  <property name="jar.name" value="math.jar"/>
-  <property name="test.jar.name" value="math-test.jar"/>
-
-  <!-- CLASSPATH -->
   <path id="classpath">
-    <pathelement path="${build.classes.dir}"/>
-    <pathelement path="${test.classes.dir}"/>
-    <fileset dir="${lib.dir}">
-      <include name="**/*.jar"/>
+    <pathelement location="build/classes"/>
+    <pathelement location="build/test/classes"/>
+    <fileset dir="lib">
+      <include name="*.jar"/>
+    </fileset>
+    <fileset dir=".">
+      <include name="*.jar"/>
     </fileset>
   </path>
 
-  <!-- Make build directory. -->
-  <target name="init" description="Make build directory">
-    <mkdir dir="${build.dir}"/>
-    <mkdir dir="${build.classes.dir}"/>
-    <mkdir dir="${test.classes.dir}"/>
-    <mkdir dir="${lib.dir}"/>
+  <target name="init" description="Make build directories">
+    <mkdir dir="build"/>
+    <mkdir dir="build/lib"/>
+    <mkdir dir="build/classes"/>
+    <mkdir dir="build/test"/>
+    <mkdir dir="build/test/classes"/>
   </target>
 
-  <!-- Remove build directory. -->
-  <target name="clean" description="Remove build directory">
-    <delete dir="${build.dir}"/>
-    <delete>
-      <fileset dir="${lib.dir}">
-        <include name="**/math*.jar"/>
-      </fileset>
-    </delete>
-    <delete>
-      <fileset dir="." includes="**/*~" defaultexcludes="no"/>
-    </delete>
+  <target name="clean" description="Remove build directories">
+    <delete dir="build"/>
   </target>
 
-  <!-- Compile code. -->
   <target name="compile" description="Compile code" depends="init">
-    <compile src="${src.dir}" bin="${build.classes.dir}"
-             classpathref="classpath"/>
+    <javac srcdir="src" 
+           destdir="build/classes"
+           includeantruntime="false">
+      <include name="**/*.java"/>
+    </javac>
   </target>
 
-  <!-- JAR classes. -->
-  <target name="jar" description="JAR classes"
-          depends="compile, createManifest">
-    <makeJAR bin="${build.classes.dir}" lib="${lib.dir}" name="${jar.name}"
-             manifest="${build.dir}/MANIFEST.MF"/>
+  <target name="jar" depends="compile">
+    <jar destfile="build/lib/math.jar" 
+         basedir="build/classes"/>
   </target>
 
-  <!-- Compile tests. -->
-  <target name="compileTests" description="Compile tests" depends="jar">
-    <compile src="${test.src.dir}"
-             bin="${test.classes.dir}"
-             classpathref="classpath"/>
+  <target name="compile-tests" description="Compile tests" depends="compile">
+    <javac srcdir="test" 
+           destdir="build/test/classes"
+           includeantruntime="false">
+      <include name="**/*.java"/>
+      <classpath>
+        <path refid="classpath"/>
+      </classpath>
+    </javac>
   </target>
 
-  <!-- JAR test classes. -->
-  <target name="jarTests" 
-          description="JAR test classes"
-          depends="compileTests, createManifest">
-    <makeJAR bin="${test.classes.dir}" lib="${lib.dir}" 
-             name="${test.jar.name}"
-             manifest="${build.dir}/MANIFEST.MF"/>
+  <target name="runTests" description="Run tests" depends="compile-tests">
+    <mkdir dir="build/test/xml"/>
+    <junit printsummary="yes" 
+           haltonfailure="no">
+      <classpath>
+        <path refid="classpath"/>
+      </classpath>
+      <formatter type="xml"/>
+      <batchtest fork="yes"
+                 todir="build/test/xml">
+        <fileset dir="test">
+          <include name="**/*Test.java"/>
+        </fileset>
+      </batchtest>
+    </junit>
   </target>
 
-  <!-- Run tests. -->
-  <target name="runTests" 
-          description="Run tests"
-          depends="compileTests">
-    <runTests src="${test.src.dir}"
-              xmlReports="${test.report.xml.dir}"
-              htmlReports="${test.report.html.dir}"
-              classpathref="classpath"/>
-    <antcall target="testReport">
-      <param name="base.dir" value="${base.dir}"/>
-      <param name="xml.dir" value="${test.report.xml.dir}"/>
-      <param name="html.dir" value="${test.report.html.dir}"/>
-    </antcall>
-  </target>
-
-  <!-- Create JAR manifest -->
-  <target name="createManifest" 
-          description="Create JAR manifest">
-    <mkdir dir="${build.dir}"/>
-    <tstamp>
-      <format property="build.time" pattern="EEE d MMMM yyyy HH:mm"/>
-    </tstamp>
-    <manifest file="${build.dir}/MANIFEST.MF">
-      <attribute name="Built-By" value="${user.name}"/>
-      <attribute name="Built-At" value="${build.time}"/>
-    </manifest>
-  </target>
-
-  <!-- Convert ANT junit XML reports into HTML. -->
-  <target name="testReport"
+  <target name="test-report"
           description="Convert ANT junit XML reports into HTML">
-    <mkdir dir="${html.dir}"/>
-    <!-- Destination of aggregated XML report -->
-    <junitreport todir="${xml.dir}">
-      <fileset dir="${xml.dir}">
+    <mkdir dir="build/test/html"/>
+    <junitreport todir="build/test/xml">
+      <fileset dir="build/test/xml">
         <include name="TEST-*.xml"/>
       </fileset>
-      <report todir="${html.dir}"/>
+      <report todir="build/test/html"/>
     </junitreport>
   </target>
 
-  <!-- MACRO-DEFs -->
-
-  <!--
-    compile macro-def. Compile Java code.
-
-    The attributes are:
-    -src - source directory.
-    -bin - binary directory.
-    -classpathref - CLASSPATH reference.
-  -->
-  <macrodef name="compile">
-    <attribute name="src"/>
-    <attribute name="bin"/>
-    <attribute name="classpathref"/>
-    <sequential>
-      <mkdir dir="@{bin}"/>
-      <javac srcdir="@{src}" 
-             destdir="@{bin}"
-             debug="${java.debug}"
-             deprecation="${java.deprecation}"
-             classpathref="@{classpathref}">
-        <include name="**/*.java"/>
-        <compilerarg line="${compiler.jvmarg}"/>
-      </javac>
-    </sequential>
-  </macrodef>
-
-  <!--
-    makeJAR macro-def. JAR compiled Java code adding timestamp
-    and manifest.
-
-    The attributes are:
-    -bin - binary directory.
-    -lib - library directory.
-    -name - JAR name.
-    -manifest - MANIFEST file location.
-  -->
-  <macrodef name="makeJAR">
-    <attribute name="bin"/>
-    <attribute name="lib"/>
-    <attribute name="name"/>
-    <attribute name="manifest"/>
-    <sequential>
-      <mkdir dir="@{lib}"/>
-      <!-- 
-        Make a binary directory if none is there. The skip below
-        avoids empty JARs anyway.
-      -->
-      <mkdir dir="@{bin}"/>
-      <tstamp>
-        <format property="build.time" pattern="EEE d MMMM yyyy HH:mm"/>
-      </tstamp>
-      <jar destfile="@{lib}/@{name}" 
-           basedir="@{bin}"
-           manifest="@{manifest}"
-           whenmanifestonly="skip"/>
-    </sequential>
-  </macrodef>
-
-  <!--
-    runTests macro-def. Run JUnit tests and convert results to HTML.
-
-    The attributes are:
-    -src - source directory. Tests to are run are selected from
-     here. A pattern in the test.filter property determines what is
-     run. The default is "**/*Test.java".
-    -xmlReports - directory for XML reports.
-    -htmlReports - directory for HTML reports.
-    -classpathref - CLASSPATH reference.
-  -->
-  <macrodef name="runTests">
-    <attribute name="src"/>
-    <attribute name="xmlReports"/>
-    <attribute name="htmlReports"/>
-    <attribute name="classpathref"/>
-    <sequential>
-      <mkdir dir="@{xmlReports}"/>
-      <mkdir dir="@{htmlReports}"/>
-      <property name="test.filter" value="**/*Test.java"/>
-      <junit printsummary="yes" 
-             haltonfailure="no">
-        <classpath>
-          <path refid="@{classpathref}"/>
-        </classpath>
-        <formatter type="xml"/>
-        <batchtest fork="yes" 
-                   todir="@{xmlReports}">
-          <fileset dir="@{src}">
-            <include name="${test.filter}"/>
-          </fileset>
-        </batchtest>
-        <sysproperty key="ogsadai.test.properties"
-                     value="${ogsadai.test.properties}"/>
-      </junit>
-    </sequential>
-  </macrodef>
-
-  <!-- Clean, compile and JAR everything and run tests. -->
   <target name="all" description="Clean, compile, JAR and run tests"
-          depends="clean, jar, jarTests, runTests"/>
+          depends="clean, runTests, test-report"/>
 
 </project>
