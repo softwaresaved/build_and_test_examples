@@ -42,7 +42,7 @@ Jenkins can be configured to detect and respond to changes made to code or files
 Use Jenkins to run experiments
 ------------------------------
 
-Jenkins can not only trigger builds for very complex software but also trigger and provide a summary of the success or failure of experiment runs. As [Create a Jenkins shell script job](./Shell.md) shows, Jenkins can run any shell script and report on the success or failure depending on whether the script exits with 0, success, or non-zero, failure. There is no restriction as to what this shell script does.
+Jenkins can not only trigger builds for very complex software but also trigger and provide a summary of the success or failure of experiment runs. As [Create a Jenkins shell script job](./Shell.md) shows, Jenkins can run any shell script and report on the success or failure depending on whether the script exits with 0, for success, or non-zero, for failure. Jenkins imposes no restriction as to what this shell script does.
 
 Jenkins can provide a summary of the console output on the build results page. It also, on a project page, allows us, via the Workspace link, to browse the project's workspace. Typically this is the directory where the scripts are invoked. If output files are placed here by the scripts, then they can be viewed via Jenkins too.
 
@@ -55,4 +55,3 @@ For more information check out:
 
 * Jenkins' [Meet Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)
 * Jenkins' [Use Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Use+Jenkins)
-
