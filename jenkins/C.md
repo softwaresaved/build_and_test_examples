@@ -1,17 +1,18 @@
 Create a Jenkins C job
 ======================
 
-Jenkins can build and run C code, either directly or via make. It can also run C unit tests, for example written in CUnit, again directly or via make, and report on the success or failure of tests.
+Jenkins can build and run C code, either directly or via Make. It can also run unit tests, for example written in CUnit, again directly or via Make, and report on the success or failure of tests.
 
-* On the Jenkins front-page, click New Item.
-* Enter a name in the Item name field e.g. `C job`.
-* Select Build a free-style software project.
+* On the Jenkins front page, click New Item.
+* Enter a name in the Item name field e.g. `C job`. Note that Jenkins uses the terms "project" and "job" interchangeably.
+* Select Freestyle project.
 * Click OK.
-* On the configuration page, under the Advanced Project Options heading, click Advanced ...
+* On the configuration page, under the Advanced Project Options heading, click Advanced...
 * Select Use custom workspace.
-* Enter the directory with your shell script e.g. `/home/user/build_and_test_examples/c`.
-* Scroll down the page to under the Build heading, and click Add build step and select Execute shell.
-* Enter the commands that builds the code and tests and runs the tests e.g.:
+* Enter the directory with your C code e.g. `$HOME/build_and_test_examples/c`.
+* Scroll down the page to under the Build heading.
+* Click Add build step and select Execute shell.
+* Enter the commands that compile the code and tests and run the tests e.g.:
 
 ```
 export C_INCLUDE_PATH=$HOME/include:$C_INCLUDE_PATH
@@ -24,17 +25,20 @@ make test
 * Click Save.
 * On the new page that appears, click Build Now.
 * You should see a new job scheduled in the Build History table.
-* When it completes, the little ball should be blue indicating success.
-* Click on the job link e.g. `30-Jul-2012 14:15:42`.
+* When it completes, the little ball should be blue which means the job succeeded without errors.
+* Click on the job link e.g. `28-Sep-2015 14:15:42`.
 * The build results page for that job will appear.
-* Click on Console Output and you should see the output from the command-line.
+* Click Console Output and you should see the output from the command-line.
 * Click Workspace and you can browse the directory in which the build commands are run.
+* Click Back to Project.
+* Click Back to Dashboard to see the Jenkins fromt page which summarises all the projects set up and the success (or failure) of the last job for each of these. Clicking on the green "run" icon will re-run the associated job.
 
 Publish test results
 --------------------
 
-C unit tests written using CUnit output an XML file, `CUnitAutomated-Results.xml`. While Jenkins can publish XML test results, these need to be in xUnit-compliant XML. Our `runtests` target converts this CUnit XML into xUnit-compliant XML (the `c` directory has this XSL transform). Jenkins can then parse and present this information in a more useful way. So:
+C unit tests written using CUnit output an XML file, `CUnitAutomated-Results.xml`. While Jenkins can publish XML test results, these need to be in xUnit-compliant XML. Our `xunit-report` target, in our `Makefile`, converts this CUnit XML into xUnit-compliant XML file, `TestResults.xml`. Jenkins can then parse and present this information in a more useful way. So:
 
+* Click C job.
 * Click Configure.
 * Under the Build heading, click in the Command area and, after the commands there, add the line:
 
@@ -49,11 +53,15 @@ make xunit-report
 * Click Save.
 * Click Build Now.
 * When the job completes, click on the job's link in the Build History table.
-* Now on the build results page for that job, there is a Test Result which should also say (no failures).
+* Now on the build results page for that job, there is a Test Result link which should also say (no failures).
 * Click on the Test Result link and you can browse the test results. These are hierarchically organised by C source file and function name.
-* If you like, edit your code or tests so a test fails e.g. edit `src/fibonacci.c` to always return `1`.
-* Now click Back to Project.
+
+How Jenkins behaves when there are errors
+-----------------------------------------
+
+* Edit your code or tests so a test fails e.g. edit `src/fibonacci.c` to always return `1`.
+* Click Back to Project.
 * Click Build Now.
-* This time the ball in the Build History table should be red.
+* This time the ball in the Build History table should be yellow. This means the build is unstable. Jenkins [defines](https://wiki.jenkins-ci.org/display/JENKINS/Terminology) a build as unstable if it was built successfully but a test result publisher has noted that a test has failed.
 * Click on the job's link and then the Test Result link and you can browse to see the individual test functions that failed. Remember, too that the console output is always available via the Console Output link.
-* Click Back to project then Back to dashboard. The Jenkins front-page summarises all the projects set up and the success (or failure) of the last job. Clicking on the green "run" icon for any project will run the associated job.
+* Click Back to project then Back to dashboard.
