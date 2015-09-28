@@ -1,28 +1,36 @@
 Build and Test Examples
 =======================
 
-Examples of a Fibonacci series function implemented in a range of languages with accompanying build files and test classes.
+Introduction
+------------
 
-See language-specific pages for information on prerequisites and how to build, run and run tests:
+This repository provides examples of a Fibonacci series function implemented in a range of languages. Build files for popular build tools for each language are also provided as are examples of unit tests written in popular unit test frameworks for each language. These examples are provided to help you get started with using automated build tools and unit test frameworks. They are also used to provide an introduction to the popular continuous integration servers, Jenkins and Travis CI.
 
-* [Bash Shell](./sh/README.md)
-* [Python and nosetests](./python/README.md)
-* [Java, JUnit and ANT](./java/README.md)
-* [C, CUnit and Make](./c/README.md)
-* [C++, CppUnit, googletest and Make](./cpp/README.md)
-* [FORTRAN, FRUIT and Make](./fortran/README.md)
-* [PHP and PHPUnit](./php/README.md)
+Languages, build tools and unit test frameworks
+-----------------------------------------------
+
+Examples using the following languages, build tools and unit test frameworks are provided. Click on README for information on how to build, run and test each example:
+
+| Language | Build tool | Unit test framework | README |
+| -------- | ---------- | ------------------- | ------ |
+| Bash Shell | - | - | [README](./sh/README.md) |
+| Python | - | nose | [README](./python/README.md) |
+| Java | ANT | JUnit | [README](./java/README.md) |
+| C | Make | CUnit | [README](./c/README.md) |
+| C++ | Make | CppUnit and googletest | [README](./cpp/README.md) |
+| FORTRAN | Make | FRUIT | [README](./fortran/README.md) |
+| PHP | - |  PHPUnit | [README](./php/README.md) |
 
 Continuous integration
 ----------------------
 
-Continuous integration ensures that your software is built and tested regularly. It can help you to demonstrate that your software does what it claims to do, and that it does so correctly. It also helps you to rapidly release bug-fixes and more functional versions of your software. Continuous integration can also be used to automate experiments that run using software. For an overview, see The Software Sustainability Institute's [How continuous integration can help you regularly test and release your software](http://software.ac.uk/how-continuous-integration-can-help-you-regularly-test-and-release-your-software).
+Continuous integration can help you to build and test your software regularly. This, in turn, can help you to demonstrate that your software does what it claims to do, and that it does so correctly. It also helps you to rapidly release bug-fixes and up-to-date versions of your software. Continuous integration can also be used to automate experiments that are run using software. For an overview, see The Software Sustainability Institute's [How continuous integration can help you regularly test and release your software](http://software.ac.uk/how-continuous-integration-can-help-you-regularly-test-and-release-your-software).
 
-[Jenkins](http://jenkins-ci.org) is a continuous integration server, which you can deploy locally. For an introduction to Jenkins, using these examples, see:
+[Jenkins](http://jenkins-ci.org) is a popular, open source continuous integration server, which you can deploy locally. For an introduction to Jenkins, using the Fibonacci series examples, in a range of languages, see:
 
 * [Getting started with Jenkins](./jenkins/README.md)
 
-[Travis CI](https://travis-ci.org/) is a hosted continuous integration server, which provides automated build and test services for projects hosted on GitHub. For an introduction to Travis CI, using these examples, see:
+[Travis CI](https://travis-ci.org/) is a hosted continuous integration server, which provides automated build and test services for projects hosted on GitHub.  For an introduction to Travis CI, using the Fibonacci series examples, in a range of languages, see:
 
 * [Getting started with Travis CI](./travis/README.md)
 
@@ -37,4 +45,4 @@ Code is licensed under the [Apache 2.0](http://www.apache.org/licenses/LICENSE-2
 
 Documents are licensed under the Creative Commons [Attribution-NonCommercial 2.5 UK: Scotland (CC BY-NC 2.5 SCOTLAND)](http://creativecommons.org/licenses/by-nc/2.5/scotland/).
 
-This directory includes third-party software. Please see the `README.md` files in sub-directories for information. 
+This directory includes third-party software. Please see the `README.md` files in sub-directories for more information. 
