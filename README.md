@@ -18,7 +18,7 @@ Examples using the following languages, build tools and unit test frameworks are
 | Java | ANT | JUnit | [README](./java/README.md) |
 | C | Make | CUnit | [README](./c/README.md) |
 | C++ | Make | CppUnit and googletest | [README](./cpp/README.md) |
-| FORTRAN | Make | FRUIT | [README](./fortran/README.md) |
+| Fortran | Make | FRUIT | [README](./fortran/README.md) |
 | PHP | - |  PHPUnit | [README](./php/README.md) |
 
 Continuous integration
