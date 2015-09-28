@@ -4,9 +4,9 @@ Java, JUnit and ANT
 Prerequisites
 -------------
 
-**Java 1.6+ JDK and JRE**:
+**Java JDK and JRE**:
 
-To check if it is installed already:
+To check if Java JDK and JRE are installed already:
 
 ```
 $ javac -version
@@ -35,9 +35,9 @@ Java(TM) SE Runtime Environment (build 1.7.0_60-b19)
 Java HotSpot(TM) 64-Bit Server VM (build 24.60-b09, mixed mode)
 ```
 
-**ANT 1.7+**:
+**ANT - Java build tool**:
 
-To check if it is installed already:
+To check if ANT is installed already:
 
 ```
 $ ant -version
@@ -52,7 +52,7 @@ After installing ensure ANT is in your path e.g.
 $ export PATH=$HOME/apache-ant-1.7.1/bin:$PATH
 ```
 
-**JUnit 4.10+**:
+**JUnit - Java test framework**:
 
 This is provided.
 
@@ -76,28 +76,18 @@ Run:
 $ java -classpath lib/math.jar math.Fibonacci 20
 ```
 
-Compile and JAR tests:
-
-```
-$ ant jarTests
-```
-
-Run tests:
+Compile and run tests and view XML xUnit-style test report:
 
 ```
 $ ant runTests
+$ cat build/test/xml/TEST-math.FibonacciTest.xml 
 ```
 
-View results as XML:
+Convert above XML test report into HTML:
 
 ```
-$ cat build/test-xml/*
-```
-
-View results as HTML:
-
-```
-$ cat build/test-html/index.html
+$ ant test-report
+$ cat build/test/html/index.html
 ```
 
 Clean up:

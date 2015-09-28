@@ -13,7 +13,7 @@ $ gfortran -v
 gcc version 4.4.7 20120313 (Red Hat 4.4.7-3) (GCC) 
 ```
 
-**FRUIT**:
+**FRUIT - FORTRAN test framework**:
 
 This is provided.
 

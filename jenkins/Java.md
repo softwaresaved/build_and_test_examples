@@ -34,8 +34,8 @@ Java JUnit tests, when invoked from ANT (via the ANT `junit` task) can output te
 * Click Configure.
 * Under the Post-build Actions heading, click Add post-build action.
 * Select Publish JUnit test result report.
-* In the Test report XMLs field enter location of the test report XML document name e.g. `build/test-xml/TESTS-TestSuites.xml`.
-* If you get a warning that `build/test-xml/TESTS-TestSuites.xml doesn't match anything` you can ignore this as the file hasn't been created yet.
+* In the Test report XMLs field enter location of the test report XML document name e.g. `build/test/xml/TESTS-TestSuites.xml`.
+* If you get a warning that `build/test/xml/TESTS-TestSuites.xml doesn't match anything` you can ignore this as the file hasn't been created yet.
 * Click Save.
 * Click Build Now.
 * When the job completes, click on the job's link in the Build History table.

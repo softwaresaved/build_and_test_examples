@@ -14,7 +14,7 @@ $ c++ -v
 gcc version 4.4.7 20120313 (Red Hat 4.4.7-3) (GCC) 
 ```
 
-**CppUnit 1.13.2**:
+**CppUnit - C++ test framework**:
 
 To download, build and install see [CppUnit](http://www.freedesktop.org/wiki/Software/cppunit/). The following provides a quick summary of the key steps to build and install CppUnit in your home directory:
 

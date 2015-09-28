@@ -15,7 +15,7 @@ PHP 5.5.9-1ubuntu4.9 (cli) (built: Apr 17 2015 11:44:57)
 
 If not, then see [PHP Hypertext Preprocessor](http://php.net/).
 
-**PHPUnit**:
+**PHPUnit - PHP test framework**:
 
 To check if PHPUnit is installed already:
 
