@@ -18,12 +18,7 @@ Use Jenkins to run a shell script
 Use Jenkins to run build-and-test jobs for various languages
 ------------------------------------------------------------
 
-* [Create a Jenkins Python job](./Python.md)
-* [Create a Jenkins C job](./C.md)
-* [Create a Jenkins C++ job](./Cpp.md)
-* [Create a Jenkins Fortran job](./Fortran.md)
-* [Create a Jenkins Java job](./Java.md)
-* [Create a Jenkins PHP job](./PHP.md)
+* [Create a Jenkins job for popular programming languages](./Languages.md) including C, C++, Fortran, Java, PHP and Python.
 
 Use Jenkins to run jobs periodically
 ------------------------------------
