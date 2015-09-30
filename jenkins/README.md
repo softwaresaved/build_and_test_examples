@@ -13,22 +13,23 @@ Install and deploy Jenkins
 Use Jenkins to run build-and-test jobs for various languages
 ------------------------------------------------------------
 
+Jenkins can build and run code written in many languages, including C, C++, Fortran, Java, PHP and Python code, either directly or via automated build tools like Make or ANT. It can also run unit tests, for example written in CUnit, CppUnit, googletest, FRUIT, JUnit, PHPUnit or nosetests, and report on the success or failure of tests.
+
 * [Create a Jenkins job for popular programming languages](./Languages.md) including C, C++, Fortran, Java, PHP and Python.
 
 Use Jenkins to run jobs periodically
 ------------------------------------
+
+Jenkins can be configured to run jobs periodically.
 
 * [Configure a job to run periodically](./Periodic.md)
 
 Use Jenkins to run build-and-test jobs when source code changes
 ---------------------------------------------------------------
 
-Jenkins can be configured to detect and respond to changes made to code or files held under version control. If the code is changed, then the server can automatically spawn a new build-and-test job. This means that the software is rebuilt and tested every time the code is changed. Since the server can be remote from your own machine, it means you can continue working while the tests are under way.
+Jenkins can be configured to detect and respond to changes made to code or files held under popular source code repositories, including Git, Mercurial, Subversion and CVS. If the code is changed, then the server can automatically spawn a new build-and-test job. This means that the software is rebuilt and tested every time the code is changed. Since the server can be remote from your own machine, it means you can continue working while the tests are under way.
 
-* [Configure a job to run when updates are committed to Git](./Git.md)
-* [Configure a job to run when updates are committed to Mercurial](./Hg.md)
-* [Configure a job to run when updates are committed to Subversion](./SVN.md)
-* [Configure a job to run when updates are committed to CVS](./CVS.md)
+* [Configure a job to run when updates are committed a source code repository](./VersionControl.md)
 
 Use Jenkins to run experiments
 ------------------------------

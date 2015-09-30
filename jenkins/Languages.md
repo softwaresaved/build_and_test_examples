@@ -1,7 +1,10 @@
 Create a Jenkins job for popular programming languages
 ======================================================
 
-Jenkins can build and run C, C++, Fortran, Java, PHP and Python code, either directly or via automated build tools like Make or ANT. It can also run unit tests, for example written in CUnit, CppUnit, googletest, FRUIT, JUnit, PHPUnit or nosetests, and report on the success or failure of tests.
+Jenkins can build and run code written in many languages, including C, C++, Fortran, Java, PHP and Python code, either directly or via automated build tools like Make or ANT. It can also run unit tests, for example written in CUnit, CppUnit, googletest, FRUIT, JUnit, PHPUnit or nosetests, and report on the success or failure of tests.
+
+Create a Jenkins job
+--------------------
 
 * On the Jenkins front page, click New Item.
 * Enter a name in the Item name field e.g. one of `C job`, `Cpp job`, `Fortran job`, `Java job`, `PHP job`, `Python job`. Note that Jenkins uses the terms "project" and "job" interchangeably.
