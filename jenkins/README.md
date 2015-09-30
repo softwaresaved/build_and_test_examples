@@ -10,11 +10,6 @@ Install and deploy Jenkins
 
 * [Installing Jenkins](./Install.md)
 
-Use Jenkins to run a shell script
----------------------------------
-
-* [Create a Jenkins shell script job](./Shell.md)
-
 Use Jenkins to run build-and-test jobs for various languages
 ------------------------------------------------------------
 
@@ -38,19 +33,34 @@ Jenkins can be configured to detect and respond to changes made to code or files
 Use Jenkins to run experiments
 ------------------------------
 
-Jenkins can not only trigger builds for very complex software but also trigger and provide a summary of the success or failure of experiment runs. As [Create a Jenkins shell script job](./Shell.md) shows, Jenkins can run any shell script and report on the success or failure depending on whether the script exits with 0, for success, or non-zero, for failure. Jenkins imposes no restriction as to what this shell script does.
+Jenkins can not only trigger builds for very complex software but also trigger and provide a summary of the success or failure of experiment runs. Jenkins can run any shell script and report on the success or failure depending on whether the script exits with 0, for success, or non-zero, for failure. Jenkins imposes no restriction as to what this shell script does. 
 
 Jenkins can provide a summary of the console output on the build results page. It also, on a project page, allows us, via the Workspace link, to browse the project's workspace. Typically this is the directory where the scripts are invoked. If output files are placed here by the scripts, then they can be viewed via Jenkins too.
+
+For a simple example of using Jenkins to run a shell script, see:
+
+* [Create a Jenkins shell script job](./Shell.md)
 
 Importing Jenkins jobs
 ----------------------
 
 The [examples/](./examples) directories contains examples of Jenkins job configuration files for each of the jobs written following the above instructions. These are plain-text XML files which can be imported into Jenkins. They assume `build_and_test_examples` is located in your `$HOME` directory.
 
+The source code repository-related examples assume you have set up source code repositories, as described in the above pages.
+
 To import any of these jobs into Jenkins:
 
 ```
 $ cp -r jenkins/JOB_NAME $HOME/.jenkins/jobs/
+```
+
+For the following jobs, replace `/home/user` with the full path to your source code repository:
+
+```
+CVS job/config.xml
+Git job/config.xml
+Mercurial job/config.xml
+SVN job/config.xml
 ```
 
 On the Jenkins dashboard:
