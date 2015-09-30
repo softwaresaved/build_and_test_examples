@@ -309,7 +309,7 @@ Edit `test/test_fibonacci.py` and add a new test:
 
 ```  
 def test_fibonacci10(self):
-    """ Test fibonacci(55). """
+    """ Test fibonacci(10). """
     self.assertEqual(55, fibonacci(10))
 ```
 
