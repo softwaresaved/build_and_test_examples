@@ -6,7 +6,7 @@ Jenkins can be configured to detect and respond to changes made to code or files
 Create a CVS repository
 -----------------------
 
-If you don't have one already, create a CVS repository based on our Python examples in `$HOME/build_and_test_examples/python`:
+Create a CVS repository based on the Python examples in `$HOME/build_and_test_examples/python`:
 
 ```
 $ cvs -d $HOME/CVSROOT init
@@ -15,10 +15,8 @@ $ cd python/
 $ rm -f nosetests.xml *.pyc */*.pyc .gitignore 
 $ cvs -d $HOME/CVSROOT import -m "Initial import" python vendor-tag release-tag
 
-Create a job that checks out the repository and runs a job
+Create a job that checks out the repository and runs tests
 ----------------------------------------------------------
-
-Now, let's create a job to check out the repository and run `nosetests`:
 
 * On the Jenkins front page, click New Item.
 * Enter a name in the Item name field e.g. `CVS job`.
@@ -26,7 +24,7 @@ Now, let's create a job to check out the repository and run `nosetests`:
 * Click OK.
 * On the configuration page, under Source Code Management, select CVS.
 * Enter:
- * CVSROOT: `$HOME/CVSROOT`
+ * CVSROOT: `$HOME/CVSROOT`, replacing `$HOME` with the full path to your home directory e.g. `/home/user`.
  * Location: Head
  * Modules Remote Name: `python`
 * Scroll down the page to under the Build heading.
@@ -39,8 +37,7 @@ nosetests --with-xunit
 
 * Under the Post-build Actions heading, click Add post-build action.
 * Select Publish JUnit test result report.
-* In the Test report XMLs field enter the location of the test report XML file e.g. `nosetests.xml`.
-* If you get a warning that `nosetests.xml doesn't match anything` you can ignore this as the file hasn't been created yet.
+* In the Test report XMLs field enter the location of the test report XML file, `nosetests.xml`.
 * Click Save.
 * Click Build Now.
 * When the job completes, click on the job's link in the Build History table.
@@ -50,79 +47,83 @@ Though we are using a local repository, Jenkins can be used with remote reposito
 
 Jenkins provides a lot of control over what is checked out from the repository e.g. modules, directories, branches or tags, and usernames/passwords or other credentials used to authenticate with the repository etc.
 
-Configure a job to poll CVS - TODO
+Configure a job to poll CVS
 ---------------------------
 
-Now we could configure the job to run periodically e.g. every 5 minutes. The checked out repository would be updated and the code rebuilt and run. 
+We can configure Jenkins to poll the repository for changes. This can be enabled by selecting the Poll SCM option under the Build Triggers heading on the project's configuration page. This takes a "schedule" that is the same as Build periodically (see [Configure a job to run periodically](./Periodic.md)). Jobs are only triggered if updates or changes to the repository have been made since the last job run.
 
-Another option is to poll the repository which can be enabled by selecting the Poll SCM option under the Build Triggers heading on the project's configuration page. This takes a "schedule" that is the same as Build periodically (see [Configure a job to run periodically](./Periodic.md)). Jobs are only triggered if updates or changes to the repository have been made since the last job run.
-
-One problem with polling is that it is very expensive. Ideally we want CVS to tell Jenkins when changes have been made and so trigger Jenkins to rerun the job. Jenkins allows us to do this.
+One problem with polling is that it is very expensive. It would be better for CVS to tell Jenkins when changes have been made and so trigger Jenkins to rerun the job. Jenkins allows us to do this.
 
 Configure CVS to notify Jenkins of changes
 ------------------------------------------
 
-We can configure CVS with a script that, when CVS changes, pings a Jenkins URL that, in turn, triggers a Jenkins job.
+We can configure CVS with a script that, when changes are made to the repository, pings a Jenkins URL that, in turn, triggers a Jenkins job:
 
-* In the project configuration, select the Poll SCM option under Build Triggers. 
-* Ensure that the associated Schedule form is empty.
-
-CVS has a `loginfo` file which contains commands that are invoked when changes to to the repository are committed. You can update this to invoke a script when anything changes as follows:
-
-* Create a script `$HOME/cvs-notify-jenkins.sh` with the content:
+* Go to the configuration page for the project.
+* Scroll down to Build Triggers.
+* Select Poll SCM.
+* Check that the Schedule form is empty.
+* Click Save.
+* Create a script `$HOME/CVSROOT/CVSROOT/cvs-notify-jenkins.sh` to trigger our Jenkins job:
 
 ```
 #!/bin/bash
-wget "http://localhost:8080/job/Python%20CVS%20job/build?token=CVS-BUILD"
+wget "http://localhost:8080/job/CVS%20job/build?token=CVS-BUILD"
 ```
 
-* Set this to be executable:
+* If you are using a different host or port name then replace `localhost` or `8080` with these.
+* Set this script to be executable:
 
 ```
-$ chmod +x $HOME/cvs-notify-jenkins.sh
+$ chmod +x $HOME/CVSROOT/CVSROOT/cvs-notify-jenkins.sh
 ```
 
-* Now, check out the repository configuration files:
+* Check out the CVS configuration files:
 
 ```
-$ mkdir cvs-root-checkout
-$ cd cvs-root-checkout/
+$ mkdir cvs-checkout
+$ cd cvs-checkout/
 $ cvs -d $HOME/CVSROOT co CVSROOT
 $ cd CVSROOT
 ```
 
-* Edit `loginfo` and add a line:
+* CVS has a `loginfo` file which contains commands that are invoked when changes to to the repository are committed. Edit `loginfo` and add this line which will call the script to trigger a Jenkins job, whenever a change is commited to CVS:
 
 ```
-ALL $HOME/cvs-notify-jenkins.sh
+ALL $CVSROOT/CVSROOT/cvs-notify-jenkins.sh
 ```
 
-* Now commit:
+* Commit changes:
 
 ```
 $ cvs commit -m "Added Jenkins notification on commit"
 ```
 
-Check notifications work
-------------------------
+To check the notifications work:
 
-* Check out your Python code:
+* Check out the Python code:
 
 ```
-$ cd $HOME
-$ mkdir cvs-checkout
-$ cd cvs-checkout
-$ cvs -d $HOME/CVSROOT/ co python
+$ cd $HOME/cvs-checkout
+$ cvs -d $HOME/CVSROOT co python
 $ cd python
 ```
 
-* Edit `src/fibonacci.py` and change it to return `-1` always.
+* Edit `test/test_fibonacci.py` and add a new test:
+
+```  
+def test_fibonacci10(self):
+    """ Test fibonacci(55). """
+    self.assertEqual(55, fibonacci(10))
+
+```
 * Commit the change:
 
 ```
-$ cvs commit -m "Introduced a bug" src/fibonacci.py
+$ cvs commit -m "Added test_fibonacci10" test/test_fibonacci.py
 ```
 
-* In Jenkins, you should see a job being spawned which will fail, as the tests will now fail.
-* Now fix the bug you introduced and, again, commit the change.
-* Again, you should see a job being spawned that, this time, will pass.
+* In Jenkins, you should see a job being spawned and the new test being run.
+* When the job completes, click on the job's link in the Build History table.
+* There should be a section called Changes, with information from CVS.
+* Click on Test Result and you should see that the new test was run.

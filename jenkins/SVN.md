@@ -6,20 +6,18 @@ Jenkins can be configured to detect and respond to changes made to code or files
 Create a Subversion repository
 ------------------------------
 
-If you don't have one already, create a Subversion repository based on our Python examples in `$HOME/build_and_test_examples/python`:
+Create a Subversion repository based on the Python examples in `$HOME/build_and_test_examples/python`:
 
 ```
 $ svnadmin create $HOME/SVNROOT
 $ cp -r build_and_test_examples/python python
 $ cd python/
 $ rm -f nosetests.xml *.pyc */*.pyc .gitignore 
-$ svn import file://$HOME/SVNROOT/example -m "Initial import"
+$ svn import file://$HOME/SVNROOT/python -m "Initial import"
 ```
 
-Create a job that checks out the repository and runs a job
+Create a job that checks out the repository and runs tests
 ----------------------------------------------------------
-
-Now, let's create a job to check out the repository and run `nosetests`:
 
 * On the Jenkins front page, click New Item.
 * Enter a name in the Item name field e.g. `SVN job`.
@@ -27,7 +25,7 @@ Now, let's create a job to check out the repository and run `nosetests`:
 * Click OK.
 * On the configuration page, under Source Code Management, select Subversion.
 * Enter:
- * Repository URL: `file://$HOME/SVNROOT/example`
+ * Repository URL: `file://$HOME/SVNROOT/python`, replacing `$HOME` with the full path to your home directory e.g. `/home/user`.
  * Local module directory (optional): `.`
 * Scroll down the page to under the Build heading.
 * Click Add build step and select Execute shell.
@@ -39,8 +37,7 @@ nosetests --with-xunit
 
 * Under the Post-build Actions heading, click Add post-build action.
 * Select Publish JUnit test result report.
-* In the Test report XMLs field enter the location of the test report XML file e.g. `nosetests.xml`.
-* If you get a warning that `nosetests.xml doesn't match anything` you can ignore this as the file hasn't been created yet.
+* In the Test report XMLs field enter the location of the test report XML file, `nosetests.xml`.
 * Click Save.
 * Click Build Now.
 * When the job completes, click on the job's link in the Build History table.
@@ -50,26 +47,24 @@ Though we are using a local repository, Jenkins can be used with remote reposito
 
 Jenkins provides a lot of control over what is checked out from the repository e.g. modules, directories, branches or tags, and usernames/passwords or other credentials used to authenticate with the repository etc.
 
-Configure a job to poll Subversion - TODO
+Configure a job to poll Subversion
 ----------------------------------
 
-Now we could configure the job to run periodically e.g. every 5 minutes. The checked out repository would be updated and the code rebuilt and run. 
+We can configure Jenkins to poll the repository for changes. This can be enabled by selecting the Poll SCM option under the Build Triggers heading on the project's configuration page. This takes a "schedule" that is the same as Build periodically (see [Configure a job to run periodically](./Periodic.md)). Jobs are only triggered if updates or changes to the repository have been made since the last job run.
 
-Another option is to poll the repository which can be enabled by selecting the Poll SCM option under the Build Triggers heading on the project's configuration page. This takes a "schedule" that is the same as Build periodically (see [Configure a job to run periodically](./Periodic.md)). Jobs are only triggered if updates or changes to the repository have been made since the last job run.
-
-One problem with polling is that it is very expensive. Ideally we want Subversion to tell Jenkins when changes have been made and so trigger Jenkins to rerun the job. Jenkins allows us to do this.
+One problem with polling is that it is very expensive. It would be better for Subversion to tell Jenkins when changes have been made and so trigger Jenkins to rerun the job. Jenkins allows us to do this.
 
 Configure Subversion to notify Jenkins of changes
 -------------------------------------------------
 
-We can configure Subversion with a script that, when Subversion changes, pings a Jenkins URL that, in turn, triggers a specific Jenkins job or all jobs that depend upon the repository.
+We can configure Subversion with a script that, when changes are made to the repository, pings a Jenkins URL that, in turn, triggers a Jenkins job:
 
-* In the project configuration, select the Poll SCM option under Build Triggers. 
-* Ensure that the associated Schedule form is empty.
-
-Subversion has a `hooks` directory which can hold a `post-commit` file, which contains commands that are invoked when changes to to the repository are committed. You can update this to invoke a script when anything changes as follows:
-
- * Create a `post-commit` file, or edit it if one exists, in your Subversion repository's `hooks/` directory (e.g. `$HOME/svn-repository/hooks`), and add:
+* Go to the configuration page for the project.
+* Scroll down to Build Triggers.
+* Select Poll SCM.
+* Check that the Schedule form is empty.
+* Click Save.
+* Subversion has a `hooks` directory which holds a `post-commit` file, which contains commands that are invoked when changes to to the repository are committed. Create a `post-commit` file in your Subversion repository's `hooks/` directory, `$HOME/SVNROOT/hooks`:
 
 ```
 #!/bin/bash
@@ -81,35 +76,43 @@ wget \
  --post-data "`svnlook changed --revision $REV $REPOS`" \
  --output-document "-" \
  --timeout=2 \
- http://localhost:8080/subversion/${UUID}/notifyCommit?rev=$REV 
+ http://localhost:9090/subversion/${UUID}/notifyCommit?rev=$REV > /tmp/svn.log 2>&1
 exit 0
 ```
 
-* Set this to be executable:
+* If you are using a different host or port name then replace `localhost` or `8080` with these.
+* Set the script to be executable:
 
 ```
-$ chmod +x $HOME/svn-repository/hooks/post-commit
+$ chmod +x $HOME/SVNROOT/hooks/post-commit
 ```
 
-Check notifications work
-------------------------
+To check the notifications work:
 
-* Check out your Python code:
+* Check out the Python code:
 
 ```
 $ mkdir svn-checkout
 $ cd svn-checkout
-$ svn co file://$HOME/svn-repository/python
+$ svn co file://$HOME/$SVNROOT/python
 $ cd python
 ```
 
-* Edit `src/fibonacci.py` and change it to return `-1` always.
+* Edit `test/test_fibonacci.py` and add a new test:
+
+```  
+def test_fibonacci10(self):
+    """ Test fibonacci(10). """
+    self.assertEqual(55, fibonacci(10))
+
+```
 * Commit the change:
 
 ```
-$ svn commit -m "Introduced a bug" src/fibonacci.py
+$ svn commit -m "Added test_fibonacci10" test/test_fibonacci.py
 ```
 
-* In Jenkins, you should see a job being spawned which will fail, as the tests will now fail.
-* Now fix the bug you introduced and, again, commit the change.
-* Again, you should see a job being spawned that, this time, will pass.
+* In Jenkins, you should see a job being spawned and the new test being run.
+* When the job completes, click on the job's link in the Build History table.
+* There should be a section called Changes, with information from Subversion.
+* Click on Test Result and you should see that the new test was run.
