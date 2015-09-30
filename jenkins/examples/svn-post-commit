@@ -1,0 +1,11 @@
+#!/bin/bash
+REPOS="$1"
+REV="$2"
+UUID=`svnlook uuid $REPOS`
+wget \
+ --header "Content-Type:text/plain;charset=UTF-8" \
+ --post-data "`svnlook changed --revision $REV $REPOS`" \
+ --output-document "-" \
+ --timeout=10 \
+ http://localhost:8080/subversion/${UUID}/notifyCommit?rev=$REV > /tmp/svn.log 2>&1
+exit 0
