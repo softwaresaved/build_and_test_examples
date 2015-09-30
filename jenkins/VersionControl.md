@@ -171,8 +171,7 @@ exit 0
 ```
 
 * If you are using a different host or port name then replace `localhost` or `8080` with these.
-* See, for example, [post-commit](./examples/git-post-commit)
-
+* See, for example, [post-commit](./examples/git-post-commit).
 * Set the script to be executable:
 
 ```
