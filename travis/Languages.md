@@ -291,6 +291,28 @@ Done. Your build exited with 0.
 C++:
 
 ```
+$ make googletest
+c++ -c test/fibonacci_google_test.cc -o fibonacci_google_test.o -Isrc -Itest -I/home/travis/include
+c++ -o fibonacci-googletests src/fibonacci.h fibonacci_google_test.o -Isrc -Itest -I/home/travis/include -lgtest -lgtest_main
+./fibonacci-googletests --gtest_output="xml:TestResults.xml"
+Running main() from gtest_main.cc
+[==========] Running 4 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 4 tests from FibonacciTest
+[ RUN      ] FibonacciTest.fibonacci1
+[       OK ] FibonacciTest.fibonacci1 (0 ms)
+[ RUN      ] FibonacciTest.fibonacci2
+[       OK ] FibonacciTest.fibonacci2 (0 ms)
+[ RUN      ] FibonacciTest.fibonacci3
+[       OK ] FibonacciTest.fibonacci3 (0 ms)
+[ RUN      ] FibonacciTest.fibonacci30
+[       OK ] FibonacciTest.fibonacci30 (6 ms)
+[----------] 4 tests from FibonacciTest (6 ms total)
+[----------] Global test environment tear-down
+[==========] 4 tests from 1 test case ran. (6 ms total)
+[  PASSED  ] 4 tests.
+The command "make googletest" exited with 0.
+Done. Your build exited with 0.
 ```
 
 Java:
