@@ -9,6 +9,8 @@ before_install:
   - cp -r include/gtest $TRAVIS_BUILD_DIR/include
   - mkdir $TRAVIS_BUILD_DIR/lib/
   - cp lib/.libs/* $TRAVIS_BUILD_DIR/lib/
+  - ls -R $TRAVIS_BUILD_DIR/include
+  - ls -R $TRAVIS_BUILD_DIR/lib
   - cd ..
   - export CPLUS_INCLUDE_PATH=$TRAVIS_BUILD_DIR/include:$CPLUS_INCLUDE_PATH
   - export LIBRARY_PATH=$TRAVIS_BUILD_DIR/lib:$LIBRARY_PATH
