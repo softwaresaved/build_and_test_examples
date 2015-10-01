@@ -15,7 +15,7 @@ Declare the language
 
 `.travis.yml` supports a `language` section which tells Travis CI which build environment it should use. Depending on the language selected, a language-specific section (e.g. `jdk`, `php` or `python`) can then be used to specify which versions of the language the job is to be run under. Travis CI will run the job for each of these versions.
 
-* Edit `.travis.yml`, clear its current contents, and declare your language and any versions of the language you want to test.
+* Edit `.travis.yml`, clear its current contents, and declare your language and any versions of the language you want to test. You can only declare one language in `travis.yml`.
 
 **C**
 
@@ -229,10 +229,21 @@ script:
   - nosetests -v --with-coverage
 ```
 
-We use nosetests' `-v` and `--with-coverage` flags to print out information about the tests being run and a code coverage report.
+We use nosetests `-v` and `--with-coverage` flags to print out information about the tests being run and a code coverage report.
 
-Commit, push to trigger
-----------------------
+Example `.travis.yml` files
+---------------------------
+
+Following the above examples you should have a completed `.travis.yml` file that looks like one of the following:
+
+* C: [.travis.yml](./examples/c-travis.yml).
+* C++: [.travis.yml](./examples/cpp-travis.yml).
+* Java: [.travis.yml](./examples/java-travis.yml).
+* PHP: [.travis.yml](./examples/php-travis.yml).
+* Python: [.travis.yml](./examples/python-travis.yml).
+
+Commit and push to trigger a new build
+--------------------------------------
 
 Now, we should commit the changes to `travis.yml` to trigger a new build:
 
