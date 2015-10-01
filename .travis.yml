@@ -1,11 +1,12 @@
-language: php
+language: python
 
-php:
-  - 5.4
-  - 5.5
+python:
+  - "2.7"
+  - "3.4"
 
 before_install:
-  - cd php
+  - pip install coverage
+  - cd python
 
-script:
-  - phpunit --bootstrap src/autoload.php --debug --coverage-text test
+script: 
+  - nosetests -v --with-coverage
