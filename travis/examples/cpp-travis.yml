@@ -7,6 +7,7 @@ before_install:
   - ./configure --prefix=$TRAVIS_BUILD_DIR --with-pthreads=no
   - make
   - cp -r include/gtest $TRAVIS_BUILD_DIR/include
+  - mkdir $TRAVIS_BUILD_DIR/lib/
   - cp lib/.libs/* $TRAVIS_BUILD_DIR/lib/
   - cd ..
   - export CPLUS_INCLUDE_PATH=$TRAVIS_BUILD_DIR/include:$CPLUS_INCLUDE_PATH
