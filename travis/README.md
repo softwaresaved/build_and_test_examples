@@ -115,6 +115,15 @@ Travis CI can build and run code written in many languages, including C, C++, Fo
 
 * [Create a Travis CI job for popular programming languages](./Languages.md) including C, C++, Java, PHP and Python.
 
+Publishing test results
+-----------------------
+
+Unlike Jenkins, Travis CI does not allow build artefacts to be explored directly, nor does it parse xUnit-compliant XML test results into a browsable form. However, Travis CI can automatically upload build artefacts to an [Amazon S3](https://aws.amazon.com/s3/) (Simple Storage Service) area. For details, see:
+
+* Travis CI's [S3 Deployment](http://docs.travis-ci.com/user/deployment/s3/).
+* Travis CI's [Uploading Artifacts on Travis CI](http://docs.travis-ci.com/user/uploading-artifacts/)
+* Stack Overflow's [Access files stored on Amazon S3 through web browser](http://stackoverflow.com/questions/16784052/access-files-stored-on-amazon-s3-through-web-browser)
+
 Travis CI limitations
 ---------------------
 
