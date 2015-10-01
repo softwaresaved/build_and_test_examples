@@ -381,6 +381,24 @@ Done. Your build exited with 0.
 Python:
 
 ```
+$ nosetests -v --with-coverage
+Test fibonacci(0). ... ok
+Test fibonacci(1). ... ok
+Test fibonacci(2). ... ok
+Test fibonacci(3). ... ok
+Test fibonacci(30). ... ok
+Name            Stmts   Miss  Cover   Missing
+---------------------------------------------
+python.py           0      0   100%   
+python/src.py       0      0   100%   
+fibonacci.py       20     11    45%   36-37, 40-48
+---------------------------------------------
+TOTAL              20     11    45%   
+----------------------------------------------------------------------
+Ran 5 tests in 2.211s
+OK
+The command "nosetests -v --with-coverage" exited with 0.
+Done. Your build exited with 0.
 ```
 
 Further information
