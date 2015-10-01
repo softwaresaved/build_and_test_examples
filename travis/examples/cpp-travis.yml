@@ -6,7 +6,7 @@ before_install:
   - cd gtest-1.7.0/
   - ./configure --prefix=$TRAVIS_BUILD_DIR --with-pthreads=no
   - make
-  - cp -r include/gtest $TRAVIS_BUILD_DIR/include
+  - cp -r include/* $TRAVIS_BUILD_DIR/include
   - mkdir $TRAVIS_BUILD_DIR/lib/
   - cp lib/.libs/* $TRAVIS_BUILD_DIR/lib/
   - cd ..
