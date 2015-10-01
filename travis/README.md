@@ -27,8 +27,8 @@ Publishing test results
 Unlike Jenkins, Travis CI does not allow build artefacts to be explored directly, nor does it parse xUnit-compliant XML test results into a browsable form. However, Travis CI can automatically upload build artefacts to an [Amazon S3](https://aws.amazon.com/s3/) (Simple Storage Service) area. For details, see:
 
 * Travis CI's [S3 Deployment](http://docs.travis-ci.com/user/deployment/s3/).
-* Travis CI's [Uploading Artifacts on Travis CI](http://docs.travis-ci.com/user/uploading-artifacts/)
-* Stack Overflow's [Access files stored on Amazon S3 through web browser](http://stackoverflow.com/questions/16784052/access-files-stored-on-amazon-s3-through-web-browser)
+* Travis CI's [Uploading Artifacts on Travis CI](http://docs.travis-ci.com/user/uploading-artifacts/).
+* Stack Overflow's [Access files stored on Amazon S3 through web browser](http://stackoverflow.com/questions/16784052/access-files-stored-on-amazon-s3-through-web-browser).
 
 Travis CI limitations
 ---------------------
@@ -45,11 +45,9 @@ See Travis CI's suggestions for [speeding up the build](http://docs.travis-ci.co
 Further information
 -------------------
 
-This has just touched upon the myriad configuration options, build steps, test steps, notification mechanisms and publishing options that Travis CI supports. 
+This has just touched upon the myriad configuration options, build steps, test steps, notification mechanisms and publishing options that Travis CI supports. For more information check out:
 
-For more information check out:
-
-* [Travis CI for Complete Beginners](http://docs.travis-ci.com/user/for-beginners/)
-* [Getting started](http://docs.travis-ci.com/user/getting-started/)
-* [Travis CI user documentation](http://docs.travis-ci.com/)
+* [Travis CI for Complete Beginners](http://docs.travis-ci.com/user/for-beginners/).
+* [Getting started](http://docs.travis-ci.com/user/getting-started/).
+* [Travis CI user documentation](http://docs.travis-ci.com/).
 * [Travis Client](https://github.com/travis-ci/travis.rb) - a Ruby-based command-line tool and library for command-line interaction with Travis CI.
