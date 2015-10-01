@@ -36,6 +36,11 @@ Continuous integration can help you to build and test your software regularly. T
 
 For an overview of hosted continuous integration, see The Software Sustainability Institute's [Hosted continuous integration](http://www.software.ac.uk/resources/guides/hosted-continuous-integration).
 
+How to contribute
+-----------------
+
+If you have any comments, corrections or additions then please either raise an [issue](https://github.com/softwaresaved/build_and_test_examples/issues) or submit a pull request.
+
 Copyright and licence
 ---------------------
 
