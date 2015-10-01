@@ -1,16 +1,6 @@
 language: cpp
 
 before_install:
-  - wget http://dev-www.libreoffice.org/src/cppunit-1.13.2.tar.gz
-  - tar -xvzf cppunit-1.13.2.tar.gz
-  - cd cppunit-1.13.2
-  - ./configure --prefix=$TRAVIS_BUILD_DIR
-  - make
-  - make install
-  - ls $TRAVIS_BUILD_DIR/include/cppunit
-  - ls $TRAVIS_BUILD_DIR/lib
-  - ls $TRAVIS_BUILD_DIR/share/cppunit
-  - cd ..
   - wget https://googletest.googlecode.com/files/gtest-1.7.0.zip
   - unzip gtest-1.7.0.zip 
   - cd gtest-1.7.0/
@@ -18,8 +8,6 @@ before_install:
   - make
   - cp -r include/gtest $TRAVIS_BUILD_DIR/include
   - cp lib/.libs/* $TRAVIS_BUILD_DIR/lib/
-  - ls $TRAVIS_BUILD_DIR/include/gtest
-  - ls $TRAVIS_BUILD_DIR/lib
   - cd ..
   - export CPLUS_INCLUDE_PATH=$TRAVIS_BUILD_DIR/include:$CPLUS_INCLUDE_PATH
   - export LIBRARY_PATH=$TRAVIS_BUILD_DIR/lib:$LIBRARY_PATH
@@ -27,7 +15,4 @@ before_install:
   - cd cpp
 
 script:
-  - make test
-  - cat TestResults.xml 
   - make googletest
-  - cat TestResults.xml

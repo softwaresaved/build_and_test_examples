@@ -106,9 +106,6 @@ before_install:
   - ./configure --prefix=$TRAVIS_BUILD_DIR
   - make
   - make install
-  - ls $HOME/include/CUnit
-  - ls $HOME/lib
-  - ls $HOME/share/CUnit
   - export C_INCLUDE_PATH=$TRAVIS_BUILD_DIR/include:$C_INCLUDE_PATH
   - export LIBRARY_PATH=$TRAVIS_BUILD_DIR/lib:$LIBRARY_PATH
   - export LD_LIBRARY_PATH=$TRAVIS_BUILD_DIR/lib:$LD_LIBRARY_PATH
@@ -129,8 +126,6 @@ before_install:
   - make
   - cp -r include/gtest $TRAVIS_BUILD_DIR/include
   - cp lib/.libs/* $TRAVIS_BUILD_DIR/lib/
-  - ls $TRAVIS_BUILD_DIR/include/gtest
-  - ls $TRAVIS_BUILD_DIR/lib
   - cd ..
   - export CPLUS_INCLUDE_PATH=$TRAVIS_BUILD_DIR/include:$CPLUS_INCLUDE_PATH
   - export LIBRARY_PATH=$TRAVIS_BUILD_DIR/lib:$LIBRARY_PATH
@@ -209,7 +204,12 @@ If there is no `script` entry then Travis CI will execute:
 ant test
 ```
 
-As this command will compile and run our example, we do not need to provide an explicit `script` section.
+As this command will compile and run our example, we do not need to provide an explicit `script` section. However, we could provide one if we wanted to be explicit as to how our code is built and tested:
+
+```
+script:
+  - ant test
+```
 
 **PHP**
 

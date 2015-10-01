@@ -9,4 +9,4 @@ before_install:
   - cd python
 
 script: 
-  - nosetests -v --nocapture --with-coverage
+  - nosetests -v --with-coverage
