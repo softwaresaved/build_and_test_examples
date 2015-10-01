@@ -306,29 +306,6 @@ Python:
 ```
 ```
 
-How Travis CI behaves when there are errors
------------------------------------------
-
-* Edit your code or tests so a test fails e.g. edit edit the Fibonacci function to always return `1` by updating:
-  - C: `src/fibonacci.c`
-  - C++: `src/fibonacci.h`
-  - Java: `src/math/Fibonacci.java`
-  - PHP: `src/Fibonacci.php`
-  - Python: `src/fibonacci.py`
-* Commit and push the changes:
-
-```
-$ git commit -m "Introduced bug into Fibonacci function so it always returns 1" src
-$ git push origin master
-```
-
-* Visit https://travis-ci.org/USERNAME/build_and_test_examples.
-* If building C and C++ there should be a single job.
-* If building Java, PHP, and Python there should be a single job with two sub-jobs, one for each version of these languages we are testing under.
-* Jobs should be coloured red with a cross, indicating that one or more tests failued.
-* Click on one of the jobs.
-* You should see information on the test failures e.g.
-
 Further information
 -------------------
 
