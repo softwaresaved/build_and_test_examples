@@ -318,6 +318,34 @@ Done. Your build exited with 0.
 Java:
 
 ```
+$ ant test
+Buildfile: /home/travis/build/mikej888/build_and_test_examples/java/build.xml
+init:
+    [mkdir] Created dir: /home/travis/build/mikej888/build_and_test_examples/java/build
+    [mkdir] Created dir: /home/travis/build/mikej888/build_and_test_examples/java/build/lib
+    [mkdir] Created dir: /home/travis/build/mikej888/build_and_test_examples/java/build/classes
+    [mkdir] Created dir: /home/travis/build/mikej888/build_and_test_examples/java/build/test
+    [mkdir] Created dir: /home/travis/build/mikej888/build_and_test_examples/java/build/test/classes
+compile:
+    [javac] Compiling 1 source file to /home/travis/build/mikej888/build_and_test_examples/java/build/classes
+compile-tests:
+    [javac] Compiling 1 source file to /home/travis/build/mikej888/build_and_test_examples/java/build/test/classes
+test:
+    [mkdir] Created dir: /home/travis/build/mikej888/build_and_test_examples/java/build/test/xml
+    [junit] Running math.FibonacciTest
+    [junit] Testsuite: math.FibonacciTest
+    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.11 sec
+    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.11 sec
+    [junit] 
+    [junit] Testcase: testFib3 took 0.007 sec
+    [junit] Testcase: testFib30 took 0.007 sec
+    [junit] Testcase: testFibMinusOne took 0 sec
+    [junit] Testcase: testFib1 took 0 sec
+    [junit] Testcase: testFib2 took 0 sec
+BUILD SUCCESSFUL
+Total time: 2 seconds
+The command "ant test" exited with 0.
+Done. Your build exited with 0.
 ```
 
 PHP:
