@@ -351,6 +351,31 @@ Done. Your build exited with 0.
 PHP:
 
 ```
+$ phpunit --bootstrap src/autoload.php --debug --coverage-text test
+PHPUnit 4.5.0 by Sebastian Bergmann and contributors.
+Starting test 'Maths\FibonacciTest::testFib0'.
+.
+Starting test 'Maths\FibonacciTest::testFib1'.
+.
+Starting test 'Maths\FibonacciTest::testFib2'.
+.
+Starting test 'Maths\FibonacciTest::testFib3'.
+.
+Starting test 'Maths\FibonacciTest::testFib30'.
+.
+Time: 1.42 minutes, Memory: 10.00Mb
+OK (5 tests, 5 assertions)
+Code Coverage Report:     
+  2015-10-01 11:23:36     
+                          
+ Summary:                 
+  Classes: 100.00% (1/1)  
+  Methods: 100.00% (1/1)  
+  Lines:   100.00% (16/16)
+\Maths::Fibonacci
+  Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  7/  7)
+The command "phpunit --bootstrap src/autoload.php --debug --coverage-text test" exited with 0.
+Done. Your build exited with 0.
 ```
 
 Python:
