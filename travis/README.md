@@ -5,7 +5,7 @@ Getting started with Travis CI
 
 Travis CI detects and responds to changes made to code or files held within Git repositories on GitHub. If the code is changed, by a commit, then Travis CI automatically runs a build-and-test job for that repository. This means that the software is rebuilt and tested every time changes to the code are pushed to GitHub. Since Travis CI is remote from your own machine, it means you can continue working while the tests are under way. It also means you do not have to set up a machine for testing locally, which can be useful if you are don't have the funding, hardware or time to set this up yourself.
 
-In these pages we provide an introduction to Travis CI and how it can be used to automate the building and testing of software, triggered by changes commited to Git repositories hosted on GitHub.
+This is not intended to be a complete introduction to everything that Travis CI offers. Rather, it is hoped that it will serve to get you started, helping you through your first 20 minutes of using Travis CI, to give an idea as to its potential and usefulness.
 
 Sign in to GitHub
 -----------------
@@ -51,16 +51,15 @@ $ git clone https://github.com/USERNAME/build_and_test_examples
 $ cd build_and_test_examples
 ```
 
-Create a first `.travis.yml` job file
--------------------------------------
+Create a "hello world" `.travis.yml` job file
+---------------------------------------------
 
 Travis CI looks for a file called `.travis.yml` in a Git repository. This file tells Travis CI how to build and test your software. In addition, this file can be used to specify any dependencies you need installed before building or testing your software. So, let's try a simple example:
 
-* Create a short Python test script, `test_hello.py` in your repository, with the content:
+* Create a short Python test script, `hello.py` in your repository, with the content:
 
 ```
-def test_hello():
-    print("Hello from Travis CI")
+print("Hello from Travis CI")
 ```
 
 * Create `.travis.yml`, with the content:
@@ -72,15 +71,15 @@ python:
   - "2.7"
 
 script: 
-  - nosetests --nocapture test_hello.py
+  - python hello.py
 ```
 
-* This says we want Travis CI to set up a Python 2.7 environment then run our `test_hello.py` script using Python's `nosetests` test runner (`--nocapture` tells `nosetests` to display anything that is printed by the tests it runs, in this case our `Hello...` message).
+* This says we want Travis CI to set up a Python 2.7 environment, then run our `hello.py` script.
 * Add and commit these files to your repository and push the changes to GitHub:
 
 ```
-$ git add test_hello.py .travis.yml
-$ git commit -m "Python test script and Travis CI job file" .
+$ git add hello.py .travis.yml
+$ git commit -m "Python hello world script and Travis CI job file" .
 $ git push origin master
 ```
 
@@ -98,32 +97,23 @@ For each repository it knows about, Travis CI provides a page summarising inform
 * The summary page has a URL of the form `https://travis-ci.org/USERNAME/REPOSITORY` e.g. https://travis-ci.org/trungdong/prov.
 * An icon shows the current status of the build. This has a URL of form `https://travis-ci.org/USERNAME/REPOSITORY.svg` e.g. https://travis-ci.org/trungdong/prov.svg. The status image is often embedded into other web pages, for example, README files in GitHub (for example, see https://github.com/trungdong/prov/blob/master/README.rst).
 * By default, information on the Current build is shown, including the log created by Travis CI as it ran this job.
-* The important part of our first `.travis.yml` file are the lines which ran our test:
+* The important part of our first `.travis.yml` file are the lines which ran our script:
 
 ```
-$ nosetests --nocapture test_hello.py
+$ python hello.py
 Hello from Travis CI
-.
-----------------------------------------------------------------------
-Ran 1 test in 0.003s
-OK
-The command "nosetests --nocapture test_hello.py" exited with 0.
 Done. Your build exited with 0.
 ```
 
-* If any command were to exit with a non-zero result (as `nosetests` does if a Python test failed) then Travis CI would consider the build to have failed, it would be coloured red and marked with a cross in the test jobs summary page.
+* If any command were to exit with a non-zero result then Travis CI would consider the build to have failed, it would be coloured red and marked with a cross in the test jobs summary page.
 * Certain lines are hidden, usually those concerned with setting up the environment for the job. Hidden lines are denoted by an arrow to the left of the line number. Click on this arrow to see the hidden lines.
 
 Use Travis CI run build-and-test jobs for various languages
 -----------------------------------------------------------
 
-Choose a language for an introduction on how to set up a Travis CI job for that language:
+Travis CI can build and run code written in many languages, including C, C++, Fortran, Java, PHP and Python, either directly or via automated build tools like Make or ANT. It can also run unit tests, for example written in CUnit, CppUnit, googletest, FRUIT, JUnit, PHPUnit or nosetests, and report on the success or failure of tests. For example, Travis CI provides out-of-the-box support for:
 
-* [Create a Travis CI Python job](./Python.md)
-* [Create a Travis CI C job](./C.md)
-* [Create a Travis CI C++ job](./Cpp.md)
-* [Create a Travis CI Java job](./Java.md)
-* [Create a Travis CI PHP job](./PHP.md)
+* [Create a Travis CI job for popular programming languages](./Languages.md) including C, C++, Java, PHP and Python.
 
 Travis CI limitations
 ---------------------
