@@ -264,6 +264,26 @@ $ git push origin master
 C:
 
 ```
+$ make test
+gcc -O3 -c test/fibonacci_cunit_test.c -o fibonacci_cunit_test.o -Isrc -Itest -I/home/travis/include
+gcc -O3 -c src/fibonacci.c -o fibonacci.o -Isrc -Itest -I/home/travis/include
+gcc -O3 -c test/cunit_test_driver.c -o cunit_test_driver.o -Isrc -Itest -I/home/travis/include
+gcc -O3 -o fibonacci-tests fibonacci_cunit_test.o fibonacci.o cunit_test_driver.o -Isrc -Itest -I/home/travis/include -lcunit
+./fibonacci-tests
+     CUnit - A unit testing framework for C - Version 2.1-2
+     http://cunit.sourceforge.net/
+Suite: Fibonacci Suite
+  Test: test_fibonacci_1 ...passed
+  Test: test_fibonacci_2 ...passed
+  Test: test_fibonacci_3 ...passed
+  Test: test_fibonacci_30 ...passed
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites      1      1    n/a      0        0
+               tests      4      4      4      0        0
+             asserts      4      4      4      0      n/a
+Elapsed time =    0.000 seconds
+The command "make test" exited with 0.
+Done. Your build exited with 0.
 ```
 
 C++:
