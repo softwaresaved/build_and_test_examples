@@ -5,6 +5,8 @@ Getting started with Jenkins
 
 This is not intended to be a complete introduction to everything that Jenkins offers. Rather, it is hoped that it will serve to get you started, helping you through your first 20 minutes of using Jenkins, to give an idea as to its potential and usefulness.
 
+The walkthrough can be performed using Linux or UNIX.
+
 Install and deploy Jenkins
 --------------------------
 

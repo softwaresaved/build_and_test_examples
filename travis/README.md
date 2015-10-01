@@ -7,6 +7,8 @@ Travis CI detects and responds to changes made to code or files held within Git 
 
 This is not intended to be a complete introduction to everything that Travis CI offers. Rather, it is hoped that it will serve to get you started, helping you through your first 20 minutes of using Travis CI, to give an idea as to its potential and usefulness.
 
+The walkthrough can be performed using Linux or UNIX.
+
 "Hello World" with Travis CI
 ----------------------------
 
