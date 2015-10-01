@@ -26,9 +26,13 @@ Continuous integration
 
 Continuous integration can help you to build and test your software regularly. This, in turn, can help you to demonstrate that your software does what it claims to do, and that it does so correctly. It also helps you to rapidly release bug-fixes and up-to-date versions of your software. Continuous integration can also be used to automate experiments that are run using software. For an overview, see The Software Sustainability Institute's [How continuous integration can help you regularly test and release your software](http://software.ac.uk/how-continuous-integration-can-help-you-regularly-test-and-release-your-software).
 
-[Jenkins](http://jenkins-ci.org) is a popular, open source continuous integration server, which you can deploy locally. For an introduction to Jenkins, using the Fibonacci series examples, in a range of languages, see:
+**Jenkins**
 
-* [Getting started with Jenkins](./jenkins/README.md)
+[Jenkins](http://jenkins-ci.org) is a popular, open source continuous integration server, which you can deploy locally. For an introduction to Jenkins, using the Fibonacci series examples in a range of languages, see:
+
+* [Getting started with Jenkins](./jenkins/README.md). The walkthrough assumes you have installed the software required to build and test the Fibonacci series examples (or, at least, that needed by the language you are interested in).
+
+**Travis CI**
 
 [Travis CI](https://travis-ci.org/) is a hosted continuous integration server, which provides automated build and test services for projects hosted on GitHub.  For an introduction to Travis CI, using the Fibonacci series examples, in a range of languages, see:
 
