@@ -55,7 +55,7 @@ Travis CI looks for a file called `.travis.yml` in a Git repository. This file t
 * Create a short Python script, `hello.py` in your repository, with the content:
 
 ```
-print("Hello from Travis CI")
+print("Hello world from Travis CI")
 ```
 
 * Create `.travis.yml`, with the content:
@@ -85,19 +85,20 @@ Explore the Travis CI job information
 Travis CI provides a page summarising the most recent jobs run for your repositories:
 
 * Visit https://travis-ci.org/USERNAME.
-* You should see a job called `build_and_test_examples` which should be coloured green and with a tick mark meaning the build succeeded.
+* You should see a job called `build_and_test_examples` - jobs are named after the corresponding repositories.
+* The job should be coloured green and with a tick mark meaning the build succeeded.
 * Click on this job.
 
 For each repository it knows about, Travis CI provides a page summarising information about the jobs that have been run for that repository, including information on the current build and the build history:
 
-* The summary page has a URL of the form `https://travis-ci.org/USERNAME/REPOSITORY` e.g. https://travis-ci.org/trungdong/prov.
-* An icon shows the current status of the build. This has a URL of form `https://travis-ci.org/USERNAME/REPOSITORY.svg` e.g. https://travis-ci.org/trungdong/prov.svg. The status image is often embedded into other web pages, for example, README files in GitHub (for example, see https://github.com/trungdong/prov/blob/master/README.rst).
+* The summary page has a URL of the form `https://travis-ci.org/USERNAME/JOB` e.g. https://travis-ci.org/trungdong/prov.
+* An icon shows the current status of the build. This has a URL of form `https://travis-ci.org/USERNAME/JOB.svg` e.g. https://travis-ci.org/trungdong/prov.svg. The status image is often embedded into other web pages, for example, README files in GitHub (for example, see https://github.com/trungdong/prov/blob/master/README.rst).
 * By default, information on the Current build is shown, including the log created by Travis CI as it ran this job.
 * The important part of our first `.travis.yml` file are the lines which ran our script:
 
 ```
 $ python hello.py
-Hello from Travis CI
+Hello world from Travis CI
 
 The command "python hello.py" exited with 0.
 
@@ -105,4 +106,4 @@ Done. Your build exited with 0.
 ```
 
 * If any command were to exit with a non-zero result then Travis CI would consider the build to have failed, it would be coloured red and marked with a cross in the jobs summary page.
-* Certain lines are hidden, usually those concerned with setting up the environment for the job. Hidden lines are denoted by an arrow to the left of the line number. Click on this arrow to see the hidden lines.
+* Certain lines are hidden, usually those concerned with setting up the environment for the job. Hidden lines are denoted by an arrow to the left of the line number. Click on these arrows to see the hidden lines.
