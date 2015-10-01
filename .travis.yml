@@ -10,6 +10,7 @@ before_install:
   - mkdir $TRAVIS_BUILD_DIR/lib/
   - cp lib/.libs/* $TRAVIS_BUILD_DIR/lib/
   - cd ..
+  - ls -R $TRAVIS_BUILD_DIR/include
   - export CPLUS_INCLUDE_PATH=$TRAVIS_BUILD_DIR/include:$CPLUS_INCLUDE_PATH
   - export LIBRARY_PATH=$TRAVIS_BUILD_DIR/lib:$LIBRARY_PATH
   - export LD_LIBRARY_PATH=$TRAVIS_BUILD_DIR/lib:$LD_LIBRARY_PATH
