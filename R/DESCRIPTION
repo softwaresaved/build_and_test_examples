@@ -1,0 +1,9 @@
+Package: ssi.r.sample
+Type: Package
+Title: R Fibonacci series example plus unit tests.
+Version: 1.0
+Date: 2015-10-01
+Author: Mike Jackson
+Maintainer: Mike Jackson <michaelj@epcc.ed.ac.uk>
+Description: 
+License: Apache 2
