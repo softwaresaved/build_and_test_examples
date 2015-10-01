@@ -1,0 +1,7 @@
+## C++
+
+*.o
+fibonacci
+fibonacci-cppunittests
+fibonacci-googletests
+TestResults.xml

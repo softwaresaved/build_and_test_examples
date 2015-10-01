@@ -1,0 +1,4 @@
+#!/bin/bash
+export C_INCLUDE_PATH=$HOME/include:$C_INCLUDE_PATH
+export LIBRARY_PATH=$HOME/lib:$LIBRARY_PATH
+export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH

@@ -1,0 +1,11 @@
+language: php
+
+php:
+  - 5.4
+  - 5.5
+
+before_install:
+  - cd php
+
+script:
+  - phpunit --bootstrap src/autoload.php --debug --coverage-text test

@@ -33,8 +33,8 @@ def fibonacci(n):
 
 def print_usage():
   """ Print usage information. """
-  print "Usage: python fibonacci.py N"
-  print "  where N >= 0"
+  print("Usage: python fibonacci.py N")
+  print("  where N >= 0")
 
 if __name__ == '__main__':
   if (len(sys.argv) < 2):
@@ -45,4 +45,4 @@ if __name__ == '__main__':
     print_usage()
     exit(2)
   fib = fibonacci(n)
-  print "fibonacci(%d) = %d" % (n, fib),
+  print("fibonacci(%d) = %d" % (n, fib))

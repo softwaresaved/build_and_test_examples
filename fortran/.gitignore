@@ -1,0 +1,7 @@
+## Fortran
+
+*.mod
+*.o
+fibonacci
+fibonacci-tests
+result*.xml

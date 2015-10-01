@@ -40,6 +40,6 @@ int main(int argc, char **argv)
         return(2);
     }
     int fib = Fibonacci::fibonacci(n);
-    cout << "fibonacci(" << fib << ") = " << fib << "\n";
+    cout << "fibonacci(" << n << ") = " << fib << "\n";
     return(0);
 }

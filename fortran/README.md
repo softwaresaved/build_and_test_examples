@@ -1,4 +1,4 @@
-FORTRAN, FRUIT and Make
+Fortran, FRUIT and Make
 =======================
 
 Prerequisites
@@ -6,12 +6,14 @@ Prerequisites
 
 **gfortran**:
 
-To check if it is installed already:
+To check if `gfortran` is installed already:
 
-    $ gfortran -v
-    gcc version 4.4.7 20120313 (Red Hat 4.4.7-3) (GCC) 
+```
+$ gfortran -v
+gcc version 4.4.7 20120313 (Red Hat 4.4.7-3) (GCC) 
+```
 
-**FRUIT**:
+**FRUIT test framework**:
 
 This is provided.
 
@@ -26,26 +28,26 @@ Usage
 
 Compile:
 
-    $ make fibonacci
+```
+$ make fibonacci
+```
 
 Run:
 
-    $ ./fibonacci 20
+```
+$ ./fibonacci 30
+fibonacci(          30 ) =       832040
+```
 
-Compile tests:
+Compile and run tests and view XML xUnit-style test report:
 
-    $ make tests
-
-Run tests and view XML test report:
-
-    $ ./tests
-    $ cat result.xml
-
-or:
-
-    $ make runtests
-    $ cat result.xml
+```
+$ make test
+$ cat result.xml
+```
 
 Clean up:
 
-    $ make clean
+```
+$ make clean
+```

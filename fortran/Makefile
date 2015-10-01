@@ -1,4 +1,4 @@
-# Copyright 2014 The University of Edinburgh.
+# Copyright 2014-2015 The University of Edinburgh.
 #
 # Licensed under the Apache License, Version 2.0 (the "License"); 
 # you may not use this file except in compliance with the License. 
@@ -23,6 +23,12 @@ OBJS=fibonacci.o
 TESTS=fruit_helpers.o fibonacci_test.o fruit_test_driver.o
 FRUITS=fruit_util.o fruit.o
 
+fibonacci : $(OBJS) fibonacci_program.o
+	$(FORTRAN) $(FLAGS) $^ -o $@
+
+fibonacci-tests : $(FRUITS) $(OBJS) $(TESTS)
+	$(FORTRAN) $(FLAGS) $^ -o $@
+
 %.o : $(SRCDIR)/%.f90
 	$(FORTRAN) $(FLAGS) -c $< -o $@
 %.o : $(TESTDIR)/%.f90
@@ -32,23 +38,17 @@ FRUITS=fruit_util.o fruit.o
 %.o : $(FRUITDIR)/%.f90
 	$(FORTRAN) $(FLAGS) -c $< -o $@
 
-fibonacci : $(OBJS) fibonacci_program.o
-	$(FORTRAN) $(FLAGS) $^ -o $@
-
-tests : $(FRUITS) $(OBJS) $(TESTS)
-	$(FORTRAN) $(FLAGS) $^ -o $@
-
-.PHONY : runtests
-runtests : tests
+.PHONY : test
+test : fibonacci-tests
 	./$<
 
 .PHONY : all
-all : fibonacci tests
+all : fibonacci test
 
 .PHONY : clean
 clean :
 	rm -f fibonacci
-	rm -f tests
+	rm -f fibonacci-tests
 	rm -f result*.xml
 	rm -f *.mod 
 	rm -f *.o
