@@ -12,20 +12,29 @@
 # implied. See the License for the specific language governing
 # permissions and limitations under the License.
 
-#' Calculate the Fibonacci number of the given integer.
-#'
-#' @param n an integer, if <= 0 then 0 is assumed.
-#' @return Fibonacci number
+#' Fibonacci numbers tests.
 
-fibonacci<-function(n)
-{
-  if (n <= 0) 
-  {
-    return(0)
-  }
-  if (n == 1) 
-  {
-    return(1)
-  }
-  return(fibonacci(n - 1) + fibonacci(n - 2))
-}
+library(testthat)
+library(ssi.r.sample)
+
+context("Fibonacci tests")
+
+test_that("fibonacci(0)",{
+  expect_that(0, equals(fibonacci(0)))
+})
+
+test_that("fibonacci(1)",{
+  expect_that(1, equals(fibonacci(1)))
+})
+
+test_that("fibonacci(2)",{
+  expect_that(1, equals(fibonacci(2)))
+})
+
+test_that("fibonacci(3)",{
+  expect_that(2, equals(fibonacci(3)))
+})
+
+test_that("fibonacci(30)",{
+  expect_that(832040, equals(fibonacci(30)))
+})
