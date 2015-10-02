@@ -1,9 +1,0 @@
-language: r
-sudo: required
-
-#r_binary_packages:
-# - testthat
-
-script:
-  - cd tests
-  - Rscript testthat.R

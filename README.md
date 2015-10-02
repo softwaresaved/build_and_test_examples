@@ -20,6 +20,7 @@ Examples using the following languages, build tools and unit test frameworks are
 | C++ | Make | CppUnit and googletest | [README](./cpp/README.md) |
 | Fortran | Make | FRUIT | [README](./fortran/README.md) |
 | PHP | - |  PHPUnit | [README](./php/README.md) |
+| R | - |  testthat | [README](./R/README.md) |
 
 Continuous integration
 ----------------------
