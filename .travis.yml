@@ -6,8 +6,5 @@ python:
 # Use this to prepare the system to install prerequisites or dependencies
 before_install: "sudo apt-get update"
 
-# command to install dependencies
-install: "pip install -q -r requirements.txt --use-mirrors"
-
 script:
   - python hello.py
