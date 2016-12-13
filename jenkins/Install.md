@@ -85,6 +85,15 @@ For all of Jenkins start-up options, run:
 $ java -jar jenkins.war --help
 ```
 
+When you start Jenkins for the first time, it will show the following:
+
+```
+Jenkins initial setup is required. An admin user has been created and a password generated.
+Please use the following password to proceed to installation:
+```
+
+It will then print a password, which you should take note of.
+
 View Jenkins
 ------------
 
@@ -92,4 +101,16 @@ Once Jenkins has started, browse to the URL and port which you started Jenkins w
 
 If you specified another port e.g. `9090`, then browse to http://localhost:9090.
 
-You should see the Jenkins front page.
+You should see the Jenkins front page which will prompt you to "Unblock Jenkins".
+
+You will be prompted for your password, so enter it into the Administrator password box.
+
+Click Continue.
+
+Click Install suggested plugins. 
+
+You may now have to wait a while for the plugins to install.
+
+Once installed, follow the on-screen instructions.
+
+
