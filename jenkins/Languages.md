@@ -14,7 +14,7 @@ Create a Jenkins job
 Build and test code
 -------------------
 
-* On the configuration page, under the Advanced Project Options heading, click Advanced...
+* On the configuration page, under the General tab, click Advanced...
 * Select Use custom workspace.
 * Enter the directory with your code e.g. one of:
 
@@ -82,15 +82,16 @@ test
 For all languages:
 
 * Click Save.
+
 * On the new page that appears, click Build Now.
 * You should see a new job scheduled in the Build History table.
-* When it completes, the little ball should be blue which means the job succeeded without errors.
+* When it completes, the little ball in the Build History table should be blue which means the job succeeded without errors.
 * Click the job link e.g. `28-Sep-2015 14:15:42`.
 * The build results page for that job will appear.
 * Click Console Output and you should see the output from the command-line.
-* Click Workspace and you can browse the directory in which the build commands are run.
 * Click Back to Project.
-* Click Back to Dashboard to see the Jenkins front page which summarises all the projects set up and the success (or failure) of the last job for each of these. Clicking on the green "run" icon will re-run the associated job.
+* Click Workspace and you can browse the directory in which the build commands are run.
+* Click Back to Dashboard to see the Jenkins front page which summarises all the projects set up and the success (or failure) of the last job for each of these. Clicking on the green arrow "run" icon will re-run the associated job.
 
 Publish test results
 --------------------

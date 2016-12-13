@@ -27,7 +27,7 @@ Jenkins can run any shell script and report on the success or failure depending 
 * Click Console Output and you should see the output from the command-line.
 * Click Workspace and you can browse the directory in which the build commands are run.
 * Click Back to Project.
-* Click Back to Dashboard to see the Jenkins fromt page which summarises all the projects set up and the success (or failure) of the last job for each of these. Clicking on the green "run" icon will re-run the associated job.
+* Click Back to Dashboard to see the Jenkins fromt page which summarises all the projects set up and the success (or failure) of the last job for each of these. Clicking on the green arrow "run" icon will re-run the associated job.
 
 How Jenkins behaves when there are errors
 -----------------------------------------
