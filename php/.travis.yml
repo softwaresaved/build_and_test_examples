@@ -1,0 +1,15 @@
+language: python
+
+python: 
+ - "2.7"
+ - "3.4"
+
+ script:
+ - python helloworld.py
+
+ #before_install:
+ # - pip install coverage
+ #  - cd python
+
+ #script:
+ #  - nosetests -v --with-coverage
