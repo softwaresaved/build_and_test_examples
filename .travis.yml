@@ -8,6 +8,7 @@ script:
 - python helloworld.py
 - python helloIsaacBondoc.py
 - python helloLaura.py
+- python helloElliotWhite.py
 - python helloJamesLopez.py
 - sh test.sh
 
