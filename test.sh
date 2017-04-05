@@ -6,4 +6,4 @@ except ValueError:
 except NameError:
 	print("That was neither a number or a string\n")
 
-# Isaac was here.
+print("Isaac was here.")
