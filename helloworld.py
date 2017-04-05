@@ -9,6 +9,8 @@ print("Hey Rust, this is Isaac ")
 
 print("Hey Rust, this is James.")
 
+print("Elliot was here")
+
 print("Yooo") 
 
 try:
