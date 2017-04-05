@@ -7,7 +7,7 @@ python:
 script:
   - python hello.py
   - python hellocody.py
-  - pythno hellotaylor.py
+  - python hellotaylor.py
 
 #before_install:
 # - pip install coverage
