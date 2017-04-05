@@ -9,7 +9,7 @@ script:
   - python hellocody.py
   - python hellotaylor.py
   - python hellojeanmichel.py
-  - python helloGarrett.py
+  - python hellogarrett.py
   - sh test.sh
 
 #before_install:
