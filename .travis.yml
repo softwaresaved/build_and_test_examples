@@ -7,6 +7,8 @@ python:
 script:
 - python helloworld.py
 - python helloIsaacBondoc.py
+- python helloJamesLopez.py
+- sh test.sh
 
  #before_install:
  # - pip install coverage
