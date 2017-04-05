@@ -1,7 +1,7 @@
 
-try: 
+try:
 	mode=int(input("Give me a number!" ))
-	print("That number was: "), mode, "\n"
+	print("That number was: ", mode, "\n")
 except ValueError:
 	print("That was a string without a number!\n")
 except NameError:
