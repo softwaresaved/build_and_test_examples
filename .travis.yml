@@ -6,6 +6,7 @@ python:
 
 script:
 - python helloworld.py
+- python helloIsaacBondoc.py
 
  #before_install:
  # - pip install coverage
