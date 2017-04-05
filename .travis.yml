@@ -7,10 +7,11 @@ python:
 script:
 - python helloworld.py
 - python helloIsaacBondoc.py
+- python helloLaura.py
 
  #before_install:
  # - pip install coverage
  #  - cd python
 
  #script:
- #  - nosetests -v --with-coverage
+ # -nosetests -v --with-coverage
