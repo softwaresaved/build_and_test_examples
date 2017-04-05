@@ -8,10 +8,12 @@ script:
 - python helloworld.py
 - python helloIsaacBondoc.py
 - python helloLaura.py
+- python helloJamesLopez.py
+- sh test.sh
 
  #before_install:
  # - pip install coverage
  #  - cd python
 
  #script:
- # -nosetests -v --with-coverage
+ #  - nosetests -v --with-coverage
