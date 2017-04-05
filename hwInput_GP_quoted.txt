@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-"alkasjdnv"
-=======
-"GP" 
->>>>>>> origin/develop
+"GP"
