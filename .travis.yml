@@ -9,6 +9,8 @@ script:
   - python hellocody.py
   - python hellotaylor.py
   - python hellojeanmichel.py
+  - python helloGarrett.py
+  - sh test.sh
 
 #before_install:
 # - pip install coverage
