@@ -1,5 +1,1 @@
-#!/usr/bin/python
-
-# Hello world python program
-
-print "Hello World!";
+print("Hello world from Travis CI);
