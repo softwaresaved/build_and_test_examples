@@ -7,7 +7,7 @@ except ValueError:
 except NameError:
 	print("That was neither a number or a string\n")
 
-# Isaac was here.
+# Isaac was here
 
 python helloworld.py < hwInput_GP.txt
 python helloworld.py < hwInput_GP_quoted.txt
