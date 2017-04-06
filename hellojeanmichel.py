@@ -1,2 +1,2 @@
 print("this is Jean-Michel on hellojeanmichel")
-print("This is Garrett editing your mom")
+print("This is Garrett editing you")
