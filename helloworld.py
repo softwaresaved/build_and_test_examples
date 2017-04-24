@@ -1,18 +1,4 @@
 
-print("Hello Rusty, This is Laura!!")
-
-print ("Trey's my name getting A's my trade... hopefully")
-
-print("Hello Team, It is Matt")
-
-print("Hey Rust, this is Isaac ")
-
-print("Hey Rust, this is James.")
-
-print("Elliot was here")
-
-print("Yooo") 
-
 try:
     mode=int(input("Give me a number! "))
     print("That number was: "),  mode, "\n"
