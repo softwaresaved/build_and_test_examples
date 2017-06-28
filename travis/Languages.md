@@ -1,13 +1,13 @@
 Create a Travis CI job for popular programming languages
 ========================================================
 
-Travis CI can build and run code written in many languages, including C, C++, Fortran, Java, PHP and Python, either directly or via automated build tools like Make or ANT. It can also run unit tests, for example written in CUnit, CppUnit, googletest, JUnit, PHPUnit or nosetests, and report on the success or failure of tests. For example, Travis CI provides out-of-the-box support for:
+Travis CI can build and run code written in many languages, including C, C++, Fortran, Java, PHP and Python, either directly or via automated build tools like Make or ANT. It can also run unit tests, for example written for CUnit, CppUnit, googletest, JUnit, PHPUnit or pytest, and report on the success or failure of tests. For example, Travis CI provides out-of-the-box support for:
 
 * C: gcc, clang, autotools, make.
 * C++: gcc, clang, autotools, make.
 * Java: versions of Oracle JDK and OpenJDK, ANT, Maven, Gradle. 
 * PHP: versions of PHP, PHPUnit,  XDebug.
-* Python: versions of Python 2 and 3, nose, pytest and mock test libraries.
+* Python: versions of Python 2 and 3, pytest and mock test libraries.
 * and many other [languages](http://docs.travis-ci.com/user/languages/).
 
 Declare the language
@@ -147,11 +147,11 @@ before_install:
 
 **Python**
 
-nosetests is pre-installed by Travis CI, but we will install the Python coverage package, using the Python `pip` package installer, so we can generate a code coverage report, a report on the lines of code executed by our tests. We will then change into our `python` directory:
+pytest's `py.test` test runner is pre-installed by Travis CI, but we will install the Python `pytest-cov` package, using the Python `pip` package installer, so we can generate a code coverage report, a report on the lines of code executed by our tests. We will then change into our `python` directory:
 
 ```
 before_install:
-  - pip install coverage
+  - pip install pytest-cov
   - cd python
 ```
 
@@ -228,10 +228,10 @@ Python needs a `script` entry to specify how to run any tests:
 
 ```
 script: 
-  - nosetests -v --with-coverage
+  - py.test -v --cov=maths
 ```
 
-We use nosetests `-v` and `--with-coverage` flags to print out information about the tests being run and a code coverage report.
+We use `py.test`'s `-v` and `--cove` flags to print out information about the tests being run and a code coverage report for the `maths` module.
 
 Example `.travis.yml` files
 ---------------------------
@@ -381,23 +381,31 @@ Done. Your build exited with 0.
 Python:
 
 ```
-$ nosetests -v --with-coverage
-Test fibonacci(0). ... ok
-Test fibonacci(1). ... ok
-Test fibonacci(2). ... ok
-Test fibonacci(3). ... ok
-Test fibonacci(30). ... ok
-Name            Stmts   Miss  Cover   Missing
----------------------------------------------
-python.py           0      0   100%   
-python/src.py       0      0   100%   
-fibonacci.py       20     11    45%   36-37, 40-48
----------------------------------------------
-TOTAL              20     11    45%   
-----------------------------------------------------------------------
-Ran 5 tests in 2.211s
-OK
-The command "nosetests -v --with-coverage" exited with 0.
+$ py.test -v --cov=maths
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.9 -- py-1.4.26 -- pytest-2.6.4 -- /home/travis/virtualenv/python2.7.9/bin/python
+plugins: cov
+collected 5 items 
+
+maths/tests/test_fibonacci.py::TestFibonacci::test_fibonacci0 PASSED
+maths/tests/test_fibonacci.py::TestFibonacci::test_fibonacci1 PASSED
+maths/tests/test_fibonacci.py::TestFibonacci::test_fibonacci2 PASSED
+maths/tests/test_fibonacci.py::TestFibonacci::test_fibonacci3 PASSED
+maths/tests/test_fibonacci.py::TestFibonacci::test_fibonacci30 PASSED
+
+---------- coverage: platform linux2, python 2.7.9-final-0 -----------
+Name                            Stmts   Miss  Cover
+---------------------------------------------------
+maths/__init__.py                   0      0   100%
+maths/fibonacci.py                 20     11    45%
+maths/tests/__init__.py             0      0   100%
+maths/tests/test_fibonacci.py      19      1    95%
+---------------------------------------------------
+TOTAL                              39     12    69%
+
+=========================== 5 passed in 0.94 seconds ===========================
+The command "py.test -v --cov=msc" exited with 0.
+
 Done. Your build exited with 0.
 ```
 

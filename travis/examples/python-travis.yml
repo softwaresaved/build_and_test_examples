@@ -5,8 +5,8 @@ python:
   - "3.4"
 
 before_install:
-  - pip install coverage
+  - pip install pytest-cov
   - cd python
 
 script: 
-  - nosetests -v --with-coverage
+  - py.test -v --cov=maths
