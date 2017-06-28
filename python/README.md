@@ -39,7 +39,7 @@ fibonacci(30) = 832040
 Run tests and view XML xUnit-style test report:
 
 ```
-$ py.test --junit-xml report.xml
+$ py.test --junit-xml=report.xml
 ============================= test session starts ==============================
 platform linux2 -- Python 2.7.5 -- py-1.4.27 -- pytest-2.7.0
 rootdir: /home/mjj/prog-skills/build_and_test_examples/python, inifile: 
