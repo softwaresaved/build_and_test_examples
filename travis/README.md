@@ -19,7 +19,7 @@ Here, we will set up a first Travis CI job, based around a simple "hello world" 
 Use Travis CI run build-and-test jobs for various languages
 -----------------------------------------------------------
 
-Travis CI can build and run code written in many languages, including C, C++, Fortran, Java, PHP and Python, either directly or via automated build tools like Make or ANT. It can also run unit tests, for example written in CUnit, CppUnit, googletest, JUnit, PHPUnit or nosetests, and report on the success or failure of tests. For example, Travis CI provides out-of-the-box support for:
+Travis CI can build and run code written in many languages, including C, C++, Fortran, Java, PHP and Python, either directly or via automated build tools like Make or ANT. It can also run unit tests, for example written for CUnit, CppUnit, googletest, JUnit, PHPUnit or pytest, and report on the success or failure of tests. For example, Travis CI provides out-of-the-box support for:
 
 * [Create a Travis CI job for popular programming languages](./Languages.md) including C, C++, Java, PHP and Python.
 
