@@ -15,7 +15,7 @@ Install and deploy Jenkins
 Use Jenkins to run build-and-test jobs for various languages
 ------------------------------------------------------------
 
-Jenkins can build and run code written in many languages, including C, C++, Fortran, Java, PHP and Python code, either directly or via automated build tools like Make or ANT. It can also run unit tests, for example written in CUnit, CppUnit, googletest, FRUIT, JUnit, PHPUnit or nosetests, and report on the success or failure of tests.
+Jenkins can build and run code written in many languages, including C, C++, Fortran, Java, PHP and Python code, either directly or via automated build tools like Make or ANT. It can also run unit tests, for example written for CUnit, CppUnit, googletest, FRUIT, JUnit, PHPUnit or pytest, and report on the success or failure of tests.
 
 * [Create a Jenkins job for popular programming languages](./Languages.md) including C, C++, Fortran, Java, PHP and Python.
 

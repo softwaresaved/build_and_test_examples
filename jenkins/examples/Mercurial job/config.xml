@@ -26,13 +26,12 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>nosetests --with-xunit
-</command>
+      <command>py.test --junit-xml=report.xml</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
     <hudson.tasks.junit.JUnitResultArchiver plugin="junit@1.2-beta-4">
-      <testResults>nosetests.xml</testResults>
+      <testResults>report.xml</testResults>
       <keepLongStdio>false</keepLongStdio>
       <testDataPublishers/>
       <healthScaleFactor>1.0</healthScaleFactor>

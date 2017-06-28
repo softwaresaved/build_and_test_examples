@@ -15,7 +15,7 @@ Run:
 ```
 $ cp -r build_and_test_examples/python python-git
 $ cd python-git
-$ rm -f nosetests.xml *.pyc */*.pyc .gitignore 
+$ rm -rf report.xml maths/*.pyc maths/tests/*.pyc maths/tests/__pycache__ .gitignore 
 $ git init
 $ git config --global user.name "Your name"
 $ git config --global user.email your@email.address
@@ -26,7 +26,7 @@ $ git commit -m "Initial import" .
 Remove the current working files and set this repository to be a "bare" repository i.e. one with no current working copy:
 
 ```
-$ rm -rf __init__.py src/ README.md  test/ xxx.md 
+$ rm -rf README.md maths
 $ git config --bool core.bare true
 ```
 
@@ -44,7 +44,7 @@ Run:
 ```
 $ cp -r build_and_test_examples/python python-mercurial
 $ cd python-mercurial
-$ rm -f nosetests.xml *.pyc */*.pyc .gitignore 
+$ rm -rf report.xml maths/*.pyc maths/tests/*.pyc maths/tests/__pycache__ .gitignore 
 $ hg init
 $ hg add .
 $ hg commit -m "Initial import" .
@@ -58,7 +58,7 @@ Run:
 $ svnadmin create $HOME/SVNROOT
 $ cp -r build_and_test_examples/python python
 $ cd python/
-$ rm -f nosetests.xml *.pyc */*.pyc .gitignore 
+$ rm -rf report.xml maths/*.pyc maths/tests/*.pyc maths/tests/__pycache__ .gitignore 
 $ svn import file://$HOME/SVNROOT/python -m "Initial import"
 ```
 
@@ -70,7 +70,7 @@ Run:
 $ cvs -d $HOME/CVSROOT init
 $ cp -r build_and_test_examples/python python
 $ cd python/
-$ rm -f nosetests.xml *.pyc */*.pyc .gitignore 
+$ rm -rf report.xml maths/*.pyc maths/tests/*.pyc maths/tests/__pycache__ .gitignore 
 $ cvs -d $HOME/CVSROOT import -m "Initial import" python vendor-tag release-tag
 ```
 
@@ -122,15 +122,15 @@ Check out the repository and runs tests
   - Modules Remote Name: `python`
 * Scroll down the page to under the Build heading.
 * Click Add build step and select Execute shell.
-* Enter the commands that run the tests using nosetests:
+* Enter the commands that run the tests using `py.test`:
 
 ```
-nosetests --with-xunit
+py.test --junit-xml=report.xml
 ```
 
 * Under the Post-build Actions heading, click Add post-build action.
 * Select Publish JUnit test result report.
-* In the Test report XMLs field enter the location of the test report XML file, `nosetests.xml`.
+* In the Test report XMLs field enter the location of the test report XML file, `report.xml`.
 * Click Save.
 * Click Build Now.
 * When the job completes, click on the job's link in the Build History table.
