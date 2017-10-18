@@ -10,7 +10,7 @@ If you do not already have an account, then visit [GitHub](https://github.com) a
 
 If you already have an account, then visit [GitHub](https://github.com) and sign in.
 
-In the following text, replace `USERNAME` with your GitHub user name.
+In the following text, replace `bmf57` with your GitHub user name.
 
 Fork this repository on GitHub
 ------------------------------
