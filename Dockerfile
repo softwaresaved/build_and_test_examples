@@ -5,3 +5,6 @@ ADD . /app
 
 RUN pip install pylint
 RUN pip install pytest
+
+
+CMD ["pylint", "hello.py"]
