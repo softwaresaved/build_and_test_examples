@@ -9,4 +9,4 @@ install:
 
 script:
   - pylint hello.py
-  - pytest tests
+  - pytest tests/tests.py
