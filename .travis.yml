@@ -7,5 +7,5 @@ before_install:
   - docker build -t hello -f Dockerfile .
 
 script:
-  - pylint hello.py
-  - pytest tests/tests.py
+  - docker exec -it hello pylint hello.py
+  - docker exec -it hello pytest tests/tests.py
