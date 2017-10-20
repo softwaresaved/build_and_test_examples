@@ -3,10 +3,8 @@ language: python
 python:
   - "2.7"
 
-before_install:
-  - docker build -t hello -f Dockerfile .
-
 script:
+  - docker build -t hello -f Dockerfile .
   - docker run hello
   - docker exec -it hello pylint hello.py
   - docker exec -it hello pytest tests/tests.py
