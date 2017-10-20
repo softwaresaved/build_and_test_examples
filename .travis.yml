@@ -3,9 +3,8 @@ language: python
 python:
   - "2.7"
 
-install:
-  - pip install pylint
-  - pip install pytest
+before_install:
+  - docker build -t hello -f Dockerfile .
 
 script:
   - pylint hello.py
