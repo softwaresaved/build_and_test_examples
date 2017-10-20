@@ -5,6 +5,8 @@ python:
 
 install:
   - pip install pylint
+  - pip install pytest
 
 script:
   - pylint hello.py
+  - pytest tests
