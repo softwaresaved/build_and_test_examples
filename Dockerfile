@@ -7,4 +7,4 @@ RUN pip install pylint
 RUN pip install pytest
 
 
-CMD ["pytest", "tests/tests.py"]
+CMD ["pytest"]
