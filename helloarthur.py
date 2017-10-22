@@ -1,1 +1,1 @@
-HELLO FROM ARTHUR
+print("Arthur: HELLO FROM ARTHUR")
