@@ -1,0 +1,17 @@
+language: python
+
+python:
+  - "2.7"
+
+branches:
+  only:
+      - develop
+
+services:
+  - docker
+
+before_install:
+  - docker build -t hello .
+
+script:
+  - docker run hello:latest
