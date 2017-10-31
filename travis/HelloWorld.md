@@ -201,11 +201,3 @@ Make changes to your `hello.py` Python script then commit your changes and push 
 
 Create a Python file with some functions, and an associated test file with some unit tests. Update the `script` section of `.travis.yml` to run the tests using py.test.
 
-Explore other languages
------------------------
-
-Fork and clone https://github.com/softwaresaved/build_and_test_examples.
-
-Enable your fork on Travis CI.
-
-Follow https://github.com/softwaresaved/build_and_test_examples/blob/master/travis/Languages.md to create a Travis CI job for a program in another language.
