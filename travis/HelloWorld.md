@@ -15,7 +15,7 @@ In the following text, replace `USERNAME` with your GitHub user name.
 Create a new repository on GitHub
 ---------------------------------
 
-Visit https://github.com/USER. 
+Visit https://github.com/USERNAME. 
 
 Click **Repositories** tab.
 
