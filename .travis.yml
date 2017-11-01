@@ -1,0 +1,10 @@
+language: python
+
+python:
+  - "2.7"
+
+# Use this to prepare the system to install prerequisites or dependencies
+before_install: "sudo apt-get update"
+
+script:
+  - python hello.py
