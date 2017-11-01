@@ -51,25 +51,27 @@ $ export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH
 
 **googletest test framework**:
 
-To download, build and install see [googletest](https://code.google.com/p/googletest/). The following provides a quick summary of the key steps to build and install googletest in your home directory:
+To download, build and install see [googletest](https://github.com/google/googletest/). The following provides a quick summary of the key steps to build and install googletest in your home directory:
 
 ```
-$ wget https://googletest.googlecode.com/files/gtest-1.7.0.zip
-$ unzip gtest-1.7.0.zip 
-$ cd gtest-1.7.0/
-$ ./configure --prefix=$HOME --with-pthreads=no
+$ wget https://github.com/google/googletest/archive/release-1.7.0.zip
+$ unzip release-1.7.0.zip 
+$ cd googletest-release-1.7.0/
+$ mkdir build
+$ cd build
+$ cmake .. -Dgtest_disable_pthreads=ON
 $ make
-$ cp -r include/gtest $HOME/include
-$ cp lib/.libs/* $HOME/lib/
+$ mkdir $HOME/include
+$ cp -r ../include/gtest/ $HOME/include/
+$ mkdir $HOME/lib
+$ cp libgtest*a $HOME/lib/
 $ ls $HOME/include/gtest
 gtest-death-test.h  gtest-param-test.h.pump  gtest-spi.h
 gtest.h             gtest_pred_impl.h        gtest-test-part.h
 gtest-message.h     gtest-printers.h         gtest-typed-test.h
 gtest-param-test.h  gtest_prod.h             internal
 $ ls $HOME/lib
-libgtest.a    libgtest_main.a    libgtest_main.so        libgtest.so
-libgtest.la   libgtest_main.la   libgtest_main.so.0      libgtest.so.0
-libgtest.lai  libgtest_main.lai  libgtest_main.so.0.0.0  libgtest.so.0.0.0
+libgtest.a    libgtest_main.a
 $ export CPLUS_INCLUDE_PATH=$HOME/include:$CPLUS_INCLUDE_PATH
 $ export LIBRARY_PATH=$HOME/lib:$LIBRARY_PATH
 $ export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH
