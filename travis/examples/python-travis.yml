@@ -9,4 +9,5 @@ before_install:
   - cd python
 
 script: 
-  - py.test -v --cov=maths
+  #- py.test -v --cov=maths
+  - python helloworld.py

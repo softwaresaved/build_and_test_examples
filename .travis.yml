@@ -1,0 +1,9 @@
+anguage: python
+
+python:
+  - "2.7"
+
+script: 
+  - python helloworld.py
+  - python hellobrian.py
+  - python helloCharles.py
