@@ -49,7 +49,7 @@ If you have any comments, corrections or additions then please either raise an [
 Copyright and licence
 ---------------------
 
-Copyright (c) 2014-2017 The University of Edinburgh.
+Copyright (c) 2014-2018 The University of Edinburgh.
 
 Code is licensed under the [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0.html) licence. The licence text is also in [LICENSE-2.0.txt](./LICENSE-2.0.txt).
 
