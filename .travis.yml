@@ -7,3 +7,4 @@ python:
 script:
 
 - python AyishaHelloWorld.py
+ - python JonHelloWorld.py
