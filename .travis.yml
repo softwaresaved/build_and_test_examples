@@ -1,0 +1,11 @@
+language: python
+
+python:
+
+- "2.7"
+
+- "3.4"
+
+Script:
+
+ python AyishaHelloWorld.py
