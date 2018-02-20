@@ -2,4 +2,6 @@ language: python
 python:
   - "3.4"
 script:
-  - python sifahelloworld.py
+- python sifahelloworld.py
+- python AyishaHelloWorld.py 
+- python JonHelloWorld.py
