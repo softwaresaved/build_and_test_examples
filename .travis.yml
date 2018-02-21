@@ -8,3 +8,4 @@ script:
 
 - python AyishaHelloWorld.py
  - python JonHelloWorld.py
+ - python HelloZach.py
