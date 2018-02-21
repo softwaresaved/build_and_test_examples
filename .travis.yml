@@ -7,3 +7,7 @@ python:
 script:
 
  - python AryHelloWorld.py
+ - python AyishaHelloWorld.py
+ - python JonHelloWorld.py
+ - python HelloZach.py
+
