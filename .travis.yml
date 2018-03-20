@@ -1,0 +1,9 @@
+language: python
+python:
+  - "3.4"
+script:
+ - python sifahelloworld.py
+ - python AryHelloWorld.py
+ - python AyishaHelloWorld.py
+ - python JonHelloWorld.py
+ - python HelloZach.py
