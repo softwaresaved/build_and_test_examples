@@ -6,6 +6,11 @@ Introduction
 
 This repository provides examples of a Fibonacci series function implemented in a range of languages. Build files for popular build tools for each language are also provided as are examples of unit tests written in popular unit test frameworks for each language. These examples are provided to help you get started with using automated build tools and unit test frameworks. They are also used to provide an introduction to the popular continuous integration servers, Jenkins and Travis CI.
 
+Using this repository for teaching and learning
+-----------------------------------------------
+
+We are happy if course organisers and students wish to use this repository as a resource for their teaching and learning. However, we request that you **do not to submit Pull Requests to this repository** as when learning about Travis CI. If you wish to use it that way then please **Fork the repository into your own GitHub project or account**.
+
 Languages, build tools and unit test frameworks
 -----------------------------------------------
 
