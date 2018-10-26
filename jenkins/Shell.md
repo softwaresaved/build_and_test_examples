@@ -34,7 +34,7 @@ How Jenkins behaves when there are errors
 
 * Click Shell job.
 * Click Configure.
-* Edit the configuration and remove `30` from the build step so it is just:
+* Edit the configuration and remove `20` from the build step so it is just:
 
 ```
 ./fibonacci.sh
