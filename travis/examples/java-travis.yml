@@ -6,3 +6,5 @@ jdk:
 
 before_install:
   - cd java
+  
+dist: trusty
