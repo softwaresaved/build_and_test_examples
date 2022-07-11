@@ -44,6 +44,8 @@ Continuous integration can help you to build and test your software regularly. T
 
 * [Getting started with Travis CI](./travis/README.md)
 
+*Warning: please be aware that Travis CI, which is mentioned in this article, has a [security issue](https://blog.aquasec.com/travis-ci-security) with its Free Tier service. By design, “secret” data such as access credentials are exposed within historical clear-text logs which are accessible by anyone via the Travis CI API. Please see this [article](https://blog.aquasec.com/travis-ci-security) for more information.*
+
 For an overview of hosted continuous integration, see The Software Sustainability Institute's [Hosted continuous integration](http://www.software.ac.uk/resources/guides/hosted-continuous-integration).
 
 How to contribute
